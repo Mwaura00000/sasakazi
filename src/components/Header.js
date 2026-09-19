@@ -15,10 +15,11 @@ export default function Header() {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "About Us", href: "/about" },
-    { name: "Services", href: "/services" },
+    { name: "Who We Are", href: "/who-we-are" },
+    { name: "How It Works", href: "/how-it-works" },
+    { name: "About", href: "/about" },
     { name: "Opportunities", href: "/opportunities" },
-    { name: "Talents", href: "/talents" },
+    { name: "Knowledge Hub", href: "/knowledge-hub" },
   ];
 
   const isActive = (href) => {
@@ -30,57 +31,60 @@ export default function Header() {
 
   return (
     <>
-      <header className="navbar-header">
-        <div className="container navbar-container">
-          {/* Logo & Brand Group */}
-          <Link href="/" className="navbar-logo-link" onClick={() => setMobileMenuOpen(false)}>
-            <Image 
-              src="/logo.png" 
-              alt="Sasakazi Logo" 
-              width={140} 
-              height={44} 
-              priority
-              className="navbar-logo-img"
-            />
-          </Link>
+      {/* Sticky Navigation Wrapper (Twigs & Brooms Style) */}
+      <div className="sticky-nav-wrapper">
+        {/* Top Contact & Quick Info Bar */}
+        <div className="navbar-top-bar">
+          <div className="container top-bar-container">
+            <div className="top-bar-left">
+              <a href="tel:+254723567263" className="top-bar-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                <span>+254 723 567 263</span>
+              </a>
+              <span className="top-bar-sep">•</span>
+              <a href="mailto:info@sasakazi.com" className="top-bar-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                <span>info@sasakazi.com</span>
+              </a>
+              <span className="top-bar-sep">•</span>
+              <span className="top-bar-item">
+                <span>Kenya</span>
+              </span>
+            </div>
+            <div className="top-bar-right">
+              <a href="https://wa.me/254723567263" target="_blank" rel="noopener noreferrer" className="top-social-link">
+                WhatsApp Inquiry
+              </a>
+              <span className="top-bar-sep">|</span>
+              <span className="top-brand-motto">SasaKazi — Your Gateway to Africa’s Top Tech Talent</span>
+            </div>
+          </div>
+        </div>
 
-          {/* Desktop Navigation */}
-          <nav className="navbar-desktop-nav">
-            <ul className="navbar-nav-list">
-              {navLinks.map((link) => {
-                if (link.name === "Services") {
-                  return (
-                    <li key={link.href} className="navbar-nav-item has-dropdown">
-                      <Link 
-                        href={link.href}
-                        className={`navbar-nav-link ${isActive(link.href) ? "active" : ""}`}
-                      >
-                        {link.name} <span className="dropdown-caret">&#9662;</span>
-                      </Link>
-                      <ul className="dropdown-menu glass">
-                        <li>
-                          <Link href="/services?tab=businesses" className="dropdown-link">
-                            <span className="dropdown-title">For Businesses</span>
-                            <span className="dropdown-desc">Outsource software development & design projects.</span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/services?tab=talent" className="dropdown-link">
-                            <span className="dropdown-title">For Tech Talents</span>
-                            <span className="dropdown-desc">Join apprenticeships and build practical projects.</span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/services?tab=partners" className="dropdown-link">
-                            <span className="dropdown-title">For Program Partners</span>
-                            <span className="dropdown-desc">Assess candidates, verify pipelines, and sponsor.</span>
-                          </Link>
-                        </li>
-                      </ul>
-                    </li>
-                  );
-                }
-                return (
+        {/* Main Header */}
+        <header className="navbar-header">
+          <div className="container navbar-container">
+            {/* Logo & Brand Group */}
+            <Link href="/" className="navbar-logo-link" onClick={() => setMobileMenuOpen(false)}>
+              <Image 
+                src="/logo.png" 
+                alt="Sasakazi Logo" 
+                width={140} 
+                height={44} 
+                priority
+                className="navbar-logo-img"
+              />
+            </Link>
+
+            {/* Desktop Navigation */}
+            <nav className="navbar-desktop-nav">
+              <ul className="navbar-nav-list">
+                {navLinks.map((link) => (
                   <li key={link.href} className="navbar-nav-item">
                     <Link 
                       href={link.href}
@@ -89,37 +93,37 @@ export default function Header() {
                       {link.name}
                     </Link>
                   </li>
-                );
-              })}
-            </ul>
-            <div className="navbar-actions-group">
-              <Link href="/login" className="navbar-login-link">
-                Login
-              </Link>
-              <button onClick={toggleModal} className="btn btn-primary btn-sm cta-btn">
-                Join Sasakazi
-              </button>
-            </div>
-          </nav>
+                ))}
+              </ul>
+              <div className="navbar-actions-group">
+                <Link href="/login" className="navbar-login-link">
+                  Login
+                </Link>
+                <button onClick={toggleModal} className="btn btn-primary btn-sm cta-btn">
+                  Get Started
+                </button>
+              </div>
+            </nav>
 
-          {/* Mobile Toggle Button */}
-          <button 
-            className="navbar-mobile-toggle"
-            onClick={toggleMobileMenu}
-            aria-label="Toggle navigation menu"
-          >
-            {mobileMenuOpen ? (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M18 6L6 18M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
-          </button>
-        </div>
-      </header>
+            {/* Mobile Toggle Button */}
+            <button 
+              className="navbar-mobile-toggle"
+              onClick={toggleMobileMenu}
+              aria-label="Toggle navigation menu"
+            >
+              {mobileMenuOpen ? (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </button>
+          </div>
+        </header>
+      </div>
 
       {/* Mobile Drawer Slide-out Menu (White Background Theme) */}
       <div className={`navbar-mobile-drawer ${mobileMenuOpen ? "open" : ""}`}>
@@ -160,7 +164,7 @@ export default function Header() {
               }}
               className="btn btn-primary drawer-cta-btn"
             >
-              Join Sasakazi
+              Get Started
             </button>
           </div>
         </nav>
@@ -221,21 +225,97 @@ export default function Header() {
         </div>
       )}
 
-      {/* Header and Drawer styles (matching Andreas Finishes navbar system but with white/slate overlay theme) */}
+      {/* Header and Drawer styles (matching Twigs & Brooms editorial navbar system) */}
       <style jsx>{`
-        .navbar-header {
-          position: fixed;
+        .sticky-nav-wrapper {
+          position: sticky;
           top: 0;
-          left: 0;
-          right: 0;
+          z-index: 10000;
           width: 100%;
-          height: 70px;
-          background-color: rgba(255, 255, 255, 0.92);
+          display: flex;
+          flex-direction: column;
+        }
+
+        /* Top Contact & Quick Info Strip (Twigs & Brooms Navy Bar) */
+        .navbar-top-bar {
+          background-color: #0f3d61;
+          color: rgba(255, 255, 255, 0.9);
+          font-size: 0.78rem;
+          font-family: var(--font-primary);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+          padding: 6px 0;
+          width: 100%;
+        }
+        .top-bar-container {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 1.5rem;
+        }
+        .top-bar-left {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+        }
+        .top-bar-item {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          color: rgba(255, 255, 255, 0.88);
+          text-decoration: none;
+          font-weight: 500;
+          transition: color 0.2s ease;
+        }
+        .top-bar-item:hover {
+          color: #fbb63f;
+        }
+        .top-bar-sep {
+          color: rgba(255, 255, 255, 0.35);
+          font-size: 0.75rem;
+        }
+        .top-bar-right {
+          display: none;
+          align-items: center;
+          gap: 0.75rem;
+        }
+        @media (min-width: 860px) {
+          .top-bar-right {
+            display: flex;
+          }
+        }
+        .top-social-link {
+          color: #fbb63f;
+          font-weight: 700;
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+          transition: opacity 0.2s ease;
+        }
+        .top-social-link:hover {
+          opacity: 0.85;
+          text-decoration: underline;
+        }
+        .top-brand-motto {
+          font-family: var(--font-mono);
+          font-size: 0.72rem;
+          color: rgba(255, 255, 255, 0.65);
+          letter-spacing: 0.3px;
+        }
+
+        /* Main Editorial Header */
+        .navbar-header {
+          position: relative;
+          width: 100%;
+          height: 72px;
+          background-color: rgba(255, 255, 255, 0.96);
           backdrop-filter: blur(12px);
           -webkit-backdrop-filter: blur(12px);
-          border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-          z-index: 10000;
+          border-bottom: 1px solid var(--color-border-stone, #d6d1c4);
+          box-shadow: 0 2px 10px rgba(15, 61, 97, 0.05);
           display: flex;
           align-items: center;
           transition: var(--transition-smooth);
@@ -364,7 +444,7 @@ export default function Header() {
           padding: 0;
           transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1),
                       visibility 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-          z-index: 1100;
+          z-index: 15000;
           transform: translateX(100%);
           visibility: hidden;
           overflow-y: auto;
@@ -475,7 +555,7 @@ export default function Header() {
           height: 100vh;
           background-color: rgba(0, 0, 0, 0.4);
           backdrop-filter: blur(4px);
-          z-index: 1050;
+          z-index: 14000;
           animation: fadeInBackdrop 0.25s ease forwards;
         }
         @keyframes fadeInBackdrop {
@@ -495,7 +575,7 @@ export default function Header() {
           display: flex;
           align-items: center;
           justify-content: center;
-          z-index: 1000;
+          z-index: 20000;
           padding: 16px;
           animation: fadeIn 0.2s ease-out;
         }

@@ -141,17 +141,33 @@ export default function TalentProfilePage({ params }) {
           <div className="profile-header-meta">
             <h1>{talent.name}</h1>
             <p className="headline">{talent.headline}</p>
-            <p className="location-info">📍 {talent.location} · {talent.workStatus}</p>
+            <p className="location-info">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: "inline-block", verticalAlign: "-1px", marginRight: "5px" }}>
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              {talent.location} · {talent.workStatus}
+            </p>
           </div>
 
           <div className="ratings-summary">
-            <span className="star-rating">⭐ <AnimatedCount value={talent.rating} /></span>
+            <span className="star-rating">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#fbb63f" stroke="#fbb63f" strokeWidth="1" style={{ display: "inline-block", verticalAlign: "-1px", marginRight: "4px" }}>
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg>
+              <AnimatedCount value={talent.rating} />
+            </span>
             <span className="reviews-text"><AnimatedCount value={talent.reviewCount} /> client reviews</span>
           </div>
 
           <div className="badges-list">
             {talent.verified && (
-              <span className="badge badge-verified">✓ Verified Talent</span>
+              <span className="badge badge-verified">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ display: "inline-block", verticalAlign: "-1px", marginRight: "4px" }}>
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                Verified Talent
+              </span>
             )}
             <span className={`badge ${talent.availability === "Available" ? "badge-available" : "badge-busy"}`}>
               ● {talent.availability}

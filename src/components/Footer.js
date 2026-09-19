@@ -14,14 +14,14 @@ export default function Footer() {
           <Link href="/" className="footer-logo-link">
             <Image 
               src="/logo.png" 
-              alt="Sasakazi Logo" 
+              alt="SasaKazi Logo" 
               width={140} 
               height={44} 
               className="footer-logo-img"
             />
           </Link>
           <p className="footer-tagline">
-            Sasakazi connects young Kenyan tech talent with skills training, mentorship, assessments, and real business projects under mentor guardrails.
+            SasaKazi connects businesses with vetted African professionals through digital projects, managed BPO services and flexible workforce solutions.
           </p>
           <div className="footer-socials">
             <a href="https://instagram.com/Sasakazi" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
@@ -33,49 +33,54 @@ export default function Footer() {
             <a href="https://twitter.com/Sasakazi" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
               <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
             </a>
-            <a href="https://wa.me/254723567263?text=Hello%20Sasakazi%2C%20I%20am%20interested%20in%20learning%20more%20about%20your%20digital%20talent%2C%20training%2C%20and%20project%20opportunities." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Contact">
+            <a href="https://wa.me/254723567263?text=Hello%20SasaKazi%2C%20I%20am%20interested%20in%20connecting%20with%20your%20digital%20talent%20and%20BPO%20services." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Contact">
               <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" /></svg>
             </a>
           </div>
         </div>
 
-        {/* Links Column 1: Platform */}
+        {/* Links Column 1: Explore */}
         <div className="footer-col links-col">
-          <h3>Platform</h3>
+          <h3>Explore</h3>
           <ul className="footer-links-list">
             <li><Link href="/">Home</Link></li>
-            <li><Link href="/about">About Sasakazi</Link></li>
-            <li><Link href="/services">Our Services</Link></li>
+            <li><Link href="/who-we-are">Who We Are</Link></li>
+            <li><Link href="/how-it-works">How It Works</Link></li>
+            <li><Link href="/about">About SasaKazi</Link></li>
             <li><Link href="/opportunities">Opportunities</Link></li>
-            <li><Link href="/talents">Talents Directory</Link></li>
+            <li><Link href="/knowledge-hub">Knowledge Hub</Link></li>
           </ul>
         </div>
 
-        {/* Links Column 2: Support */}
+        {/* Links Column 2: Get Started */}
         <div className="footer-col links-col">
-          <h3>Support</h3>
+          <h3>Get Started</h3>
           <ul className="footer-links-list">
-            <li><Link href="/faqs">FAQs</Link></li>
+            <li><Link href="/register/business">Hire Tech Talent</Link></li>
+            <li><Link href="/who-we-are#engagement-models">Start a Project</Link></li>
+            <li><Link href="/register">Join as Talent</Link></li>
+            <li><Link href="/opportunities#mentors">Become a Mentor</Link></li>
+            <li><Link href="/opportunities#partners">Partner With Us</Link></li>
+          </ul>
+        </div>
+
+        {/* Links Column 3: Legal and Safety */}
+        <div className="footer-col links-col">
+          <h3>Legal &amp; Safety</h3>
+          <ul className="footer-links-list">
             <li><Link href="/privacy">Privacy Policy</Link></li>
             <li><Link href="/terms">Terms &amp; Conditions</Link></li>
-            <li><Link href="/contact">Contact Support</Link></li>
+            <li><Link href="/cookies">Cookie Policy</Link></li>
+            <li><Link href="/safeguarding">Safeguarding Statement</Link></li>
+            <li><Link href="/code-of-conduct">Code of Conduct</Link></li>
+            <li><Link href="/report-concern">Report a Concern</Link></li>
           </ul>
         </div>
 
-        {/* Links Column 3: Contact */}
+        {/* Links Column 4: Contact Details */}
         <div className="footer-col contact-col">
           <h3>Contact Details</h3>
           <ul className="footer-contact-list">
-            <li>
-              <span className="contact-icon-svg">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-blue)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                </svg>
-              </span>
-              <div>
-                <a href="tel:+254723567263">+254 723 567 263</a>
-              </div>
-            </li>
             <li>
               <span className="contact-icon-svg">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-blue)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -83,7 +88,21 @@ export default function Footer() {
                   <polyline points="22,6 12,13 2,6" />
                 </svg>
               </span>
-              <a href="mailto:info@sasakazi.com">info@sasakazi.com</a>
+              <div>
+                <span className="contact-label">Email</span>
+                <a href="mailto:info@sasakazi.com">info@sasakazi.com</a>
+              </div>
+            </li>
+            <li>
+              <span className="contact-icon-svg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-blue)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+              </span>
+              <div>
+                <span className="contact-label">Telephone</span>
+                <a href="tel:+254723567263">+254 723 567 263</a>
+              </div>
             </li>
             <li>
               <span className="contact-icon-svg">
@@ -92,7 +111,10 @@ export default function Footer() {
                   <circle cx="12" cy="10" r="3" />
                 </svg>
               </span>
-              <span>Nairobi, Kenya</span>
+              <div>
+                <span className="contact-label">Location</span>
+                <span>Kenya</span>
+              </div>
             </li>
           </ul>
         </div>
@@ -100,9 +122,13 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <div className="container footer-bottom-container">
-          <p>&copy; {currentYear} Sasakazi Platform. Built with &hearts; in Kenya. All rights reserved.</p>
+          <p>&copy; {currentYear} SasaKazi. Unlocking the digital future for African businesses with top-tier tech talent.</p>
           <div className="footer-bottom-links">
-            <Link href="/contact">Support Center</Link>
+            <Link href="/safeguarding">Safeguarding</Link>
+            <span className="sep">•</span>
+            <Link href="/privacy">Privacy</Link>
+            <span className="sep">•</span>
+            <Link href="/terms">Terms</Link>
           </div>
         </div>
       </div>
@@ -133,13 +159,13 @@ export default function Footer() {
         
         @media (min-width: 992px) {
           .footer-grid-container {
-            grid-template-columns: 2.2fr 1fr 1fr 1.5fr;
+            grid-template-columns: 1.8fr 1fr 1fr 1fr 1.3fr;
           }
         }
         
         .footer-col h3 {
           color: var(--color-blue-dark);
-          font-size: 1rem;
+          font-size: 0.95rem;
           font-weight: 800;
           margin-bottom: var(--spacing-lg);
           position: relative;
@@ -215,11 +241,11 @@ export default function Footer() {
           list-style: none;
           display: flex;
           flex-direction: column;
-          gap: 0.8rem;
+          gap: 0.75rem;
         }
         
         .footer-links-list a {
-          font-size: 0.92rem;
+          font-size: 0.9rem;
           color: var(--color-text-muted);
           transition: all 0.3s ease;
           display: inline-flex;
@@ -239,7 +265,7 @@ export default function Footer() {
         
         .footer-links-list a:hover {
           color: var(--color-blue);
-          padding-left: 10px;
+          padding-left: 8px;
         }
         
         .footer-links-list a:hover::before {
@@ -252,16 +278,26 @@ export default function Footer() {
           list-style: none;
           display: flex;
           flex-direction: column;
-          gap: 1.25rem;
+          gap: 1.1rem;
         }
         
         .footer-contact-list li {
           display: flex;
-          align-items: center;
+          align-items: flex-start;
           gap: 12px;
-          font-size: 0.92rem;
+          font-size: 0.9rem;
           line-height: 1.4;
           color: var(--color-text-muted);
+        }
+
+        .contact-label {
+          display: block;
+          font-size: 0.75rem;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          color: var(--color-text-light);
+          font-weight: 700;
+          margin-bottom: 2px;
         }
         
         .contact-icon-svg {
@@ -274,6 +310,7 @@ export default function Footer() {
           background-color: var(--color-blue-light);
           color: var(--color-blue);
           flex-shrink: 0;
+          margin-top: 2px;
           transition: all 0.3s ease;
         }
         
@@ -297,7 +334,7 @@ export default function Footer() {
         /* Bottom Bar */
         .footer-bottom {
           border-top: 1px solid var(--color-border-gray);
-          padding: 1.75rem 0;
+          padding: 1.5rem 0;
           margin-top: var(--spacing-xl);
           background-color: rgba(26, 91, 140, 0.02);
           font-size: 0.85rem;
@@ -320,6 +357,12 @@ export default function Footer() {
           }
         }
         
+        .footer-bottom-links {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+        }
+
         .footer-bottom-links a {
           color: var(--color-text-muted);
           text-decoration: none;
@@ -328,6 +371,10 @@ export default function Footer() {
         
         .footer-bottom-links a:hover {
           color: var(--color-blue);
+        }
+
+        .sep {
+          color: var(--color-border-gray);
         }
       `}</style>
     </footer>

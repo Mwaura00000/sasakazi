@@ -276,7 +276,9 @@ export default function TalentsPage() {
                   {talent.name.charAt(0)}
                 </div>
                 <div className="rating-box">
-                  <span className="star" style={{ color: "var(--color-yellow-dark)" }}>⭐</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="#fbb63f" stroke="#fbb63f" strokeWidth="1">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                  </svg>
                   <span className="rating-num"><AnimatedCount value={talent.rating} /></span>
                   <span className="review-count">(<AnimatedCount value={talent.reviewCount} />)</span>
                 </div>
@@ -287,20 +289,33 @@ export default function TalentsPage() {
                 <h3>{talent.name}</h3>
                 <p className="headline">{talent.headline}</p>
                 <p className="location-work">
-                  📍 {talent.location} · {talent.workStatus} · {talent.experience} Level
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: "inline-block", verticalAlign: "-1px", marginRight: "5px" }}>
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  {talent.location} · {talent.workStatus} · {talent.experience} Level
                 </p>
               </div>
 
               {/* Badges: Max 3 (Verified + Available + Reputation) */}
               <div className="badge-row">
                 {talent.verified && (
-                  <span className="badge badge-verified">✓ Verified</span>
+                  <span className="badge badge-verified">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ display: "inline-block", verticalAlign: "-1px", marginRight: "3px" }}>
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    Verified
+                  </span>
                 )}
                 <span className={`badge ${talent.availability === "Available" ? "badge-available" : "badge-busy"}`}>
                   ● {talent.availability}
                 </span>
                 <span className="badge badge-reputation">
-                  🏆 <AnimatedCount value={talent.workforceReputation} />% Trust
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ display: "inline-block", verticalAlign: "-1px", marginRight: "4px" }}>
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <path d="m9 12 2 2 4-4" />
+                  </svg>
+                  <AnimatedCount value={talent.workforceReputation} />% Trust
                 </span>
               </div>
 
