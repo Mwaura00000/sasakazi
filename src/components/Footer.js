@@ -44,11 +44,13 @@ export default function Footer() {
           <h3>Explore</h3>
           <ul className="footer-links-list">
             <li><Link href="/">Home</Link></li>
-            <li><Link href="/who-we-are">Who We Are</Link></li>
-            <li><Link href="/how-it-works">How It Works</Link></li>
-            <li><Link href="/about">About SasaKazi</Link></li>
-            <li><Link href="/opportunities">Opportunities</Link></li>
-            <li><Link href="/knowledge-hub">Knowledge Hub</Link></li>
+            <li><Link href="/#who-we-are">Who We Are</Link></li>
+            <li><Link href="/#services">Capabilities &amp; Services</Link></li>
+            <li><Link href="/#opportunities">Featured Opportunities</Link></li>
+            <li><Link href="/#how-it-works">How It Works</Link></li>
+            <li><Link href="/#partners">Our Partners</Link></li>
+            <li><Link href="/#faqs">FAQs</Link></li>
+            <li><a href="https://eldohub.co.ke" target="_blank" rel="noopener noreferrer">Knowledge Hub ↗</a></li>
           </ul>
         </div>
 
@@ -57,10 +59,10 @@ export default function Footer() {
           <h3>Get Started</h3>
           <ul className="footer-links-list">
             <li><Link href="/register/business">Hire Tech Talent</Link></li>
-            <li><Link href="/who-we-are#engagement-models">Start a Project</Link></li>
+            <li><Link href="/#services">Start a Project</Link></li>
             <li><Link href="/register">Join as Talent</Link></li>
-            <li><Link href="/opportunities#mentors">Become a Mentor</Link></li>
-            <li><Link href="/opportunities#partners">Partner With Us</Link></li>
+            <li><Link href="/#opportunities">Explore Live Openings</Link></li>
+            <li><Link href="/#contact">Partner With Us</Link></li>
           </ul>
         </div>
 

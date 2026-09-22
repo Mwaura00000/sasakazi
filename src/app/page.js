@@ -52,59 +52,43 @@ const AnimatedCounter = ({ value, suffix = "", duration = 1600 }) => {
   );
 };
 
-// Strategic Partner Interface
+// Strategic Ecosystem Partners
 const PARTNERS_DATA = [
   {
-    name: "EldoHub",
-    shortName: "EldoHub",
-    role: "Parent Innovation & Incubation Hub",
-    description: "SasaKazi grew from EldoHub’s Digital Apprenticeship Programme, scaling the bridge between skills training and real market demand across Africa.",
-    focusArea: "Workforce Infrastructure & Youth Apprenticeships",
+    name: "African Development Bank",
+    shortName: "AfDB",
+    role: "Pan-African Multilateral Development Partner",
+    description: "Collaborating on institutional youth employment, digital skills infrastructure, and Pan-African technological capacity building.",
+    focusArea: "Workforce Systems & Inclusive Digital Growth",
     accent: "#0f3d61"
   },
   {
     name: "UK–Kenya Tech Hub",
     shortName: "UK-Kenya Hub",
-    role: "Founding Programme Pilot Partner",
-    description: "Supported the 2020 COVID-19 digital pilot that successfully matched junior Kenyan developers with SMEs requiring urgent digital transformation.",
-    focusArea: "Digital Inclusion & International Linkages",
+    role: "Founding Programme & Digital Inclusion Partner",
+    description: "Supported the flagship digital pilot matching high-potential Kenyan software developers with SMEs requiring urgent digital transformation.",
+    focusArea: "Digital Inclusion & International Market Linkages",
     accent: "#1a5b8c"
   },
   {
-    name: "Africa Technology and Innovation Partnerships (ATIP)",
-    shortName: "ATIP",
-    role: "Pan-African Innovation Partner",
-    description: "Collaborated on scaling digital-work delivery models and evidence-based tech absorption pathways for young African innovators.",
-    focusArea: "Pan-African Tech Ecosystem Linkages",
+    name: "British High Commission",
+    shortName: "British High Comm.",
+    role: "International Diplomatic & Development Partner",
+    description: "Supporting bilateral trade linkages, youth empowerment pipelines, and sustainable technology employment ecosystems in East Africa.",
+    focusArea: "International Linkages & Youth Empowerment",
     accent: "#C05621"
   },
   {
-    name: "Workpay Africa",
-    shortName: "Workpay",
-    role: "Fintech Employer Partner",
-    description: "Partnered to provide hands-on software engineering apprenticeships and international employment for SasaKazi alumni.",
-    focusArea: "Fintech Engineering & Workforce Systems",
+    name: "EldoHub",
+    shortName: "EldoHub",
+    role: "Parent Innovation & Incubation Ecosystem",
+    description: "SasaKazi evolved from EldoHub’s Digital Apprenticeship Programme, scaling the bridge between skills training and real market demand across Africa.",
+    focusArea: "Innovation Incubation & Talent Pipelines",
     accent: "#059669"
-  },
-  {
-    name: "ControlTech",
-    shortName: "ControlTech",
-    role: "Enterprise Data & AI Partner",
-    description: "Absorbed data-science apprentices into permanent corporate roles, validating our practical competency-based model.",
-    focusArea: "Data Engineering & Systems Support",
-    accent: "#4f46e5"
-  },
-  {
-    name: "Radava Mercantile",
-    shortName: "Radava",
-    role: "Commercial Enterprise Partner",
-    description: "Engaged digital marketing and business support pods, fostering talent transition from project delivery into sustainable entrepreneurship.",
-    focusArea: "SME Digitisation & Commercial Growth",
-    accent: "#d97706"
   }
 ];
 
-// Closed-Loop Delivery Stages (matching Twigs and Brooms 4-Stage Strip)
+// Closed-Loop Delivery Stages
 const DELIVERY_STAGES = [
   {
     phase: "01",
@@ -152,6 +136,58 @@ const DELIVERY_STAGES = [
   }
 ];
 
+// Featured Live Opportunities
+const FEATURED_OPPORTUNITIES = [
+  {
+    id: 1,
+    title: "Full-Stack React & Node Developer",
+    category: "Software Engineering",
+    type: "Client Project",
+    location: "Remote (Africa)",
+    duration: "3 Months (Extendable)",
+    compensation: "Project-Based Escrow",
+    skills: ["React", "Node.js", "PostgreSQL", "REST APIs"],
+    description: "Build a scalable fintech onboarding portal for an East African SME with automated identity verification and mobile money integration.",
+    urgent: true
+  },
+  {
+    id: 2,
+    title: "Data Annotation & AI Validation Specialist",
+    category: "Data & AI",
+    type: "BPO / Managed Service",
+    location: "Remote / Hybrid (Kenya)",
+    duration: "6 Months Dedicated",
+    compensation: "Monthly Retainer",
+    skills: ["Data Cleaning", "Python", "Annotation Tooling", "Quality Assurance"],
+    description: "Perform high-accuracy text and image annotation workflows supporting machine learning model training datasets.",
+    urgent: false
+  },
+  {
+    id: 3,
+    title: "UI/UX Product Designer",
+    category: "UI/UX Design",
+    type: "Contract Assignment",
+    location: "Remote (Pan-Africa)",
+    duration: "2 Months",
+    compensation: "Milestone-Based",
+    skills: ["Figma", "Design Systems", "User Research", "Prototyping"],
+    description: "Redesign core mobile and desktop experiences for an agricultural supply chain platform with accessible UX patterns.",
+    urgent: true
+  },
+  {
+    id: 4,
+    title: "Digital Marketing & Social Growth Lead",
+    category: "Digital Business",
+    type: "Apprenticeship / Growth",
+    location: "Remote / Hybrid",
+    duration: "3 Months Apprenticeship",
+    compensation: "Stipend + Performance Bonus",
+    skills: ["SEO", "Meta Ads", "Content Creation", "Analytics"],
+    description: "Design and execute omnichannel customer acquisition campaigns for regional tech startups under senior mentor supervision.",
+    urgent: false
+  }
+];
+
 // Frequently Asked Questions
 const FAQ_ITEMS = [
   {
@@ -183,9 +219,10 @@ const FAQ_ITEMS = [
 
 export const Home = () => {
   const [activeTab, setActiveTab] = useState("businesses");
+  const [activeOppCategory, setActiveOppCategory] = useState("All");
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
 
-  // Scroll reveal observer (Twigs & Brooms editorial entrance animation)
+  // Scroll reveal observer
   useEffect(() => {
     const observerCallback = (entries, observer) => {
       entries.forEach((entry) => {
@@ -253,24 +290,26 @@ export const Home = () => {
         "Access high-performance African BPO and ITES delivery teams"
       ],
       ctaText: "Partner With SasaKazi",
-      ctaLink: "/opportunities#partners"
+      ctaLink: "#contact"
     }
   };
+
+  const filteredOpportunities = activeOppCategory === "All"
+    ? FEATURED_OPPORTUNITIES
+    : FEATURED_OPPORTUNITIES.filter(o => o.category === activeOppCategory);
 
   return (
     <div className="twigs-brooms-style-page">
       {/* =========================================================================
-           1. FULL-BLEED EDITORIAL HERO SECTION (Twigs and Brooms Style)
+           1. FULL-BLEED EDITORIAL HERO SECTION
       ============================================================================= */}
       <section className="hero-editorial-section">
-        {/* Full-Bleed Background Photography */}
         <div className="hero-photo-canvas">
           <img
             src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=85"
             alt="Vetted African tech professionals collaborating at SasaKazi"
             className="hero-img"
           />
-          {/* Deep Navy-to-Slate Gradient Overlay */}
           <div className="hero-gradient-overlay" />
         </div>
 
@@ -289,61 +328,83 @@ export const Home = () => {
                 <span>Hire Tech Talent</span>
                 <span className="btn-arrow-icon">→</span>
               </Link>
-              <Link href="/opportunities" className="btn-outline-glass">
+              <a href="#opportunities" className="btn-outline-glass">
                 Explore Opportunities
-              </Link>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       {/* =========================================================================
-           2. 4-COLUMN HAIRLINE TELEMETRY LEDGER (Twigs and Brooms Style)
+           2. IMPACT TELEMETRY LEDGER (Exact Numbers from Impact Grid)
       ============================================================================= */}
       <section className="telemetry-ledger-section reveal-on-scroll">
         <div className="container">
-          <div className="ledger-grid">
-            {/* Stat 1 */}
-            <div className="ledger-col reveal-on-scroll delay-1">
+          <div className="ledger-grid-six">
+            {/* Stat 1: Overall Users */}
+            <div className="ledger-card reveal-on-scroll delay-1">
               <div className="ledger-metric text-navy">
-                <AnimatedCounter value={6000} suffix="+" />
+                <AnimatedCounter value={10000} suffix="+" />
               </div>
-              <div className="ledger-title">Professionals Reached</div>
+              <div className="ledger-title">Overall Users</div>
               <p className="ledger-desc">
-                African tech builders engaged through structured training and assessment.
+                Engaged tech builders, apprentices and digital learners in the ecosystem.
               </p>
             </div>
 
-            {/* Stat 2 */}
-            <div className="ledger-col reveal-on-scroll delay-2">
+            {/* Stat 2: Tech Talents Matched */}
+            <div className="ledger-card reveal-on-scroll delay-2">
               <div className="ledger-metric text-terracotta">
-                <AnimatedCounter value={1000} suffix="+" />
+                <AnimatedCounter value={1256} suffix="" />
               </div>
-              <div className="ledger-title">Employers in Database</div>
+              <div className="ledger-title">Tech Talents Matched</div>
               <p className="ledger-desc">
-                Startups, SMEs, corporates and development partners across Africa.
+                Assessed candidates placed into commercial projects and business squads.
               </p>
             </div>
 
-            {/* Stat 3 */}
-            <div className="ledger-col reveal-on-scroll delay-3">
+            {/* Stat 3: Startups/Entrepreneurs Reached */}
+            <div className="ledger-card reveal-on-scroll delay-3">
               <div className="ledger-metric text-navy">
-                <AnimatedCounter value={386} suffix="+" />
+                <AnimatedCounter value={578} suffix="+" />
               </div>
-              <div className="ledger-title">Facilitated Projects</div>
+              <div className="ledger-title">Startups &amp; Entrepreneurs</div>
               <p className="ledger-desc">
-                Software, websites, AI annotation, design and digital workflows delivered.
+                Supported with technical delivery capacity, digital tools and advisory.
               </p>
             </div>
 
-            {/* Stat 4 */}
-            <div className="ledger-col reveal-on-scroll delay-4">
+            {/* Stat 4: Digital Projects Completed */}
+            <div className="ledger-card reveal-on-scroll delay-4">
               <div className="ledger-metric text-forest">
+                <AnimatedCounter value={378} suffix="+" />
+              </div>
+              <div className="ledger-title">Digital Projects Completed</div>
+              <p className="ledger-desc">
+                Commercial apps, systems, workflows, data pipelines and web platforms.
+              </p>
+            </div>
+
+            {/* Stat 5: Partnerships Established */}
+            <div className="ledger-card reveal-on-scroll delay-5">
+              <div className="ledger-metric text-terracotta">
+                <AnimatedCounter value={102} suffix="+" />
+              </div>
+              <div className="ledger-title">Partnerships Established</div>
+              <p className="ledger-desc">
+                Institutional, development, enterprise and regional innovation partners.
+              </p>
+            </div>
+
+            {/* Stat 6: Job Absorption Rate */}
+            <div className="ledger-card reveal-on-scroll delay-6">
+              <div className="ledger-metric text-navy">
                 <AnimatedCounter value={90} suffix="%" />
               </div>
-              <div className="ledger-title">Reported Absorption Rate</div>
+              <div className="ledger-title">Job Absorption Rate</div>
               <p className="ledger-desc">
-                Successful progression into assignments, employment, or enterprise.
+                Alumni transitioning into sustainable employment, retainers or enterprise.
               </p>
             </div>
           </div>
@@ -351,9 +412,9 @@ export const Home = () => {
       </section>
 
       {/* =========================================================================
-           3. WHO WE ARE & WHY IT MATTERS (Editorial Split Touchpoint)
+           3. WHO WE ARE & WHY IT MATTERS
       ============================================================================= */}
-      <section className="who-matters-section">
+      <section id="who-we-are" className="who-matters-section">
         <div className="container">
           <div className="who-matters-grid">
             {/* Left Narrative */}
@@ -369,11 +430,11 @@ export const Home = () => {
                   Businesses need reliable digital capabilities to improve efficiency, innovate and reach new markets. At the same time, thousands of capable African professionals need practical experience and access to meaningful opportunities.
                 </p>
                 <p>
-                  <strong>SasaKazi brings these needs together.</strong> We begin by understanding the client’s challenge. We identify, assess and match suitable professionals, support onboarding and coordinate delivery against agreed requirements. This creates measurable value for businesses and practical career pathways for talent.
+                  SasaKazi brings these needs together. We begin by understanding the client’s challenge. We identify, assess and match suitable professionals, support onboarding and coordinate delivery against agreed requirements. This creates measurable value for businesses and practical career pathways for talent.
                 </p>
               </div>
 
-              {/* Checklist with Green Checkmarks */}
+              {/* Checklist */}
               <div className="checklist-block">
                 <div className="check-item">
                   <span className="check-circle-green">✓</span>
@@ -390,14 +451,14 @@ export const Home = () => {
               </div>
 
               <div className="pt-3">
-                <Link href="/who-we-are" className="btn-editorial-primary">
-                  <span>Read Our Complete Story</span>
+                <Link href="/register/business" className="btn-editorial-primary">
+                  <span>Hire a Talent</span>
                   <span className="btn-arrow-icon">→</span>
                 </Link>
               </div>
             </div>
 
-            {/* Right Featured Photography Card */}
+            {/* Right Featured Photography Card (No Caption Bar) */}
             <div className="who-photo-col reveal-from-right delay-2">
               <div className="featured-editorial-card">
                 <img
@@ -406,64 +467,15 @@ export const Home = () => {
                   className="editorial-photo"
                 />
               </div>
-              <div className="photo-caption-bar">
-                <span>Vetted talent delivery pod working on commercial tech deployment.</span>
-                <span className="caption-mono-tag">ELDORET &amp; NAIROBI, KENYA</span>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* =========================================================================
-           4. CLOSED-LOOP DELIVERY WORKFLOW (4-Column Hairline Strip)
+           4. WHAT WE OFFER — 5 Capability Pillars
       ============================================================================= */}
-      <section className="workflow-section">
-        <div className="container">
-          {/* Header Row */}
-          <div className="workflow-header-row reveal-on-scroll">
-            <div>
-              <div className="editorial-kicker">CLOSED-LOOP DELIVERY WORKFLOW</div>
-              <h2 className="editorial-heading">
-                How we move from business need to successful delivery.
-              </h2>
-            </div>
-            <p className="workflow-header-sub">
-              From requirement scoping to milestone sign-off, every step ensures verified capability, quality guardrails, and transparent accountability.
-            </p>
-          </div>
-
-          {/* 4-Stage Columns */}
-          <div className="stages-columns-grid">
-            {DELIVERY_STAGES.map((stage, idx) => (
-              <div key={stage.phase} className={`stage-column-card reveal-on-scroll delay-${idx + 1}`}>
-                <div className="stage-top-meta">
-                  <span className="stage-mono-phase">{stage.phase}</span>
-                  <span className="stage-tag-badge">{stage.tag}</span>
-                </div>
-
-                <h3 className="stage-card-title">{stage.title}</h3>
-
-                <p className="stage-card-desc">{stage.desc}</p>
-
-                <div className="stage-details-list">
-                  {stage.details.map((detail, dIdx) => (
-                    <div key={dIdx} className="stage-detail-item">
-                      <span className="detail-dot" />
-                      <span>{detail}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-           5. WHAT WE OFFER — 5 Capability Pillars (Twigs and Brooms Cards)
-      ============================================================================= */}
-      <section className="capabilities-section">
+      <section id="services" className="capabilities-section">
         <div className="container">
           <div className="section-title-center reveal-on-scroll">
             <div className="editorial-kicker">CAPABILITY PORTFOLIO</div>
@@ -492,7 +504,7 @@ export const Home = () => {
                 <span>UI/UX Systems</span>
               </div>
               <div className="cap-card-footer">
-                <Link href="/who-we-are#engagement-models" className="cap-link">
+                <Link href="/register/business" className="cap-link">
                   Engage Capability <span className="arrow-icon">→</span>
                 </Link>
               </div>
@@ -515,7 +527,7 @@ export const Home = () => {
                 <span>Graphic Design</span>
               </div>
               <div className="cap-card-footer">
-                <Link href="/who-we-are#engagement-models" className="cap-link">
+                <Link href="/register/business" className="cap-link">
                   Engage Capability <span className="arrow-icon">→</span>
                 </Link>
               </div>
@@ -538,7 +550,7 @@ export const Home = () => {
                 <span>Research</span>
               </div>
               <div className="cap-card-footer">
-                <Link href="/who-we-are#engagement-models" className="cap-link">
+                <Link href="/register/business" className="cap-link">
                   Engage Capability <span className="arrow-icon">→</span>
                 </Link>
               </div>
@@ -561,7 +573,7 @@ export const Home = () => {
                 <span>Data Entry</span>
               </div>
               <div className="cap-card-footer">
-                <Link href="/who-we-are#engagement-models" className="cap-link">
+                <Link href="/register/business" className="cap-link">
                   Engage Capability <span className="arrow-icon">→</span>
                 </Link>
               </div>
@@ -594,7 +606,132 @@ export const Home = () => {
       </section>
 
       {/* =========================================================================
-           6. VALUE FOR EVERY PARTICIPANT (Warm Editorial Tabs)
+           5. FEATURED OPPORTUNITIES (Live Listings on Main Page)
+      ============================================================================= */}
+      <section id="opportunities" className="opportunities-section">
+        <div className="container">
+          <div className="section-title-center reveal-on-scroll">
+            <div className="editorial-kicker">TALENT PATHWAYS &amp; LIVE DEMAND</div>
+            <h2 className="editorial-heading">Featured Live Opportunities</h2>
+            <p className="section-sub-lead">
+              Verified commercial assignments, digital apprenticeships, and dedicated team roles available for skilled African professionals.
+            </p>
+          </div>
+
+          {/* Filter Categories */}
+          <div className="opp-filter-bar reveal-on-scroll delay-1">
+            {["All", "Software Engineering", "UI/UX Design", "Data & AI", "Digital Business"].map((cat) => (
+              <button
+                key={cat}
+                className={`opp-filter-btn ${activeOppCategory === cat ? "active" : ""}`}
+                onClick={() => setActiveOppCategory(cat)}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
+          {/* Opportunities Cards Grid */}
+          <div className="opp-listings-grid">
+            {filteredOpportunities.map((opp, idx) => (
+              <div key={opp.id} className={`opp-listing-card reveal-on-scroll delay-${idx + 1}`}>
+                <div className="opp-card-top">
+                  <div className="opp-category-badge">{opp.category}</div>
+                  <div className="opp-type-pill">{opp.type}</div>
+                </div>
+
+                <h3 className="opp-card-title">{opp.title}</h3>
+                <p className="opp-card-desc">{opp.description}</p>
+
+                <div className="opp-meta-row">
+                  <div className="opp-meta-item">
+                    <span className="meta-icon">📍</span>
+                    <span>{opp.location}</span>
+                  </div>
+                  <div className="opp-meta-item">
+                    <span className="meta-icon">⏱️</span>
+                    <span>{opp.duration}</span>
+                  </div>
+                  <div className="opp-meta-item">
+                    <span className="meta-icon">💳</span>
+                    <span>{opp.compensation}</span>
+                  </div>
+                </div>
+
+                <div className="opp-skills-row">
+                  {opp.skills.map((skill, sIdx) => (
+                    <span key={sIdx} className="opp-skill-tag">{skill}</span>
+                  ))}
+                </div>
+
+                <div className="opp-card-footer">
+                  <Link href="/register" className="btn-opp-apply">
+                    <span>Apply for Opportunity</span>
+                    <span className="btn-arrow-icon">→</span>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Employer Quick Callout Banner */}
+          <div className="opp-employer-banner reveal-scale">
+            <div className="opp-banner-text">
+              <h4>Are you an employer looking to hire assessed talent?</h4>
+              <p>Post your project requirement, assemble a dedicated pod, or recruit directly.</p>
+            </div>
+            <Link href="/register/business" className="btn-warm-gold">
+              <span>Post a Tech Requirement</span>
+              <span className="btn-arrow-icon">→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+           6. CLOSED-LOOP DELIVERY WORKFLOW
+      ============================================================================= */}
+      <section id="how-it-works" className="workflow-section">
+        <div className="container">
+          <div className="workflow-header-row reveal-on-scroll">
+            <div>
+              <div className="editorial-kicker">CLOSED-LOOP DELIVERY WORKFLOW</div>
+              <h2 className="editorial-heading">
+                How we move from business need to successful delivery.
+              </h2>
+            </div>
+            <p className="workflow-header-sub">
+              From requirement scoping to milestone sign-off, every step ensures verified capability, quality guardrails, and transparent accountability.
+            </p>
+          </div>
+
+          <div className="stages-columns-grid">
+            {DELIVERY_STAGES.map((stage, idx) => (
+              <div key={stage.phase} className={`stage-column-card reveal-on-scroll delay-${idx + 1}`}>
+                <div className="stage-top-meta">
+                  <span className="stage-mono-phase">{stage.phase}</span>
+                  <span className="stage-tag-badge">{stage.tag}</span>
+                </div>
+
+                <h3 className="stage-card-title">{stage.title}</h3>
+                <p className="stage-card-desc">{stage.desc}</p>
+
+                <div className="stage-details-list">
+                  {stage.details.map((detail, dIdx) => (
+                    <div key={dIdx} className="stage-detail-item">
+                      <span className="detail-dot" />
+                      <span>{detail}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+           7. VALUE FOR EVERY PARTICIPANT
       ============================================================================= */}
       <section className="value-participants-section">
         <div className="container">
@@ -606,7 +743,6 @@ export const Home = () => {
             </p>
           </div>
 
-          {/* Persona Tabs Bar */}
           <div className="editorial-tabs-bar reveal-on-scroll delay-1">
             <button
               className={`editorial-tab-btn ${activeTab === "businesses" ? "active" : ""}`}
@@ -628,7 +764,6 @@ export const Home = () => {
             </button>
           </div>
 
-          {/* Active Tab Panel */}
           <div className="editorial-tab-panel reveal-scale">
             <div className="panel-narrative-col">
               <h3 className="panel-title">{valueProps[activeTab].title}</h3>
@@ -658,21 +793,21 @@ export const Home = () => {
       </section>
 
       {/* =========================================================================
-           7. STRATEGIC ECOSYSTEM PARTNERS (Twigs and Brooms Partner Cards)
+           8. OUR PARTNERS (African Development Bank, UK Kenya Tech Hub, etc.)
       ============================================================================= */}
-      <section className="partners-editorial-section">
+      <section id="partners" className="partners-editorial-section">
         <div className="container">
           <div className="section-title-center reveal-on-scroll">
-            <div className="editorial-kicker">STRATEGIC NETWORK &amp; ORIGINS</div>
-            <h2 className="editorial-heading">Collaborating With Leading Institutions</h2>
+            <div className="editorial-kicker">STRATEGIC NETWORK &amp; INSTITUTIONAL ALLIANCES</div>
+            <h2 className="editorial-heading">Our Partners</h2>
             <p className="section-sub-lead">
-              SasaKazi evolved from EldoHub’s Digital Apprenticeship Programme with key institutional support to connect African talent directly with market demand.
+              Collaborating with leading regional and global institutions to build an ethical, high-quality African tech delivery network.
             </p>
           </div>
 
           <div className="partners-editorial-grid">
             {PARTNERS_DATA.map((partner, index) => (
-              <div key={index} className={`partner-editorial-card reveal-on-scroll delay-${(index % 3) + 1}`}>
+              <div key={index} className={`partner-editorial-card reveal-on-scroll delay-${index + 1}`}>
                 <div className="partner-card-top">
                   <span className="partner-name-bold">{partner.name}</span>
                   <span className="partner-short-tag">{partner.shortName}</span>
@@ -689,9 +824,9 @@ export const Home = () => {
       </section>
 
       {/* =========================================================================
-           8. FREQUENTLY ASKED QUESTIONS (Accordion)
+           9. FREQUENTLY ASKED QUESTIONS
       ============================================================================= */}
-      <section className="faq-editorial-section">
+      <section id="faqs" className="faq-editorial-section">
         <div className="container max-w-4xl">
           <div className="section-title-center reveal-on-scroll">
             <div className="editorial-kicker">FREQUENT QUESTIONS</div>
@@ -727,9 +862,9 @@ export const Home = () => {
       </section>
 
       {/* =========================================================================
-           9. FINAL EDITORIAL CALL TO ACTION (Twigs and Brooms Banner)
+           10. FINAL CALL TO ACTION
       ============================================================================= */}
-      <section className="final-editorial-cta">
+      <section id="contact" className="final-editorial-cta">
         <div className="cta-bg-wrapper">
           <img
             src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80"
@@ -779,6 +914,7 @@ export const Home = () => {
           color: var(--color-text-dark, #0f172a);
           font-family: var(--font-primary);
           overflow-x: hidden;
+          scroll-behavior: smooth;
         }
 
         /* 1. HERO EDITORIAL SECTION */
@@ -854,7 +990,8 @@ export const Home = () => {
         }
         .hero-title-accent {
           color: #fbb63f;
-          font-style: italic;
+          font-style: normal !important; /* Non-italic per client request */
+          font-weight: 700;
         }
         .hero-editorial-lead {
           font-size: 1.12rem;
@@ -888,6 +1025,7 @@ export const Home = () => {
           transition: all 0.25s ease;
           border: none;
           cursor: pointer;
+          text-decoration: none;
         }
         .btn-warm-gold:hover {
           background-color: var(--color-yellow-dark);
@@ -904,6 +1042,9 @@ export const Home = () => {
           border: 2px solid rgba(255, 255, 255, 0.85);
           backdrop-filter: blur(6px);
           transition: all 0.25s ease;
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
         }
         .btn-outline-glass:hover {
           background-color: #ffffff;
@@ -914,49 +1055,52 @@ export const Home = () => {
           font-weight: 800;
           transition: transform 0.2s ease;
         }
-        .btn-warm-gold:hover .btn-arrow-icon {
+        .btn-warm-gold:hover .btn-arrow-icon,
+        .btn-editorial-primary:hover .btn-arrow-icon,
+        .btn-opp-apply:hover .btn-arrow-icon {
           transform: translateX(4px);
         }
 
-        /* 2. 4-COLUMN HAIRLINE TELEMETRY LEDGER */
+        /* 2. IMPACT TELEMETRY LEDGER (6 Metrics) */
         .telemetry-ledger-section {
-          padding: 3.5rem 0;
+          padding: 4rem 0;
           border-bottom: 1px solid var(--color-border-stone, #d6d1c4);
           background-color: var(--color-bg-warm-subtle, #F5F2EA);
         }
-        .ledger-grid {
+        .ledger-grid-six {
           display: grid;
           grid-template-columns: 1fr;
-          gap: 2rem;
+          gap: 1.5rem;
         }
-        @media (min-width: 576px) {
-          .ledger-grid {
+        @media (min-width: 600px) {
+          .ledger-grid-six {
             grid-template-columns: repeat(2, 1fr);
           }
         }
-        @media (min-width: 992px) {
-          .ledger-grid {
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0;
+        @media (min-width: 1024px) {
+          .ledger-grid-six {
+            grid-template-columns: repeat(3, 1fr);
           }
-          .ledger-col {
-            padding: 0 1.75rem;
-            border-right: 1px solid var(--color-border-stone, #d6d1c4);
-          }
-          .ledger-col:first-child {
-            padding-left: 0;
-          }
-          .ledger-col:last-child {
-            border-right: none;
-            padding-right: 0;
-          }
+        }
+        .ledger-card {
+          background: #ffffff;
+          border: 1px solid var(--color-border-stone, #d6d1c4);
+          border-radius: 1rem;
+          padding: 2rem 1.75rem;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .ledger-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 12px 25px rgba(0, 0, 0, 0.06);
+          border-color: #0f3d61;
         }
         .ledger-metric {
           font-family: var(--font-serif);
-          font-size: 3rem;
+          font-size: 2.75rem;
           font-weight: 700;
           line-height: 1;
-          margin-bottom: 0.4rem;
+          margin-bottom: 0.5rem;
           letter-spacing: -0.02em;
         }
         .text-navy { color: #0f3d61; }
@@ -964,15 +1108,15 @@ export const Home = () => {
         .text-forest { color: #1b8a2c; }
         .ledger-title {
           font-family: var(--font-serif);
-          font-size: 1.05rem;
+          font-size: 1.15rem;
           font-weight: 700;
           color: #0f172a;
-          margin-bottom: 0.25rem;
+          margin-bottom: 0.35rem;
         }
         .ledger-desc {
-          font-size: 0.85rem;
+          font-size: 0.88rem;
           color: #57534e;
-          line-height: 1.45;
+          line-height: 1.5;
           margin: 0;
         }
 
@@ -1061,6 +1205,7 @@ export const Home = () => {
           align-items: center;
           gap: 8px;
           transition: all 0.25s ease;
+          text-decoration: none;
         }
         .btn-editorial-primary:hover {
           background-color: #1a5b8c;
@@ -1086,134 +1231,8 @@ export const Home = () => {
         .featured-editorial-card:hover .editorial-photo {
           transform: scale(1.04);
         }
-        .photo-caption-bar {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 0.75rem 0.25rem 0;
-          font-size: 0.78rem;
-          color: #78716c;
-          font-style: italic;
-        }
-        .caption-mono-tag {
-          font-family: var(--font-mono);
-          font-size: 0.75rem;
-          color: #a8a29e;
-          font-style: normal;
-        }
 
-        /* 4. CLOSED-LOOP WORKFLOW */
-        .workflow-section {
-          padding: 5.5rem 0;
-          border-bottom: 1px solid var(--color-border-stone, #d6d1c4);
-          background-color: var(--color-bg-warm, #FAF7F0);
-        }
-        .workflow-header-row {
-          display: flex;
-          flex-direction: column;
-          gap: 1.5rem;
-          padding-bottom: 2.5rem;
-          border-bottom: 1px solid var(--color-border-stone, #d6d1c4);
-          margin-bottom: 3.5rem;
-        }
-        @media (min-width: 860px) {
-          .workflow-header-row {
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: flex-end;
-          }
-        }
-        .workflow-header-sub {
-          max-width: 440px;
-          font-size: 0.98rem;
-          color: #57534e;
-          line-height: 1.6;
-          margin: 0;
-        }
-        .stages-columns-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 2rem;
-        }
-        @media (min-width: 600px) {
-          .stages-columns-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-        @media (min-width: 1024px) {
-          .stages-columns-grid {
-            grid-template-columns: repeat(4, 1fr);
-          }
-        }
-        .stage-column-card {
-          border-top: 2px solid #0f172a;
-          padding-top: 1.5rem;
-          display: flex;
-          flex-direction: column;
-          transition: transform 0.2s ease;
-        }
-        .stage-column-card:hover {
-          transform: translateY(-4px);
-        }
-        .stage-top-meta {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 1rem;
-        }
-        .stage-mono-phase {
-          font-family: var(--font-mono);
-          font-size: 2rem;
-          font-weight: 700;
-          color: #a8a29e;
-          line-height: 1;
-        }
-        .stage-tag-badge {
-          font-size: 0.72rem;
-          font-weight: 800;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          color: var(--color-terracotta, #C05621);
-        }
-        .stage-card-title {
-          font-family: var(--font-serif);
-          font-size: 1.25rem;
-          font-weight: 700;
-          color: #0f172a;
-          line-height: 1.3;
-          margin-bottom: 0.75rem;
-        }
-        .stage-card-desc {
-          font-size: 0.88rem;
-          color: #57534e;
-          line-height: 1.55;
-          margin-bottom: 1.5rem;
-          flex-grow: 1;
-        }
-        .stage-details-list {
-          padding-top: 1rem;
-          border-top: 1px solid rgba(0, 0, 0, 0.08);
-          display: flex;
-          flex-direction: column;
-          gap: 0.5rem;
-        }
-        .stage-detail-item {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          font-size: 0.8rem;
-          color: #334155;
-          font-weight: 500;
-        }
-        .detail-dot {
-          width: 6px;
-          height: 6px;
-          border-radius: 50%;
-          background: #1b8a2c;
-          flex-shrink: 0;
-        }
-
-        /* 5. CAPABILITY PORTFOLIO */
+        /* 4. CAPABILITY PORTFOLIO */
         .capabilities-section {
           padding: 5.5rem 0;
           border-bottom: 1px solid var(--color-border-stone, #d6d1c4);
@@ -1351,7 +1370,292 @@ export const Home = () => {
           color: #fbb63f !important;
         }
 
-        /* 6. VALUE FOR EVERY PARTICIPANT (Warm Tabs) */
+        /* 5. OPPORTUNITIES SECTION */
+        .opportunities-section {
+          padding: 5.5rem 0;
+          border-bottom: 1px solid var(--color-border-stone, #d6d1c4);
+          background-color: var(--color-bg-warm, #FAF7F0);
+        }
+        .opp-filter-bar {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 0.75rem;
+          margin-bottom: 3rem;
+        }
+        .opp-filter-btn {
+          padding: 0.65rem 1.4rem;
+          font-size: 0.88rem;
+          font-weight: 700;
+          border-radius: var(--radius-full);
+          border: 1px solid var(--color-border-stone, #d6d1c4);
+          background: #ffffff;
+          color: #57534e;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+        .opp-filter-btn.active {
+          background-color: #0f3d61;
+          color: #ffffff;
+          border-color: #0f3d61;
+          box-shadow: 0 4px 15px rgba(15, 61, 97, 0.15);
+        }
+        .opp-listings-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 1.75rem;
+          margin-bottom: 3.5rem;
+        }
+        @media (min-width: 768px) {
+          .opp-listings-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        .opp-listing-card {
+          background: #ffffff;
+          border: 1px solid var(--color-border-stone, #d6d1c4);
+          border-radius: 1.15rem;
+          padding: 2.2rem 1.75rem;
+          display: flex;
+          flex-direction: column;
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .opp-listing-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06);
+          border-color: #0f3d61;
+        }
+        .opp-card-top {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 1rem;
+        }
+        .opp-category-badge {
+          font-size: 0.75rem;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          color: #C05621;
+        }
+        .opp-type-pill {
+          font-size: 0.72rem;
+          font-weight: 700;
+          padding: 3px 10px;
+          border-radius: var(--radius-full);
+          background: #f1f5f9;
+          color: #0f3d61;
+        }
+        .opp-card-title {
+          font-family: var(--font-serif);
+          font-size: 1.35rem;
+          font-weight: 700;
+          color: #0f172a;
+          margin-bottom: 0.75rem;
+          line-height: 1.3;
+        }
+        .opp-card-desc {
+          font-size: 0.92rem;
+          color: #475569;
+          line-height: 1.6;
+          margin-bottom: 1.25rem;
+          flex-grow: 1;
+        }
+        .opp-meta-row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+          padding: 0.9rem 0;
+          border-top: 1px solid #f1f5f9;
+          border-bottom: 1px solid #f1f5f9;
+          margin-bottom: 1.25rem;
+          font-size: 0.82rem;
+          color: #64748b;
+        }
+        .opp-meta-item {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+        .opp-skills-row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px;
+          margin-bottom: 1.5rem;
+        }
+        .opp-skill-tag {
+          font-size: 0.75rem;
+          font-weight: 600;
+          background: #FAF7F0;
+          color: #334155;
+          padding: 3px 8px;
+          border-radius: 4px;
+          border: 1px solid #e7e5e4;
+        }
+        .opp-card-footer {
+          padding-top: 0.5rem;
+        }
+        .btn-opp-apply {
+          background-color: #0f3d61;
+          color: #ffffff !important;
+          font-weight: 700;
+          font-size: 0.88rem;
+          padding: 0.75rem 1.4rem;
+          border-radius: 10px;
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          text-decoration: none;
+          transition: all 0.2s ease;
+          width: 100%;
+          justify-content: center;
+        }
+        .btn-opp-apply:hover {
+          background-color: #1a5b8c;
+          box-shadow: 0 4px 15px rgba(15, 61, 97, 0.25);
+        }
+        .opp-employer-banner {
+          background: #ffffff;
+          border: 1px solid var(--color-border-stone, #d6d1c4);
+          border-radius: 1.25rem;
+          padding: 2.25rem 2.5rem;
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+          align-items: center;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        }
+        @media (min-width: 860px) {
+          .opp-employer-banner {
+            flex-direction: row;
+            justify-content: space-between;
+          }
+        }
+        .opp-banner-text h4 {
+          font-family: var(--font-serif);
+          font-size: 1.35rem;
+          font-weight: 700;
+          color: #0f172a;
+          margin-bottom: 0.25rem;
+        }
+        .opp-banner-text p {
+          font-size: 0.95rem;
+          color: #57534e;
+          margin: 0;
+        }
+
+        /* 6. CLOSED-LOOP WORKFLOW */
+        .workflow-section {
+          padding: 5.5rem 0;
+          border-bottom: 1px solid var(--color-border-stone, #d6d1c4);
+          background-color: var(--color-bg-warm-subtle, #F5F2EA);
+        }
+        .workflow-header-row {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+          padding-bottom: 2.5rem;
+          border-bottom: 1px solid var(--color-border-stone, #d6d1c4);
+          margin-bottom: 3.5rem;
+        }
+        @media (min-width: 860px) {
+          .workflow-header-row {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+          }
+        }
+        .workflow-header-sub {
+          max-width: 440px;
+          font-size: 0.98rem;
+          color: #57534e;
+          line-height: 1.6;
+          margin: 0;
+        }
+        .stages-columns-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        @media (min-width: 600px) {
+          .stages-columns-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @media (min-width: 1024px) {
+          .stages-columns-grid {
+            grid-template-columns: repeat(4, 1fr);
+          }
+        }
+        .stage-column-card {
+          border-top: 2px solid #0f172a;
+          padding-top: 1.5rem;
+          display: flex;
+          flex-direction: column;
+          transition: transform 0.2s ease;
+        }
+        .stage-column-card:hover {
+          transform: translateY(-4px);
+        }
+        .stage-top-meta {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 1rem;
+        }
+        .stage-mono-phase {
+          font-family: var(--font-mono);
+          font-size: 2rem;
+          font-weight: 700;
+          color: #a8a29e;
+          line-height: 1;
+        }
+        .stage-tag-badge {
+          font-size: 0.72rem;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          color: var(--color-terracotta, #C05621);
+        }
+        .stage-card-title {
+          font-family: var(--font-serif);
+          font-size: 1.25rem;
+          font-weight: 700;
+          color: #0f172a;
+          line-height: 1.3;
+          margin-bottom: 0.75rem;
+        }
+        .stage-card-desc {
+          font-size: 0.88rem;
+          color: #57534e;
+          line-height: 1.55;
+          margin-bottom: 1.5rem;
+          flex-grow: 1;
+        }
+        .stage-details-list {
+          padding-top: 1rem;
+          border-top: 1px solid rgba(0, 0, 0, 0.08);
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+        .stage-detail-item {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 0.8rem;
+          color: #334155;
+          font-weight: 500;
+        }
+        .detail-dot {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: #1b8a2c;
+          flex-shrink: 0;
+        }
+
+        /* 7. VALUE FOR EVERY PARTICIPANT (Warm Tabs) */
         .value-participants-section {
           padding: 5.5rem 0;
           border-bottom: 1px solid var(--color-border-stone, #d6d1c4);
@@ -1453,7 +1757,7 @@ export const Home = () => {
           line-height: 1.5;
         }
 
-        /* 7. STRATEGIC ECOSYSTEM PARTNERS */
+        /* 8. STRATEGIC ECOSYSTEM PARTNERS */
         .partners-editorial-section {
           padding: 5.5rem 0;
           border-bottom: 1px solid var(--color-border-stone, #d6d1c4);
@@ -1471,21 +1775,22 @@ export const Home = () => {
         }
         @media (min-width: 1024px) {
           .partners-editorial-grid {
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
           }
         }
         .partner-editorial-card {
           background: #ffffff;
           border: 1px solid var(--color-border-stone, #d6d1c4);
           border-radius: 1rem;
-          padding: 2rem 1.5rem;
+          padding: 2.2rem 1.8rem;
           display: flex;
           flex-direction: column;
-          transition: transform 0.2s ease;
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         .partner-editorial-card:hover {
           transform: translateY(-4px);
           border-color: #0f3d61;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
         }
         .partner-card-top {
           display: flex;
@@ -1495,7 +1800,7 @@ export const Home = () => {
         }
         .partner-name-bold {
           font-family: var(--font-serif);
-          font-size: 1.15rem;
+          font-size: 1.25rem;
           font-weight: 700;
           color: #0f172a;
         }
@@ -1503,36 +1808,36 @@ export const Home = () => {
           font-family: var(--font-mono);
           font-size: 0.75rem;
           background: #FAF7F0;
-          padding: 2px 8px;
+          padding: 3px 8px;
           border-radius: 4px;
           color: #57534e;
           border: 1px solid #e7e5e4;
         }
         .partner-role-badge {
-          font-size: 0.78rem;
+          font-size: 0.8rem;
           font-weight: 700;
           color: #C05621;
           margin-bottom: 0.75rem;
         }
         .partner-desc-text {
-          font-size: 0.88rem;
+          font-size: 0.9rem;
           color: #57534e;
-          line-height: 1.55;
+          line-height: 1.6;
           margin-bottom: 1.25rem;
           flex-grow: 1;
         }
         .partner-focus-area {
-          font-size: 0.78rem;
+          font-size: 0.8rem;
           color: #78716c;
           border-top: 1px solid #f1f5f9;
-          padding-top: 0.75rem;
+          padding-top: 0.85rem;
         }
         .focus-lbl {
           font-weight: 700;
           color: #334155;
         }
 
-        /* 8. FAQ SECTION */
+        /* 9. FAQ SECTION */
         .faq-editorial-section {
           padding: 5.5rem 0;
           border-bottom: 1px solid var(--color-border-stone, #d6d1c4);
@@ -1592,7 +1897,7 @@ export const Home = () => {
           margin: 0;
         }
 
-        /* 9. FINAL EDITORIAL CTA */
+        /* 10. FINAL EDITORIAL CTA */
         .final-editorial-cta {
           position: relative;
           padding: 6.5rem 0;
@@ -1674,6 +1979,7 @@ export const Home = () => {
           gap: 8px;
           box-shadow: 0 8px 25px rgba(251, 182, 63, 0.4);
           transition: all 0.25s ease;
+          text-decoration: none;
         }
         .btn-warm-gold-lg:hover {
           background-color: var(--color-yellow-dark);
@@ -1689,6 +1995,9 @@ export const Home = () => {
           border: 2px solid rgba(255, 255, 255, 0.85);
           backdrop-filter: blur(6px);
           transition: all 0.25s ease;
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
         }
         .btn-outline-glass-lg:hover {
           background-color: #ffffff;

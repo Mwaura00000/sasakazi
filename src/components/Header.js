@@ -15,16 +15,21 @@ export default function Header() {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Who We Are", href: "/who-we-are" },
-    { name: "How It Works", href: "/how-it-works" },
-    { name: "About", href: "/about" },
-    { name: "Opportunities", href: "/opportunities" },
-    { name: "Knowledge Hub", href: "/knowledge-hub" },
+    { name: "Who We Are", href: "/#who-we-are" },
+    { name: "Services", href: "/#services" },
+    { name: "Opportunities", href: "/#opportunities" },
+    { name: "How It Works", href: "/#how-it-works" },
+    { name: "Our Partners", href: "/#partners" },
+    { name: "FAQs", href: "/#faqs" },
+    { name: "Knowledge Hub", href: "https://eldohub.co.ke", external: true },
   ];
 
   const isActive = (href) => {
     if (href === "/") {
       return pathname === "/";
+    }
+    if (href.startsWith("/#")) {
+      return false;
     }
     return pathname.startsWith(href);
   };
@@ -85,13 +90,24 @@ export default function Header() {
             <nav className="navbar-desktop-nav">
               <ul className="navbar-nav-list">
                 {navLinks.map((link) => (
-                  <li key={link.href} className="navbar-nav-item">
-                    <Link 
-                      href={link.href}
-                      className={`navbar-nav-link ${isActive(link.href) ? "active" : ""}`}
-                    >
-                      {link.name}
-                    </Link>
+                  <li key={link.name} className="navbar-nav-item">
+                    {link.external ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="navbar-nav-link"
+                      >
+                        {link.name} ↗
+                      </a>
+                    ) : (
+                      <Link 
+                        href={link.href}
+                        className={`navbar-nav-link ${isActive(link.href) ? "active" : ""}`}
+                      >
+                        {link.name}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -138,14 +154,26 @@ export default function Header() {
         <nav className="drawer-nav">
           <ul className="drawer-nav-list">
             {navLinks.map((link) => (
-              <li key={link.href} className="drawer-nav-item">
-                <Link
-                  href={link.href}
-                  className={`drawer-nav-link ${isActive(link.href) ? "active" : ""}`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {link.name}
-                </Link>
+              <li key={link.name} className="drawer-nav-item">
+                {link.external ? (
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="drawer-nav-link"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {link.name} ↗
+                  </a>
+                ) : (
+                  <Link
+                    href={link.href}
+                    className={`drawer-nav-link ${isActive(link.href) ? "active" : ""}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
