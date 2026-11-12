@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
-// Kinetic Animated Counter Component (Triggered when scrolled into view)
+// Kinetic Animated Counter Component
 const AnimatedCounter = ({ value, suffix = "", duration = 1600 }) => {
   const [count, setCount] = useState(0);
   const [hasTriggered, setHasTriggered] = useState(false);
@@ -52,1985 +52,1116 @@ const AnimatedCounter = ({ value, suffix = "", duration = 1600 }) => {
   );
 };
 
-// Strategic Ecosystem Partners
-const PARTNERS_DATA = [
-  {
-    name: "African Development Bank",
-    shortName: "AfDB",
-    role: "Pan-African Multilateral Development Partner",
-    description: "Collaborating on institutional youth employment, digital skills infrastructure, and Pan-African technological capacity building.",
-    focusArea: "Workforce Systems & Inclusive Digital Growth",
-    accent: "#0f3d61"
-  },
-  {
-    name: "UK–Kenya Tech Hub",
-    shortName: "UK-Kenya Hub",
-    role: "Founding Programme & Digital Inclusion Partner",
-    description: "Supported the flagship digital pilot matching high-potential Kenyan software developers with SMEs requiring urgent digital transformation.",
-    focusArea: "Digital Inclusion & International Market Linkages",
-    accent: "#1a5b8c"
-  },
-  {
-    name: "British High Commission",
-    shortName: "British High Comm.",
-    role: "International Diplomatic & Development Partner",
-    description: "Supporting bilateral trade linkages, youth empowerment pipelines, and sustainable technology employment ecosystems in East Africa.",
-    focusArea: "International Linkages & Youth Empowerment",
-    accent: "#C05621"
-  },
-  {
-    name: "EldoHub",
-    shortName: "EldoHub",
-    role: "Parent Innovation & Incubation Ecosystem",
-    description: "SasaKazi evolved from EldoHub’s Digital Apprenticeship Programme, scaling the bridge between skills training and real market demand across Africa.",
-    focusArea: "Innovation Incubation & Talent Pipelines",
-    accent: "#059669"
-  }
-];
+export default function HomePage() {
+  const [activeFaq, setActiveFaq] = useState(null);
 
-// Closed-Loop Delivery Stages
-const DELIVERY_STAGES = [
-  {
-    phase: "01",
-    tag: "SCOPING",
-    title: "Understand & Scoping",
-    desc: "We begin by understanding the business challenge, required outcomes, skills profile, timelines, and working arrangement.",
-    details: [
-      "In-depth technical requirement scoping",
-      "Resource allocation & budget alignment",
-      "Defined KPIs and success criteria"
-    ]
-  },
-  {
-    phase: "02",
-    tag: "VETTING",
-    title: "Assess for Relevance",
-    desc: "Candidate assessment includes profile verification, technical challenges, practical case studies, and communication readiness.",
-    details: [
-      "Portfolio & code repository audits",
-      "Practical case study evaluations",
-      "Soft-skills and professional conduct checks"
-    ]
-  },
-  {
-    phase: "03",
-    tag: "EXECUTION",
-    title: "Managed Delivery & Escrow",
-    desc: "Talent delivers against agreed milestones with structured onboarding, progress tracking, code reviews, and quality assurance.",
-    details: [
-      "Milestone-based progress reporting",
-      "Senior mentor quality guardrails",
-      "Transparent escrow milestone release"
-    ]
-  },
-  {
-    phase: "04",
-    tag: "EXPANSION",
-    title: "Review, Retain & Scale",
-    desc: "Final deliverable acceptance, performance appraisal, and seamless progression into repeat assignments, dedicated teams, or direct hiring.",
-    details: [
-      "Documented acceptance criteria sign-off",
-      "Opportunity for direct recruitment",
-      "Flexible scaling to meet future growth"
-    ]
-  }
-];
+  const toggleFaq = (idx) => {
+    setActiveFaq(activeFaq === idx ? null : idx);
+  };
 
-// Featured Live Opportunities
-const FEATURED_OPPORTUNITIES = [
-  {
-    id: 1,
-    title: "Full-Stack React & Node Developer",
-    category: "Software Engineering",
-    type: "Client Project",
-    location: "Remote (Africa)",
-    duration: "3 Months (Extendable)",
-    compensation: "Project-Based Escrow",
-    skills: ["React", "Node.js", "PostgreSQL", "REST APIs"],
-    description: "Build a scalable fintech onboarding portal for an East African SME with automated identity verification and mobile money integration.",
-    urgent: true
-  },
-  {
-    id: 2,
-    title: "Data Annotation & AI Validation Specialist",
-    category: "Data & AI",
-    type: "BPO / Managed Service",
-    location: "Remote / Hybrid (Kenya)",
-    duration: "6 Months Dedicated",
-    compensation: "Monthly Retainer",
-    skills: ["Data Cleaning", "Python", "Annotation Tooling", "Quality Assurance"],
-    description: "Perform high-accuracy text and image annotation workflows supporting machine learning model training datasets.",
-    urgent: false
-  },
-  {
-    id: 3,
-    title: "UI/UX Product Designer",
-    category: "UI/UX Design",
-    type: "Contract Assignment",
-    location: "Remote (Pan-Africa)",
-    duration: "2 Months",
-    compensation: "Milestone-Based",
-    skills: ["Figma", "Design Systems", "User Research", "Prototyping"],
-    description: "Redesign core mobile and desktop experiences for an agricultural supply chain platform with accessible UX patterns.",
-    urgent: true
-  },
-  {
-    id: 4,
-    title: "Digital Marketing & Social Growth Lead",
-    category: "Digital Business",
-    type: "Apprenticeship / Growth",
-    location: "Remote / Hybrid",
-    duration: "3 Months Apprenticeship",
-    compensation: "Stipend + Performance Bonus",
-    skills: ["SEO", "Meta Ads", "Content Creation", "Analytics"],
-    description: "Design and execute omnichannel customer acquisition campaigns for regional tech startups under senior mentor supervision.",
-    urgent: false
-  }
-];
-
-// Frequently Asked Questions
-const FAQ_ITEMS = [
-  {
-    question: "How does SasaKazi vet and assess African tech talent?",
-    answer:
-      "Our multi-stage vetting process evaluates candidates through profile verification, portfolio analysis, technical coding challenges, real-world case studies, and structured communication interviews. Only talent demonstrating verified capability and work-readiness are recommended to employers."
-  },
-  {
-    question: "What delivery models can businesses choose from?",
-    answer:
-      "Businesses can engage SasaKazi through 5 flexible models: Managed BPO Services (turnkey process delivery against SLAs), Dedicated Teams (recurring dedicated squad support), Talent-as-a-Service (assessed professionals for specific durations), Staff Augmentation (embedded engineers in your internal squad), and Direct Recruitment & Placement."
-  },
-  {
-    question: "How are project milestones, payments, and quality protected?",
-    answer:
-      "Projects are governed by clear technical scopes, milestone schedules, and documented acceptance criteria. Payments are deposited into secure milestone escrow and only disbursed when you review and approve the verified deliverables under senior mentor quality oversight."
-  },
-  {
-    question: "How does SasaKazi support junior talent and apprentices?",
-    answer:
-      "Every project engagement is paired with one-on-one senior tech mentorship and professional-development coaching. This provides young professionals with technical guidance, code reviews, and workplace accountability while ensuring the client receives enterprise-grade output."
-  },
-  {
-    question: "How can an employer or partner get started?",
-    answer:
-      "Submit a business requirement through our website or reach out via WhatsApp at +254 723 567 263. A client solutions advisor will consult with you, scope your technical requirements, and present vetted candidates or a recommended pod within 48 hours."
-  }
-];
-
-export const Home = () => {
-  const [activeTab, setActiveTab] = useState("businesses");
-  const [activeOppCategory, setActiveOppCategory] = useState("All");
-  const [openFaqIndex, setOpenFaqIndex] = useState(0);
-
-  // Scroll reveal observer
+  // Scroll Reveal Observer
   useEffect(() => {
-    const observerCallback = (entries, observer) => {
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) return;
+
+    const observerOptions = {
+      threshold: 0.12,
+      rootMargin: "0px 0px -40px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("revealed");
           observer.unobserve(entry.target);
         }
       });
-    };
+    }, observerOptions);
 
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -40px 0px"
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
     const elements = document.querySelectorAll(
-      ".reveal-on-scroll, .reveal-from-left, .reveal-from-right, .reveal-scale"
+      ".reveal-on-scroll, .reveal-left, .reveal-right, .reveal-card"
     );
     elements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
   }, []);
 
-  const valueProps = {
-    businesses: {
-      title: "For Businesses",
-      subtitle: "Access the right skills without spending unnecessary time sourcing and screening",
-      description:
-        "Access the right skills without spending unnecessary time sourcing and screening applicants. Select a delivery model aligned with your project, capacity and budget.",
-      points: [
-        "Access vetted African technology professionals matched to your stack",
-        "Reduce the time and complexity of sourcing, testing, and assessment",
-        "Build flexible capacity without expanding permanent headcount",
-        "Strengthen delivery through structured onboarding, milestone tracking, and coordination",
-        "Create measurable social impact through dignified African tech opportunities"
+  const coreServices = [
+    {
+      id: "stock-inventory",
+      title: "Stock & Inventory Visibility",
+      price: "From KES 25,000",
+      timeframe: "30-Day Pilot",
+      headline: "Stop unexplained stock shrinkage and gain daily inventory clarity.",
+      description: "We organize your catalog, audit physical stock, implement daily stock-count tracking, and configure simple discrepancy alert sheets.",
+      deliverables: [
+        "Full itemized catalog audit",
+        "Daily physical count & variance tracker",
+        "Weekly stock movement dashboard",
+        "Staff training on daily record keeping"
       ],
-      ctaText: "Hire Tech Talent",
-      ctaLink: "/register/business"
+      href: "/services/stock-inventory",
+      badge: "Retail & Distribution",
+      icon: (
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="m7.5 4.27 9 5.15" />
+          <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
+          <path d="m3.3 7 8.7 5 8.7-5" />
+          <path d="M12 22V12" />
+        </svg>
+      )
     },
-    talent: {
-      title: "For Tech Talent",
-      subtitle: "Turn technical capability into verified work, proven portfolios, and sustainable careers",
-      description:
-        "Gain real project experience, mentorship, professional-development support and access to assignments, apprenticeships and employment.",
-      points: [
-        "Access genuine commercial projects, apprenticeships, internships and employment",
-        "Apply technical knowledge to real business challenges under senior guardrails",
-        "Build credible, verifiable portfolios and professional client references",
-        "Receive mentorship, communication coaching, and career guidance",
-        "Progress into repeat assignments, permanent employment or entrepreneurship"
+    {
+      id: "payments-reconciliation",
+      title: "Payments Reconciliation",
+      price: "From KES 20,000",
+      timeframe: "30-Day Pilot",
+      headline: "Match every M-Pesa till payment, bank deposit, and sales invoice.",
+      description: "Eliminate end-of-month accounting nightmares. We map your mobile money transactions to customer invoices with zero missing shillings.",
+      deliverables: [
+        "Daily M-Pesa till to bank deposit match",
+        "Unallocated customer payment log",
+        "Accounts receivable aging schedule",
+        "End-of-week reconciliation sign-off"
       ],
-      ctaText: "Join as Tech Talent",
-      ctaLink: "/register"
+      href: "/services/payments-reconciliation",
+      badge: "Finance & Accounts",
+      icon: (
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect width="20" height="14" x="2" y="5" rx="2" />
+          <line x1="2" x2="22" y1="10" y2="10" />
+          <circle cx="7" cy="15" r="1" />
+          <circle cx="11" cy="15" r="1" />
+        </svg>
+      )
     },
-    partners: {
-      title: "For Mentors & Partners",
-      subtitle: "Build an inclusive, ethical and globally competitive African tech workforce",
-      description:
-        "Help build an inclusive, ethical and globally competitive African technology workforce connected to real market demand.",
-      points: [
-        "Use your senior industry experience to shape Africa’s next generation of builders",
-        "Connect institutional training pipelines with verified commercial projects",
-        "Collaborate on Pan-African inclusive digital-work and employment programmes",
-        "Access high-performance African BPO and ITES delivery teams"
+    {
+      id: "customer-follow-up",
+      title: "Customer Follow-up",
+      price: "From KES 18,000",
+      timeframe: "30-Day Pilot",
+      headline: "Revive dormant inquiries and close quotes waiting on customer replies.",
+      description: "Stop letting valuable inquiries slip through WhatsApp and email. Dedicated local professionals follow up on outstanding quotes and nurture repeat sales.",
+      deliverables: [
+        "Customer contact & lead cleanup",
+        "WhatsApp & phone follow-up cadence",
+        "Quote status tracker & CRM update",
+        "Weekly customer feedback insights"
       ],
-      ctaText: "Partner With SasaKazi",
-      ctaLink: "#contact"
+      href: "/services/customer-follow-up",
+      badge: "Sales & Client Service",
+      icon: (
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+          <path d="M14 2v4" />
+          <path d="M18 6v4" />
+        </svg>
+      )
     }
-  };
+  ];
 
-  const filteredOpportunities = activeOppCategory === "All"
-    ? FEATURED_OPPORTUNITIES
-    : FEATURED_OPPORTUNITIES.filter(o => o.category === activeOppCategory);
+  const processSteps = [
+    {
+      number: "1",
+      title: "Qualify",
+      description: "A focused 15-minute diagnostic call to understand your immediate operational bottleneck."
+    },
+    {
+      number: "2",
+      title: "Assess Needs",
+      description: "We define precise 30–45 day pilot deliverables, milestones, and acceptance criteria."
+    },
+    {
+      number: "3",
+      title: "Match Talent",
+      description: "We deploy vetted, trained local professionals matched specifically to your operational stack."
+    },
+    {
+      number: "4",
+      title: "Deliver with QA",
+      description: "Structured execution backed by weekly review checkpoints and senior EldoHub mentorship."
+    },
+    {
+      number: "5",
+      title: "Handover",
+      description: "Clean sign-off, documented process handover, with the option for ongoing monthly support."
+    }
+  ];
+
+  const differentiators = [
+    {
+      title: "No Expensive Software",
+      desc: "We work directly inside your existing spreadsheets, WhatsApp Business, POS, or cloud files. No costly licenses or complex ERP setups required.",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
+        </svg>
+      )
+    },
+    {
+      title: "Senior Mentorship & QA",
+      desc: "Every talent pod is paired with a seasoned operations mentor to oversee quality gates, audit accuracy, and uphold enterprise standards.",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        </svg>
+      )
+    },
+    {
+      title: "Fixed-Price Transparency",
+      desc: "Clear upfront pilot pricing with agreed milestones. You know exactly what you get and what you pay from day one.",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M20 6 9 17l-5-5" />
+        </svg>
+      )
+    },
+    {
+      title: "Results in 30–45 Days",
+      desc: "Fast, measurable results. We don't drag out long discovery phases—we deliver tangible business clarity within the first month.",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <circle cx="12" cy="12" r="10" />
+          <polyline points="12 6 12 12 16 14" />
+        </svg>
+      )
+    }
+  ];
+
+  const faqs = [
+    {
+      q: "What makes SasaKazi different from hiring a freelancer?",
+      a: "SasaKazi is a managed BPO service, not an unvetted gig marketplace. You get a governed engagement with clear pilot deliverables, senior mentor QA oversight, structured milestones, and a guaranteed handover standard."
+    },
+    {
+      q: "Do I need to buy expensive software or systems for this to work?",
+      a: "No. We believe in practical solutions. We build workflows using the tools you already have—Excel, Google Sheets, WhatsApp Business, your existing POS, or cloud drives—saving you tens of thousands in software subscriptions."
+    },
+    {
+      q: "What happens after the 30–45 day pilot finishes?",
+      a: "You receive clean, documented deliverables and training for your internal staff. If you prefer continuous peace of mind, you can retain your dedicated talent on a simple monthly support agreement."
+    },
+    {
+      q: "How fast can we start a pilot?",
+      a: "Following our initial qualification call and scope agreement, we match and deploy your talent pod within 3 to 5 business days."
+    }
+  ];
 
   return (
-    <div className="twigs-brooms-style-page">
-      {/* =========================================================================
-           1. FULL-BLEED EDITORIAL HERO SECTION
-      ============================================================================= */}
-      <section className="hero-editorial-section">
-        <div className="hero-photo-canvas">
-          <img
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=85"
-            alt="Vetted African tech professionals collaborating at SasaKazi"
-            className="hero-img"
-          />
-          <div className="hero-gradient-overlay" />
-        </div>
-
+    <div className="bpo-home-page">
+      {/* 1. HERO SECTION (Tightly padded with no excess top margin, badge removed) */}
+      <section className="bpo-hero-section">
         <div className="container hero-container">
-          <div className="hero-narrative-box">
-            <h1 className="hero-editorial-title">
-              Your Gateway to Africa’s <span className="hero-title-accent">Top Tech Talent.</span>
+          {/* Left Column: Hero Copy */}
+          <div className="hero-content reveal-left">
+            <h1 className="hero-title">
+              Practical digital BPO for Kenyan businesses
             </h1>
-
-            <p className="hero-editorial-lead">
-              Build, digitise and grow your organisation with vetted African professionals and flexible digital-delivery teams. Unlocking the digital future for businesses with top-tier talent.
+            
+            <p className="hero-subtitle">
+              Delivered by vetted local talent. Clear outcomes in 30–45 days. No expensive software.
             </p>
 
-            <div className="hero-actions-row">
-              <Link href="/register/business" className="btn-warm-gold">
-                <span>Hire Tech Talent</span>
-                <span className="btn-arrow-icon">→</span>
+            <div className="hero-cta-group">
+              <Link href="/contact" className="btn btn-teal hero-primary-btn">
+                Book a short call
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
               </Link>
-              <a href="#opportunities" className="btn-outline-glass">
-                Explore Opportunities
-              </a>
+              <Link href="/services" className="btn btn-outline-navy hero-secondary-btn">
+                View our services
+              </Link>
+            </div>
+
+            <div className="hero-reassurance-row">
+              <div className="reassurance-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Fixed-Price Pilots</span>
+              </div>
+              <div className="reassurance-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Vetted Local Talent</span>
+              </div>
+              <div className="reassurance-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Senior QA Mentorship</span>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* =========================================================================
-           2. IMPACT TELEMETRY LEDGER (Exact Numbers from Impact Grid)
-      ============================================================================= */}
-      <section className="telemetry-ledger-section reveal-on-scroll">
-        <div className="container">
-          <div className="ledger-grid-six">
-            {/* Stat 1: Overall Users */}
-            <div className="ledger-card reveal-on-scroll delay-1">
-              <div className="ledger-metric text-navy">
-                <AnimatedCounter value={10000} suffix="+" />
-              </div>
-              <div className="ledger-title">Overall Users</div>
-              <p className="ledger-desc">
-                Engaged tech builders, apprentices and digital learners in the ecosystem.
-              </p>
-            </div>
-
-            {/* Stat 2: Tech Talents Matched */}
-            <div className="ledger-card reveal-on-scroll delay-2">
-              <div className="ledger-metric text-terracotta">
-                <AnimatedCounter value={1256} suffix="" />
-              </div>
-              <div className="ledger-title">Tech Talents Matched</div>
-              <p className="ledger-desc">
-                Assessed candidates placed into commercial projects and business squads.
-              </p>
-            </div>
-
-            {/* Stat 3: Startups/Entrepreneurs Reached */}
-            <div className="ledger-card reveal-on-scroll delay-3">
-              <div className="ledger-metric text-navy">
-                <AnimatedCounter value={578} suffix="+" />
-              </div>
-              <div className="ledger-title">Startups &amp; Entrepreneurs</div>
-              <p className="ledger-desc">
-                Supported with technical delivery capacity, digital tools and advisory.
-              </p>
-            </div>
-
-            {/* Stat 4: Digital Projects Completed */}
-            <div className="ledger-card reveal-on-scroll delay-4">
-              <div className="ledger-metric text-forest">
-                <AnimatedCounter value={378} suffix="+" />
-              </div>
-              <div className="ledger-title">Digital Projects Completed</div>
-              <p className="ledger-desc">
-                Commercial apps, systems, workflows, data pipelines and web platforms.
-              </p>
-            </div>
-
-            {/* Stat 5: Partnerships Established */}
-            <div className="ledger-card reveal-on-scroll delay-5">
-              <div className="ledger-metric text-terracotta">
-                <AnimatedCounter value={102} suffix="+" />
-              </div>
-              <div className="ledger-title">Partnerships Established</div>
-              <p className="ledger-desc">
-                Institutional, development, enterprise and regional innovation partners.
-              </p>
-            </div>
-
-            {/* Stat 6: Job Absorption Rate */}
-            <div className="ledger-card reveal-on-scroll delay-6">
-              <div className="ledger-metric text-navy">
-                <AnimatedCounter value={90} suffix="%" />
-              </div>
-              <div className="ledger-title">Job Absorption Rate</div>
-              <p className="ledger-desc">
-                Alumni transitioning into sustainable employment, retainers or enterprise.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-           3. WHO WE ARE & WHY IT MATTERS
-      ============================================================================= */}
-      <section id="who-we-are" className="who-matters-section">
-        <div className="container">
-          <div className="who-matters-grid">
-            {/* Left Narrative */}
-            <div className="who-text-col reveal-from-left">
-              <div className="editorial-kicker">WHO WE ARE &amp; WHY IT MATTERS</div>
-
-              <h2 className="editorial-heading">
-                Where business needs meet vetted African talent.
-              </h2>
-
-              <div className="narrative-paragraphs">
-                <p>
-                  Businesses need reliable digital capabilities to improve efficiency, innovate and reach new markets. At the same time, thousands of capable African professionals need practical experience and access to meaningful opportunities.
-                </p>
-                <p>
-                  SasaKazi brings these needs together. We begin by understanding the client’s challenge. We identify, assess and match suitable professionals, support onboarding and coordinate delivery against agreed requirements. This creates measurable value for businesses and practical career pathways for talent.
-                </p>
+          {/* Right Column: Clean, High-Impact BPO Pilot Model Card */}
+          <div className="hero-visual-card reveal-right">
+            <div className="clean-bpo-card">
+              {/* Card Header */}
+              <div className="card-top-row">
+                <span className="card-title-text">Active SasaKazi Pilot Model</span>
+                <span className="card-status-pill">Governed Delivery</span>
               </div>
 
-              {/* Checklist */}
-              <div className="checklist-block">
-                <div className="check-item">
-                  <span className="check-circle-green">✓</span>
-                  <span>Vetted technical assessments (profile audits, code tests, case studies)</span>
+              {/* Two Prominent Metrics */}
+              <div className="card-metrics-duo">
+                <div className="clean-metric-box">
+                  <span className="metric-large">30–45</span>
+                  <span className="metric-caption">Days to Outcome</span>
                 </div>
-                <div className="check-item">
-                  <span className="check-circle-green">✓</span>
-                  <span>Structured onboarding, milestone escrow &amp; managed delivery coordination</span>
-                </div>
-                <div className="check-item">
-                  <span className="check-circle-green">✓</span>
-                  <span>Senior mentorship guardrails ensuring code quality, security &amp; accountability</span>
+                <div className="clean-metric-box">
+                  <span className="metric-large">100%</span>
+                  <span className="metric-caption">QA Supervised</span>
                 </div>
               </div>
 
-              <div className="pt-3">
-                <Link href="/register/business" className="btn-editorial-primary">
-                  <span>Hire a Talent</span>
-                  <span className="btn-arrow-icon">→</span>
-                </Link>
-              </div>
-            </div>
+              {/* Three Clean Benefit Items */}
+              <div className="card-checklist">
+                <div className="check-row">
+                  <div className="check-circle">✓</div>
+                  <div className="check-text">
+                    <strong>Inventory Tracking:</strong> Daily stock reconciliation without stockouts
+                  </div>
+                </div>
 
-            {/* Right Featured Photography Card (No Caption Bar) */}
-            <div className="who-photo-col reveal-from-right delay-2">
-              <div className="featured-editorial-card">
-                <img
-                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1000&q=80"
-                  alt="African software engineers collaborating in modern tech hub"
-                  className="editorial-photo"
-                />
+                <div className="check-row">
+                  <div className="check-circle">✓</div>
+                  <div className="check-text">
+                    <strong>Payment Audits:</strong> Seamless M-Pesa to bank ledger matching
+                  </div>
+                </div>
+
+                <div className="check-row">
+                  <div className="check-circle">✓</div>
+                  <div className="check-text">
+                    <strong>Customer Cadence:</strong> Converting cold quotes into active revenue
+                  </div>
+                </div>
+              </div>
+
+              {/* Subtle Trust Footer */}
+              <div className="card-bottom-pill">
+                <span>EldoHub Verified Standards • Eldoret HQ</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* =========================================================================
-           4. WHAT WE OFFER — 5 Capability Pillars
-      ============================================================================= */}
-      <section id="services" className="capabilities-section">
+      {/* 2. PROOF / TRUST BAR (Dark Navy Background with Scroll Stagger) */}
+      <section className="bpo-proof-bar reveal-on-scroll">
         <div className="container">
-          <div className="section-title-center reveal-on-scroll">
-            <div className="editorial-kicker">CAPABILITY PORTFOLIO</div>
-            <h2 className="editorial-heading">One Platform. Five High-Value Digital Pillars.</h2>
-            <p className="section-sub-lead">
-              Comprehensive digital services and managed delivery models engineered to digitise, innovate, and scale your organisation.
+          <div className="bpo-proof-grid">
+            <div className="bpo-proof-item reveal-card" style={{ transitionDelay: '0.05s' }}>
+              <div className="bpo-proof-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <div className="bpo-proof-text">
+                <strong><AnimatedCounter value={50} suffix="+" /></strong>
+                <span>Businesses Supported</span>
+              </div>
+            </div>
+
+            <div className="bpo-proof-item reveal-card" style={{ transitionDelay: '0.15s' }}>
+              <div className="bpo-proof-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+              </div>
+              <div className="bpo-proof-text">
+                <strong>Vetted Local Talent</strong>
+                <span>Trained in Eldoret &amp; Nairobi</span>
+              </div>
+            </div>
+
+            <div className="bpo-proof-item reveal-card" style={{ transitionDelay: '0.25s' }}>
+              <div className="bpo-proof-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <rect width="20" height="14" x="2" y="5" rx="2" />
+                  <line x1="2" x2="22" y1="10" y2="10" />
+                </svg>
+              </div>
+              <div className="bpo-proof-text">
+                <strong>Fixed-Price Pilots</strong>
+                <span>Clear upfront scopes</span>
+              </div>
+            </div>
+
+            <div className="bpo-proof-item reveal-card" style={{ transitionDelay: '0.35s' }}>
+              <div className="bpo-proof-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <div className="bpo-proof-text">
+                <strong>Mentorship Included</strong>
+                <span>Senior QA oversight on work</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. CORE SERVICES (Three Equal Cards with Price Entry Points & Staggered Animations) */}
+      <section className="bpo-services-section" id="services">
+        <div className="container">
+          <div className="section-head text-center reveal-on-scroll">
+            <span className="badge-sub">Packaged BPO Pilots</span>
+            <h2 className="section-title">Our Core BPO Services</h2>
+            <p className="section-desc">
+              Packaged, outcome-driven operational pilots built specifically for Kenyan SMEs. Start with one defined problem and see results in 30 days.
             </p>
           </div>
 
-          <div className="capabilities-editorial-grid">
-            {/* 1. Digital & Tech */}
-            <div className="cap-editorial-card reveal-on-scroll delay-1">
-              <div className="cap-card-header">
-                <span className="cap-mono-num">01</span>
-                <span className="cap-category-pill">Core Engineering</span>
-              </div>
-              <h3 className="cap-title">Digital &amp; Technology Services</h3>
-              <p className="cap-desc">
-                Software and website development, system support, API integration, UI/UX design, software testing, quality assurance and data analysis.
-              </p>
-              <div className="cap-subtags">
-                <span>React / Next.js</span>
-                <span>Node &amp; APIs</span>
-                <span>Mobile Apps</span>
-                <span>QA &amp; Testing</span>
-                <span>UI/UX Systems</span>
-              </div>
-              <div className="cap-card-footer">
-                <Link href="/register/business" className="cap-link">
-                  Engage Capability <span className="arrow-icon">→</span>
-                </Link>
-              </div>
-            </div>
-
-            {/* 2. Digital Business */}
-            <div className="cap-editorial-card reveal-on-scroll delay-2">
-              <div className="cap-card-header">
-                <span className="cap-mono-num">02</span>
-                <span className="cap-category-pill">Growth &amp; Creative</span>
-              </div>
-              <h3 className="cap-title">Digital Business Services</h3>
-              <p className="cap-desc">
-                Digital marketing, social media management, graphic design, content development and digital customer engagement.
-              </p>
-              <div className="cap-subtags">
-                <span>Digital Marketing</span>
-                <span>Social Media</span>
-                <span>Content Strategy</span>
-                <span>Graphic Design</span>
-              </div>
-              <div className="cap-card-footer">
-                <Link href="/register/business" className="cap-link">
-                  Engage Capability <span className="arrow-icon">→</span>
-                </Link>
-              </div>
-            </div>
-
-            {/* 3. Data & AI */}
-            <div className="cap-editorial-card reveal-on-scroll delay-3">
-              <div className="cap-card-header">
-                <span className="cap-mono-num">03</span>
-                <span className="cap-category-pill">Next Gen &amp; AI</span>
-              </div>
-              <h3 className="cap-title">Data and AI Support</h3>
-              <p className="cap-desc">
-                Emerging support for data processing, cleaning, validation, annotation, research and people-driven AI workflows, subject to delivery capacity.
-              </p>
-              <div className="cap-subtags">
-                <span>Data Cleaning</span>
-                <span>Annotation &amp; Labeling</span>
-                <span>Model Validation</span>
-                <span>Research</span>
-              </div>
-              <div className="cap-card-footer">
-                <Link href="/register/business" className="cap-link">
-                  Engage Capability <span className="arrow-icon">→</span>
-                </Link>
-              </div>
-            </div>
-
-            {/* 4. Business Support & Back-Office */}
-            <div className="cap-editorial-card reveal-on-scroll delay-4">
-              <div className="cap-card-header">
-                <span className="cap-mono-num">04</span>
-                <span className="cap-category-pill">Operations &amp; BPO</span>
-              </div>
-              <h3 className="cap-title">Business Support &amp; Back-Office</h3>
-              <p className="cap-desc">
-                Virtual assistance, administration, customer service, CRM management, document processing and other repeatable business functions.
-              </p>
-              <div className="cap-subtags">
-                <span>Virtual Assistance</span>
-                <span>CRM Management</span>
-                <span>Customer Support</span>
-                <span>Data Entry</span>
-              </div>
-              <div className="cap-card-footer">
-                <Link href="/register/business" className="cap-link">
-                  Engage Capability <span className="arrow-icon">→</span>
-                </Link>
-              </div>
-            </div>
-
-            {/* 5. Workforce Solutions */}
-            <div className="cap-editorial-card featured-cap-card reveal-on-scroll delay-5">
-              <div className="cap-card-header">
-                <span className="cap-mono-num">05</span>
-                <span className="cap-category-pill featured-pill">Flexible Staffing</span>
-              </div>
-              <h3 className="cap-title">Workforce Solutions</h3>
-              <p className="cap-desc">
-                Dedicated professionals, flexible project teams, staff augmentation and direct recruitment from the SasaKazi talent ecosystem.
-              </p>
-              <div className="cap-subtags">
-                <span>Dedicated Teams</span>
-                <span>Staff Augmentation</span>
-                <span>Talent-as-a-Service</span>
-                <span>Direct Hire</span>
-              </div>
-              <div className="cap-card-footer">
-                <Link href="/register/business" className="cap-link featured-link">
-                  Request Custom Pod <span className="arrow-icon">→</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-           5. FEATURED OPPORTUNITIES (Live Listings on Main Page)
-      ============================================================================= */}
-      <section id="opportunities" className="opportunities-section">
-        <div className="container">
-          <div className="section-title-center reveal-on-scroll">
-            <div className="editorial-kicker">TALENT PATHWAYS &amp; LIVE DEMAND</div>
-            <h2 className="editorial-heading">Featured Live Opportunities</h2>
-            <p className="section-sub-lead">
-              Verified commercial assignments, digital apprenticeships, and dedicated team roles available for skilled African professionals.
-            </p>
-          </div>
-
-          {/* Filter Categories */}
-          <div className="opp-filter-bar reveal-on-scroll delay-1">
-            {["All", "Software Engineering", "UI/UX Design", "Data & AI", "Digital Business"].map((cat) => (
-              <button
-                key={cat}
-                className={`opp-filter-btn ${activeOppCategory === cat ? "active" : ""}`}
-                onClick={() => setActiveOppCategory(cat)}
+          <div className="services-cards-grid">
+            {coreServices.map((service, index) => (
+              <div 
+                key={service.id} 
+                className="bpo-service-card reveal-card"
+                style={{ transitionDelay: `${0.1 + index * 0.15}s` }}
               >
-                {cat}
-              </button>
-            ))}
-          </div>
-
-          {/* Opportunities Cards Grid */}
-          <div className="opp-listings-grid">
-            {filteredOpportunities.map((opp, idx) => (
-              <div key={opp.id} className={`opp-listing-card reveal-on-scroll delay-${idx + 1}`}>
-                <div className="opp-card-top">
-                  <div className="opp-category-badge">{opp.category}</div>
-                  <div className="opp-type-pill">{opp.type}</div>
+                <div className="service-card-top">
+                  <span className="bpo-service-badge">{service.badge}</span>
+                  <div className="service-icon-wrap">{service.icon}</div>
                 </div>
 
-                <h3 className="opp-card-title">{opp.title}</h3>
-                <p className="opp-card-desc">{opp.description}</p>
-
-                <div className="opp-meta-row">
-                  <div className="opp-meta-item">
-                    <span className="meta-icon">📍</span>
-                    <span>{opp.location}</span>
-                  </div>
-                  <div className="opp-meta-item">
-                    <span className="meta-icon">⏱️</span>
-                    <span>{opp.duration}</span>
-                  </div>
-                  <div className="opp-meta-item">
-                    <span className="meta-icon">💳</span>
-                    <span>{opp.compensation}</span>
-                  </div>
+                <h3 className="service-card-title">{service.title}</h3>
+                <div className="bpo-service-price">
+                  {service.price} <span>/ 30-day pilot</span>
                 </div>
 
-                <div className="opp-skills-row">
-                  {opp.skills.map((skill, sIdx) => (
-                    <span key={sIdx} className="opp-skill-tag">{skill}</span>
-                  ))}
+                <p className="service-card-headline">{service.headline}</p>
+                <p className="service-card-desc">{service.description}</p>
+
+                <div className="service-deliverables">
+                  <span className="deliverables-title">What you get:</span>
+                  <ul>
+                    {service.deliverables.map((item, i) => (
+                      <li key={i}>
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" strokeWidth="2.5">
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                <div className="opp-card-footer">
-                  <Link href="/register" className="btn-opp-apply">
-                    <span>Apply for Opportunity</span>
-                    <span className="btn-arrow-icon">→</span>
+                <div className="service-card-footer">
+                  <Link href={service.href} className="btn btn-teal service-btn">
+                    Learn more &amp; Request Pilot
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
                   </Link>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Employer Quick Callout Banner */}
-          <div className="opp-employer-banner reveal-scale">
-            <div className="opp-banner-text">
-              <h4>Are you an employer looking to hire assessed talent?</h4>
-              <p>Post your project requirement, assemble a dedicated pod, or recruit directly.</p>
-            </div>
-            <Link href="/register/business" className="btn-warm-gold">
-              <span>Post a Tech Requirement</span>
-              <span className="btn-arrow-icon">→</span>
+          <div className="services-extra-note text-center reveal-on-scroll">
+            <p>
+              Need a tailored workflow or broader business process outsourcing?{" "}
+              <Link href="/contact" className="text-teal-bold">
+                Talk to our solutions team for a custom scope &rarr;
+              </Link>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. HOW IT WORKS (Five-Step Horizontal Process with Stagger) */}
+      <section className="bpo-process-section" id="how-it-works">
+        <div className="container">
+          <div className="section-head text-center reveal-on-scroll">
+            <span className="badge-sub">Governed Execution</span>
+            <h2 className="section-title">How Delivery Works</h2>
+            <p className="section-desc">
+              From our first diagnostic conversation to milestone handover, every step is transparent and supervised.
+            </p>
+          </div>
+
+          <div className="process-timeline-grid">
+            {processSteps.map((step, idx) => (
+              <div 
+                key={idx} 
+                className="bpo-process-step reveal-card"
+                style={{ transitionDelay: `${0.08 + idx * 0.12}s` }}
+              >
+                <div className="bpo-step-number">{step.number}</div>
+                <h4 className="step-title">{step.title}</h4>
+                <p className="step-desc">{step.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="process-cta-box text-center reveal-on-scroll">
+            <Link href="/how-it-works" className="btn btn-outline-navy">
+              Explore Our Full Governed Process &amp; QA Standards
             </Link>
           </div>
         </div>
       </section>
 
-      {/* =========================================================================
-           6. CLOSED-LOOP DELIVERY WORKFLOW
-      ============================================================================= */}
-      <section id="how-it-works" className="workflow-section">
+      {/* 5. WHY SASAKAZI (4 SME Differentiators) */}
+      <section className="bpo-why-section">
         <div className="container">
-          <div className="workflow-header-row reveal-on-scroll">
-            <div>
-              <div className="editorial-kicker">CLOSED-LOOP DELIVERY WORKFLOW</div>
-              <h2 className="editorial-heading">
-                How we move from business need to successful delivery.
-              </h2>
-            </div>
-            <p className="workflow-header-sub">
-              From requirement scoping to milestone sign-off, every step ensures verified capability, quality guardrails, and transparent accountability.
-            </p>
-          </div>
-
-          <div className="stages-columns-grid">
-            {DELIVERY_STAGES.map((stage, idx) => (
-              <div key={stage.phase} className={`stage-column-card reveal-on-scroll delay-${idx + 1}`}>
-                <div className="stage-top-meta">
-                  <span className="stage-mono-phase">{stage.phase}</span>
-                  <span className="stage-tag-badge">{stage.tag}</span>
-                </div>
-
-                <h3 className="stage-card-title">{stage.title}</h3>
-                <p className="stage-card-desc">{stage.desc}</p>
-
-                <div className="stage-details-list">
-                  {stage.details.map((detail, dIdx) => (
-                    <div key={dIdx} className="stage-detail-item">
-                      <span className="detail-dot" />
-                      <span>{detail}</span>
-                    </div>
-                  ))}
-                </div>
+          <div className="why-content-wrapper">
+            <div className="why-intro reveal-left">
+              <span className="badge-sub">The SasaKazi Advantage</span>
+              <h2>Why Kenyan SMEs Choose SasaKazi</h2>
+              <p>
+                Most business software fails because it is either too expensive, too complicated, or requires weeks of staff training. We solve the problem with real people and governed delivery.
+              </p>
+              <div className="why-callout">
+                <p>
+                  <strong>Backed by EldoHub:</strong> SasaKazi combines real market problem-solving for enterprises with rigorous digital career progression for African youth.
+                </p>
               </div>
-            ))}
+            </div>
+
+            <div className="why-grid">
+              {differentiators.map((item, idx) => (
+                <div 
+                  key={idx} 
+                  className="why-card reveal-card"
+                  style={{ transitionDelay: `${0.1 + idx * 0.15}s` }}
+                >
+                  <div className="why-icon">{item.icon}</div>
+                  <h4>{item.title}</h4>
+                  <p>{item.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* =========================================================================
-           7. VALUE FOR EVERY PARTICIPANT
-      ============================================================================= */}
-      <section className="value-participants-section">
-        <div className="container">
-          <div className="section-title-center reveal-on-scroll">
-            <div className="editorial-kicker">ECOSYSTEM ALIGNMENT</div>
-            <h2 className="editorial-heading">Value for Every Participant</h2>
-            <p className="section-sub-lead">
-              How SasaKazi delivers structured value across our entire digital network.
+      {/* 6. FAQ PREVIEW */}
+      <section className="bpo-faq-section" id="faqs">
+        <div className="container faq-container">
+          <div className="section-head text-center reveal-on-scroll">
+            <span className="badge-sub">Common Questions</span>
+            <h2 className="section-title">Frequently Asked Questions</h2>
+            <p className="section-desc">
+              Everything you need to know about our pilot structure, pricing, and handover.
             </p>
           </div>
 
-          <div className="editorial-tabs-bar reveal-on-scroll delay-1">
-            <button
-              className={`editorial-tab-btn ${activeTab === "businesses" ? "active" : ""}`}
-              onClick={() => setActiveTab("businesses")}
-            >
-              For Businesses
-            </button>
-            <button
-              className={`editorial-tab-btn ${activeTab === "talent" ? "active" : ""}`}
-              onClick={() => setActiveTab("talent")}
-            >
-              For Tech Talent
-            </button>
-            <button
-              className={`editorial-tab-btn ${activeTab === "partners" ? "active" : ""}`}
-              onClick={() => setActiveTab("partners")}
-            >
-              For Mentors &amp; Partners
-            </button>
-          </div>
-
-          <div className="editorial-tab-panel reveal-scale">
-            <div className="panel-narrative-col">
-              <h3 className="panel-title">{valueProps[activeTab].title}</h3>
-              <div className="panel-sub-highlight">{valueProps[activeTab].subtitle}</div>
-              <p className="panel-desc">{valueProps[activeTab].description}</p>
-              <div className="pt-2">
-                <Link href={valueProps[activeTab].ctaLink} className="btn-warm-gold">
-                  <span>{valueProps[activeTab].ctaText}</span>
-                  <span className="btn-arrow-icon">→</span>
-                </Link>
-              </div>
-            </div>
-
-            <div className="panel-points-col">
-              <div className="points-header-lbl">Key Value Drivers</div>
-              <div className="points-stack">
-                {valueProps[activeTab].points.map((pt, i) => (
-                  <div key={i} className="point-item-row">
-                    <span className="point-badge-check">✓</span>
-                    <span className="point-item-text">{pt}</span>
+          <div className="faq-accordion reveal-on-scroll">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index} 
+                className={`faq-item ${activeFaq === index ? "open" : ""}`}
+                onClick={() => toggleFaq(index)}
+              >
+                <div className="faq-question">
+                  <span>{faq.q}</span>
+                  <div className="faq-arrow">{activeFaq === index ? "−" : "+"}</div>
+                </div>
+                {activeFaq === index && (
+                  <div className="faq-answer">
+                    <p>{faq.a}</p>
                   </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-           8. OUR PARTNERS (African Development Bank, UK Kenya Tech Hub, etc.)
-      ============================================================================= */}
-      <section id="partners" className="partners-editorial-section">
-        <div className="container">
-          <div className="section-title-center reveal-on-scroll">
-            <div className="editorial-kicker">STRATEGIC NETWORK &amp; INSTITUTIONAL ALLIANCES</div>
-            <h2 className="editorial-heading">Our Partners</h2>
-            <p className="section-sub-lead">
-              Collaborating with leading regional and global institutions to build an ethical, high-quality African tech delivery network.
-            </p>
-          </div>
-
-          <div className="partners-editorial-grid">
-            {PARTNERS_DATA.map((partner, index) => (
-              <div key={index} className={`partner-editorial-card reveal-on-scroll delay-${index + 1}`}>
-                <div className="partner-card-top">
-                  <span className="partner-name-bold">{partner.name}</span>
-                  <span className="partner-short-tag">{partner.shortName}</span>
-                </div>
-                <div className="partner-role-badge">{partner.role}</div>
-                <p className="partner-desc-text">{partner.description}</p>
-                <div className="partner-focus-area">
-                  <span className="focus-lbl">Focus Area:</span> {partner.focusArea}
-                </div>
+                )}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* =========================================================================
-           9. FREQUENTLY ASKED QUESTIONS
-      ============================================================================= */}
-      <section id="faqs" className="faq-editorial-section">
-        <div className="container max-w-4xl">
-          <div className="section-title-center reveal-on-scroll">
-            <div className="editorial-kicker">FREQUENT QUESTIONS</div>
-            <h2 className="editorial-heading">Everything You Need to Know</h2>
-            <p className="section-sub-lead">
-              Clear answers on how SasaKazi assesses talent, coordinates delivery, and protects client investments.
-            </p>
-          </div>
-
-          <div className="faq-accordion-stack reveal-on-scroll delay-2">
-            {FAQ_ITEMS.map((faq, idx) => {
-              const isOpen = openFaqIndex === idx;
-              return (
-                <div key={idx} className="faq-item-card">
-                  <button
-                    className="faq-question-btn"
-                    onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                    aria-expanded={isOpen}
-                  >
-                    <span className="faq-q-text">{faq.question}</span>
-                    <span className={`faq-chevron ${isOpen ? "open" : ""}`}>↓</span>
-                  </button>
-                  {isOpen && (
-                    <div className="faq-answer-box">
-                      <p>{faq.answer}</p>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+      {/* 7. FINAL HIGH-CONVERSION CTA */}
+      <section className="bpo-final-cta-section">
+        <div className="container">
+          <div className="final-cta-card reveal-on-scroll">
+            <div className="final-cta-content text-center">
+              <span className="final-pill">No Long Sales Cycle • Fast 24h Response</span>
+              <h2>Ready to solve one practical problem?</h2>
+              <p>
+                Stop losing sleep over manual stock counts, delayed reconciliations, or unanswered customer quotes. Let’s scope a clear 30-day pilot together.
+              </p>
+              <div className="final-cta-btns">
+                <Link href="/contact" className="btn btn-teal btn-lg">
+                  Book a short call
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </Link>
+                <a 
+                  href="https://wa.me/254723567263?text=Hello%20SasaKazi%2C%20I%20would%20like%20to%20discuss%20a%20BPO%20pilot%20for%20my%20business." 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="btn btn-outline-white btn-lg"
+                >
+                  WhatsApp Us Directly
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* =========================================================================
-           10. FINAL CALL TO ACTION
-      ============================================================================= */}
-      <section id="contact" className="final-editorial-cta">
-        <div className="cta-bg-wrapper">
-          <img
-            src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80"
-            alt="African builders collaborating"
-            className="cta-bg-img"
-          />
-          <div className="cta-dark-overlay" />
-        </div>
-
-        <div className="container cta-content-container reveal-scale">
-          <div className="cta-kicker-tag">Let’s Build the Digital Future Together</div>
-
-          <h2 className="cta-display-title">Ready to Strengthen Your Digital Capacity?</h2>
-
-          <p className="cta-narrative">
-            Tell us what you need to achieve. We will help define the requirement, identify the capabilities and recommend a suitable engagement model.
-          </p>
-
-          <div className="cta-button-group">
-            <Link href="/register/business" className="btn-warm-gold-lg">
-              <span>Submit a Business Requirement</span>
-              <span className="btn-arrow-icon">→</span>
-            </Link>
-            <Link href="/register" className="btn-outline-glass-lg">
-              Join as Tech Talent
-            </Link>
-          </div>
-
-          <div className="cta-contact-subtext">
-            <span>Direct enquiries: </span>
-            <a href="mailto:info@sasakazi.com">info@sasakazi.com</a>
-            <span className="subtext-sep">•</span>
-            <a href="tel:+254723567263">+254 723 567 263</a>
-            <span className="subtext-sep">•</span>
-            <span>Eldoret &amp; Nairobi, Kenya</span>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-           STYLES — Replicating Twigs and Brooms Aesthetic Exactly
-      ============================================================================= */}
+      {/* Styled JSX Scoped to Homepage */}
       <style jsx>{`
-        /* Global Canvas Tone */
-        .twigs-brooms-style-page {
-          background-color: var(--color-bg-warm, #FAF7F0);
-          color: var(--color-text-dark, #0f172a);
-          font-family: var(--font-primary);
+        .bpo-home-page {
+          background-color: var(--color-bg-light, #F8FAFC);
           overflow-x: hidden;
-          scroll-behavior: smooth;
         }
 
-        /* 1. HERO EDITORIAL SECTION */
-        .hero-editorial-section {
-          position: relative;
-          height: 85vh;
-          min-height: 620px;
-          max-height: 800px;
-          margin-top: 0;
-          padding-top: 0;
-          display: flex;
-          align-items: center;
-          overflow: hidden;
-          border-bottom: 1px solid var(--color-border-stone, #d6d1c4);
+        /* =========================================================
+           SCROLL ANIMATIONS SYSTEM
+           ========================================================= */
+        .reveal-on-scroll {
+          opacity: 0;
+          transform: translateY(28px);
+          transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+          will-change: opacity, transform;
         }
-        .hero-photo-canvas {
-          position: absolute;
-          inset: 0;
-          z-index: 0;
+        .reveal-on-scroll.revealed {
+          opacity: 1;
+          transform: translateY(0);
         }
-        .hero-img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          display: block;
+
+        .reveal-left {
+          opacity: 0;
+          transform: translateX(-32px);
+          transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+          will-change: opacity, transform;
         }
-        .hero-gradient-overlay {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(
-            to right,
-            rgba(15, 61, 97, 0.94) 0%,
-            rgba(15, 61, 97, 0.82) 55%,
-            rgba(10, 30, 48, 0.45) 100%
-          );
+        .reveal-left.revealed {
+          opacity: 1;
+          transform: translateX(0);
+        }
+
+        .reveal-right {
+          opacity: 0;
+          transform: translateX(32px);
+          transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+          will-change: opacity, transform;
+        }
+        .reveal-right.revealed {
+          opacity: 1;
+          transform: translateX(0);
+        }
+
+        .reveal-card {
+          opacity: 0;
+          transform: translateY(24px) scale(0.98);
+          transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+          will-change: opacity, transform;
+        }
+        .reveal-card.revealed {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+
+        /* 1. HERO SECTION (Tightened top padding, no badge) */
+        .bpo-hero-section {
+          padding: 1.25rem 0 3.5rem 0;
+          background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+          border-bottom: 1px solid var(--color-border-gray, #E2E8F0);
         }
         .hero-container {
-          position: relative;
-          z-index: 10;
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 1.5rem;
-          width: 100%;
-        }
-        .hero-narrative-box {
-          max-width: 680px;
-        }
-        @keyframes heroEntrance {
-          from {
-            opacity: 0;
-            transform: translateY(22px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .hero-editorial-title {
-          font-family: var(--font-serif);
-          font-size: 2.8rem;
-          font-weight: 700;
-          color: #ffffff;
-          line-height: 1.14;
-          letter-spacing: -0.02em;
-          margin-bottom: 1.25rem;
-          text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-          animation: heroEntrance 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        @media (min-width: 768px) {
-          .hero-editorial-title {
-            font-size: 3.75rem;
-          }
-        }
-        .hero-title-accent {
-          color: #fbb63f;
-          font-style: normal !important; /* Non-italic per client request */
-          font-weight: 700;
-        }
-        .hero-editorial-lead {
-          font-size: 1.12rem;
-          color: rgba(255, 255, 255, 0.92);
-          line-height: 1.65;
-          margin-bottom: 2rem;
-          font-weight: 400;
-          opacity: 0;
-          animation: heroEntrance 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
-        }
-        .hero-actions-row {
-          display: flex;
-          flex-wrap: wrap;
-          align-items: center;
-          gap: 1rem;
-          margin-bottom: 2rem;
-          opacity: 0;
-          animation: heroEntrance 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
-        }
-        .btn-warm-gold {
-          background-color: var(--color-yellow);
-          color: #0f172a !important;
-          font-weight: 700;
-          font-size: 0.92rem;
-          padding: 0.9rem 1.8rem;
-          border-radius: 12px;
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          box-shadow: 0 6px 20px rgba(251, 182, 63, 0.35);
-          transition: all 0.25s ease;
-          border: none;
-          cursor: pointer;
-          text-decoration: none;
-        }
-        .btn-warm-gold:hover {
-          background-color: var(--color-yellow-dark);
-          transform: translateY(-2px);
-          box-shadow: 0 10px 25px rgba(251, 182, 63, 0.45);
-        }
-        .btn-outline-glass {
-          background-color: rgba(255, 255, 255, 0.12);
-          color: #ffffff !important;
-          font-weight: 700;
-          font-size: 0.92rem;
-          padding: 0.9rem 1.8rem;
-          border-radius: 12px;
-          border: 2px solid rgba(255, 255, 255, 0.85);
-          backdrop-filter: blur(6px);
-          transition: all 0.25s ease;
-          text-decoration: none;
-          display: inline-flex;
-          align-items: center;
-        }
-        .btn-outline-glass:hover {
-          background-color: #ffffff;
-          color: #0f172a !important;
-          transform: translateY(-2px);
-        }
-        .btn-arrow-icon {
-          font-weight: 800;
-          transition: transform 0.2s ease;
-        }
-        .btn-warm-gold:hover .btn-arrow-icon,
-        .btn-editorial-primary:hover .btn-arrow-icon,
-        .btn-opp-apply:hover .btn-arrow-icon {
-          transform: translateX(4px);
-        }
-
-        /* 2. IMPACT TELEMETRY LEDGER (6 Metrics) */
-        .telemetry-ledger-section {
-          padding: 4rem 0;
-          border-bottom: 1px solid var(--color-border-stone, #d6d1c4);
-          background-color: var(--color-bg-warm-subtle, #F5F2EA);
-        }
-        .ledger-grid-six {
           display: grid;
           grid-template-columns: 1fr;
-          gap: 1.5rem;
-        }
-        @media (min-width: 600px) {
-          .ledger-grid-six {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-        @media (min-width: 1024px) {
-          .ledger-grid-six {
-            grid-template-columns: repeat(3, 1fr);
-          }
-        }
-        .ledger-card {
-          background: #ffffff;
-          border: 1px solid var(--color-border-stone, #d6d1c4);
-          border-radius: 1rem;
-          padding: 2rem 1.75rem;
-          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-          transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-        .ledger-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 12px 25px rgba(0, 0, 0, 0.06);
-          border-color: #0f3d61;
-        }
-        .ledger-metric {
-          font-family: var(--font-serif);
-          font-size: 2.75rem;
-          font-weight: 700;
-          line-height: 1;
-          margin-bottom: 0.5rem;
-          letter-spacing: -0.02em;
-        }
-        .text-navy { color: #0f3d61; }
-        .text-terracotta { color: #C05621; }
-        .text-forest { color: #1b8a2c; }
-        .ledger-title {
-          font-family: var(--font-serif);
-          font-size: 1.15rem;
-          font-weight: 700;
-          color: #0f172a;
-          margin-bottom: 0.35rem;
-        }
-        .ledger-desc {
-          font-size: 0.88rem;
-          color: #57534e;
-          line-height: 1.5;
-          margin: 0;
-        }
-
-        /* Editorial Typography Kicker & Headings */
-        .editorial-kicker {
-          font-size: 0.78rem;
-          font-weight: 800;
-          text-transform: uppercase;
-          letter-spacing: 2px;
-          color: var(--color-terracotta, #C05621);
-          margin-bottom: 0.6rem;
-        }
-        .editorial-heading {
-          font-family: var(--font-serif);
-          font-size: 2.2rem;
-          font-weight: 700;
-          color: #0f172a;
-          line-height: 1.2;
-          letter-spacing: -0.02em;
-          margin-bottom: 1.25rem;
-        }
-        @media (min-width: 768px) {
-          .editorial-heading {
-            font-size: 2.75rem;
-          }
-        }
-
-        /* 3. WHO WE ARE & WHY IT MATTERS */
-        .who-matters-section {
-          padding: 5.5rem 0;
-          border-bottom: 1px solid var(--color-border-stone, #d6d1c4);
-        }
-        .who-matters-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 3.5rem;
+          gap: 2.5rem;
           align-items: center;
         }
         @media (min-width: 992px) {
-          .who-matters-grid {
-            grid-template-columns: 1.15fr 0.85fr;
+          .hero-container {
+            grid-template-columns: 1.2fr 1fr;
+            gap: 3.5rem;
           }
         }
-        .narrative-paragraphs p {
-          font-size: 1.05rem;
-          color: #334155;
-          line-height: 1.7;
-          margin-bottom: 1rem;
-        }
-        .checklist-block {
-          display: flex;
-          flex-direction: column;
-          gap: 0.75rem;
-          padding: 1.25rem 0;
-          margin-bottom: 1.5rem;
-        }
-        .check-item {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          font-size: 0.95rem;
-          color: #0f172a;
-          font-weight: 600;
-        }
-        .check-circle-green {
-          width: 22px;
-          height: 22px;
-          border-radius: 50%;
-          background: rgba(39, 201, 63, 0.15);
-          color: #1b8a2c;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 0.75rem;
-          font-weight: 900;
-          flex-shrink: 0;
-        }
-        .btn-editorial-primary {
-          background-color: #0f3d61;
-          color: #ffffff !important;
-          font-weight: 700;
-          font-size: 0.92rem;
-          padding: 0.85rem 1.8rem;
-          border-radius: 12px;
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          transition: all 0.25s ease;
-          text-decoration: none;
-        }
-        .btn-editorial-primary:hover {
-          background-color: #1a5b8c;
-          transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(15, 61, 97, 0.25);
-        }
-        .featured-editorial-card {
-          position: relative;
-          height: 440px;
-          border-radius: 1.25rem;
-          overflow: hidden;
-          border: 1px solid var(--color-border-stone, #d6d1c4);
-          background-color: #e7e5e4;
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-        }
-        .editorial-photo {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          display: block;
-          transition: transform 0.6s ease;
-        }
-        .featured-editorial-card:hover .editorial-photo {
-          transform: scale(1.04);
-        }
-
-        /* 4. CAPABILITY PORTFOLIO */
-        .capabilities-section {
-          padding: 5.5rem 0;
-          border-bottom: 1px solid var(--color-border-stone, #d6d1c4);
-          background-color: var(--color-bg-warm-subtle, #F5F2EA);
-        }
-        .section-title-center {
-          text-align: center;
-          max-width: 720px;
-          margin: 0 auto 3.5rem;
-        }
-        .section-sub-lead {
-          font-size: 1.05rem;
-          color: #57534e;
-          line-height: 1.6;
-        }
-        .capabilities-editorial-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 1.75rem;
-        }
-        @media (min-width: 650px) {
-          .capabilities-editorial-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-        @media (min-width: 1024px) {
-          .capabilities-editorial-grid {
-            grid-template-columns: repeat(3, 1fr);
-          }
-        }
-        .cap-editorial-card {
-          background: #ffffff;
-          border: 1px solid var(--color-border-stone, #d6d1c4);
-          border-radius: 1rem;
-          padding: 2.2rem 1.75rem;
-          display: flex;
-          flex-direction: column;
-          transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-        .cap-editorial-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
-          border-color: #0f3d61;
-        }
-        .cap-card-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 1.25rem;
-        }
-        .cap-mono-num {
-          font-family: var(--font-mono);
-          font-size: 1rem;
-          font-weight: 700;
-          color: #a8a29e;
-        }
-        .cap-category-pill {
-          font-size: 0.72rem;
-          font-weight: 800;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-          padding: 3px 10px;
-          background: #f1f5f9;
-          color: #0f3d61;
-          border-radius: var(--radius-full);
-        }
-        .cap-title {
-          font-family: var(--font-serif);
-          font-size: 1.35rem;
-          font-weight: 700;
-          color: #0f172a;
-          margin-bottom: 0.75rem;
-          line-height: 1.3;
-        }
-        .cap-desc {
-          font-size: 0.92rem;
-          color: #475569;
-          line-height: 1.6;
-          margin-bottom: 1.25rem;
-          flex-grow: 1;
-        }
-        .cap-subtags {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 6px;
-          margin-bottom: 1.5rem;
-        }
-        .cap-subtags span {
-          font-size: 0.75rem;
-          font-weight: 600;
-          background: #FAF7F0;
-          color: #334155;
-          padding: 3px 8px;
-          border-radius: 4px;
-          border: 1px solid #e7e5e4;
-        }
-        .cap-card-footer {
-          padding-top: 1rem;
-          border-top: 1px solid #f1f5f9;
-        }
-        .cap-link {
-          font-size: 0.88rem;
-          font-weight: 700;
-          color: #0f3d61;
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
-          text-decoration: none;
-          transition: color 0.2s ease;
-        }
-        .cap-link:hover {
-          color: #C05621;
-        }
-        .featured-cap-card {
-          background: #0f3d61;
-          color: #ffffff;
-          border-color: #0f3d61;
-        }
-        .featured-cap-card .cap-title {
-          color: #ffffff;
-        }
-        .featured-cap-card .cap-desc {
-          color: rgba(255, 255, 255, 0.85);
-        }
-        .featured-pill {
-          background: #fbb63f !important;
-          color: #0f172a !important;
-        }
-        .featured-cap-card .cap-subtags span {
-          background: rgba(255, 255, 255, 0.1);
-          color: #ffffff;
-          border-color: rgba(255, 255, 255, 0.2);
-        }
-        .featured-link {
-          color: #fbb63f !important;
-        }
-
-        /* 5. OPPORTUNITIES SECTION */
-        .opportunities-section {
-          padding: 5.5rem 0;
-          border-bottom: 1px solid var(--color-border-stone, #d6d1c4);
-          background-color: var(--color-bg-warm, #FAF7F0);
-        }
-        .opp-filter-bar {
-          display: flex;
-          justify-content: center;
-          flex-wrap: wrap;
-          gap: 0.75rem;
-          margin-bottom: 3rem;
-        }
-        .opp-filter-btn {
-          padding: 0.65rem 1.4rem;
-          font-size: 0.88rem;
-          font-weight: 700;
-          border-radius: var(--radius-full);
-          border: 1px solid var(--color-border-stone, #d6d1c4);
-          background: #ffffff;
-          color: #57534e;
-          cursor: pointer;
-          transition: all 0.2s ease;
-        }
-        .opp-filter-btn.active {
-          background-color: #0f3d61;
-          color: #ffffff;
-          border-color: #0f3d61;
-          box-shadow: 0 4px 15px rgba(15, 61, 97, 0.15);
-        }
-        .opp-listings-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 1.75rem;
-          margin-bottom: 3.5rem;
-        }
-        @media (min-width: 768px) {
-          .opp-listings-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-        .opp-listing-card {
-          background: #ffffff;
-          border: 1px solid var(--color-border-stone, #d6d1c4);
-          border-radius: 1.15rem;
-          padding: 2.2rem 1.75rem;
-          display: flex;
-          flex-direction: column;
-          transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-        .opp-listing-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06);
-          border-color: #0f3d61;
-        }
-        .opp-card-top {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 1rem;
-        }
-        .opp-category-badge {
-          font-size: 0.75rem;
-          font-weight: 800;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-          color: #C05621;
-        }
-        .opp-type-pill {
-          font-size: 0.72rem;
-          font-weight: 700;
-          padding: 3px 10px;
-          border-radius: var(--radius-full);
-          background: #f1f5f9;
-          color: #0f3d61;
-        }
-        .opp-card-title {
-          font-family: var(--font-serif);
-          font-size: 1.35rem;
-          font-weight: 700;
-          color: #0f172a;
-          margin-bottom: 0.75rem;
-          line-height: 1.3;
-        }
-        .opp-card-desc {
-          font-size: 0.92rem;
-          color: #475569;
-          line-height: 1.6;
-          margin-bottom: 1.25rem;
-          flex-grow: 1;
-        }
-        .opp-meta-row {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 1rem;
-          padding: 0.9rem 0;
-          border-top: 1px solid #f1f5f9;
-          border-bottom: 1px solid #f1f5f9;
-          margin-bottom: 1.25rem;
-          font-size: 0.82rem;
-          color: #64748b;
-        }
-        .opp-meta-item {
-          display: flex;
-          align-items: center;
-          gap: 5px;
-        }
-        .opp-skills-row {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 6px;
-          margin-bottom: 1.5rem;
-        }
-        .opp-skill-tag {
-          font-size: 0.75rem;
-          font-weight: 600;
-          background: #FAF7F0;
-          color: #334155;
-          padding: 3px 8px;
-          border-radius: 4px;
-          border: 1px solid #e7e5e4;
-        }
-        .opp-card-footer {
+        .hero-content {
           padding-top: 0.5rem;
         }
-        .btn-opp-apply {
-          background-color: #0f3d61;
-          color: #ffffff !important;
-          font-weight: 700;
+        .hero-title {
+          font-size: 2.5rem;
+          line-height: 1.15;
+          color: var(--color-navy);
+          font-weight: 800;
+          margin-top: 0;
+          margin-bottom: 1.25rem;
+          letter-spacing: -0.5px;
+        }
+        @media (min-width: 768px) {
+          .hero-title {
+            font-size: 3.4rem;
+          }
+        }
+        .hero-subtitle {
+          font-size: 1.15rem;
+          color: var(--color-text-muted);
+          line-height: 1.6;
+          margin-bottom: 2rem;
+          max-width: 580px;
+        }
+        .hero-cta-group {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+          margin-bottom: 2.25rem;
+        }
+        .hero-primary-btn {
+          font-size: 1.05rem !important;
+          padding: 0.95rem 2.2rem !important;
+        }
+        .hero-secondary-btn {
+          font-size: 1.05rem !important;
+          padding: 0.95rem 2rem !important;
+        }
+        .hero-reassurance-row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1.25rem;
           font-size: 0.88rem;
-          padding: 0.75rem 1.4rem;
-          border-radius: 10px;
-          display: inline-flex;
+          color: var(--color-text-muted);
+          font-weight: 600;
+        }
+        .reassurance-item {
+          display: flex;
           align-items: center;
           gap: 6px;
-          text-decoration: none;
-          transition: all 0.2s ease;
-          width: 100%;
-          justify-content: center;
-        }
-        .btn-opp-apply:hover {
-          background-color: #1a5b8c;
-          box-shadow: 0 4px 15px rgba(15, 61, 97, 0.25);
-        }
-        .opp-employer-banner {
-          background: #ffffff;
-          border: 1px solid var(--color-border-stone, #d6d1c4);
-          border-radius: 1.25rem;
-          padding: 2.25rem 2.5rem;
-          display: flex;
-          flex-direction: column;
-          gap: 1.5rem;
-          align-items: center;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-        }
-        @media (min-width: 860px) {
-          .opp-employer-banner {
-            flex-direction: row;
-            justify-content: space-between;
-          }
-        }
-        .opp-banner-text h4 {
-          font-family: var(--font-serif);
-          font-size: 1.35rem;
-          font-weight: 700;
-          color: #0f172a;
-          margin-bottom: 0.25rem;
-        }
-        .opp-banner-text p {
-          font-size: 0.95rem;
-          color: #57534e;
-          margin: 0;
         }
 
-        /* 6. CLOSED-LOOP WORKFLOW */
-        .workflow-section {
-          padding: 5.5rem 0;
-          border-bottom: 1px solid var(--color-border-stone, #d6d1c4);
-          background-color: var(--color-bg-warm-subtle, #F5F2EA);
+        /* =========================================================
+           CLEAN, HIGH-IMPACT BPO HERO CARD
+           ========================================================= */
+        .hero-visual-card {
+          position: relative;
         }
-        .workflow-header-row {
-          display: flex;
-          flex-direction: column;
-          gap: 1.5rem;
-          padding-bottom: 2.5rem;
-          border-bottom: 1px solid var(--color-border-stone, #d6d1c4);
-          margin-bottom: 3.5rem;
+        .clean-bpo-card {
+          background: #ffffff;
+          border-radius: 18px;
+          border: 1px solid var(--color-border-gray, #E2E8F0);
+          box-shadow: 0 14px 36px rgba(31, 78, 121, 0.08);
+          padding: 2.25rem 2rem;
+          transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        @media (min-width: 860px) {
-          .workflow-header-row {
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: flex-end;
-          }
-        }
-        .workflow-header-sub {
-          max-width: 440px;
-          font-size: 0.98rem;
-          color: #57534e;
-          line-height: 1.6;
-          margin: 0;
-        }
-        .stages-columns-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 2rem;
-        }
-        @media (min-width: 600px) {
-          .stages-columns-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-        @media (min-width: 1024px) {
-          .stages-columns-grid {
-            grid-template-columns: repeat(4, 1fr);
-          }
-        }
-        .stage-column-card {
-          border-top: 2px solid #0f172a;
-          padding-top: 1.5rem;
-          display: flex;
-          flex-direction: column;
-          transition: transform 0.2s ease;
-        }
-        .stage-column-card:hover {
+        .clean-bpo-card:hover {
           transform: translateY(-4px);
+          box-shadow: 0 20px 44px rgba(31, 78, 121, 0.12);
         }
-        .stage-top-meta {
+        .card-top-row {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          margin-bottom: 1rem;
+          margin-bottom: 1.75rem;
+          padding-bottom: 1rem;
+          border-bottom: 1px solid var(--color-border-gray);
         }
-        .stage-mono-phase {
-          font-family: var(--font-mono);
-          font-size: 2rem;
+        .card-title-text {
+          font-size: 0.95rem;
+          font-weight: 800;
+          color: var(--color-navy);
+          letter-spacing: -0.2px;
+        }
+        .card-status-pill {
+          font-size: 0.78rem;
           font-weight: 700;
-          color: #a8a29e;
+          background: var(--color-teal-light);
+          color: var(--color-teal-dark);
+          padding: 4px 10px;
+          border-radius: 6px;
+        }
+        .card-metrics-duo {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1.25rem;
+          margin-bottom: 2rem;
+        }
+        .clean-metric-box {
+          background: var(--color-bg-light);
+          border: 1px solid var(--color-border-gray);
+          border-radius: 12px;
+          padding: 1.25rem 1rem;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+        }
+        .metric-large {
+          font-size: 2.2rem;
+          font-weight: 800;
+          color: var(--color-navy);
           line-height: 1;
         }
-        .stage-tag-badge {
-          font-size: 0.72rem;
-          font-weight: 800;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          color: var(--color-terracotta, #C05621);
-        }
-        .stage-card-title {
-          font-family: var(--font-serif);
-          font-size: 1.25rem;
-          font-weight: 700;
-          color: #0f172a;
-          line-height: 1.3;
-          margin-bottom: 0.75rem;
-        }
-        .stage-card-desc {
-          font-size: 0.88rem;
-          color: #57534e;
-          line-height: 1.55;
-          margin-bottom: 1.5rem;
-          flex-grow: 1;
-        }
-        .stage-details-list {
-          padding-top: 1rem;
-          border-top: 1px solid rgba(0, 0, 0, 0.08);
-          display: flex;
-          flex-direction: column;
-          gap: 0.5rem;
-        }
-        .stage-detail-item {
-          display: flex;
-          align-items: center;
-          gap: 8px;
+        .metric-caption {
           font-size: 0.8rem;
-          color: #334155;
-          font-weight: 500;
+          color: var(--color-text-muted);
+          font-weight: 600;
         }
-        .detail-dot {
-          width: 6px;
-          height: 6px;
-          border-radius: 50%;
-          background: #1b8a2c;
-          flex-shrink: 0;
-        }
-
-        /* 7. VALUE FOR EVERY PARTICIPANT (Warm Tabs) */
-        .value-participants-section {
-          padding: 5.5rem 0;
-          border-bottom: 1px solid var(--color-border-stone, #d6d1c4);
-          background-color: var(--color-bg-warm, #FAF7F0);
-        }
-        .editorial-tabs-bar {
-          display: flex;
-          justify-content: center;
-          gap: 0.75rem;
-          margin-bottom: 2.5rem;
-          flex-wrap: wrap;
-        }
-        .editorial-tab-btn {
-          padding: 0.75rem 1.8rem;
-          font-size: 0.95rem;
-          font-weight: 700;
-          border-radius: var(--radius-full);
-          border: 1px solid var(--color-border-stone, #d6d1c4);
-          background: #ffffff;
-          color: #57534e;
-          cursor: pointer;
-          transition: all 0.2s ease;
-        }
-        .editorial-tab-btn.active {
-          background-color: #0f3d61;
-          color: #ffffff;
-          border-color: #0f3d61;
-          box-shadow: 0 4px 15px rgba(15, 61, 97, 0.2);
-        }
-        .editorial-tab-panel {
-          background: #ffffff;
-          border: 1px solid var(--color-border-stone, #d6d1c4);
-          border-radius: 1.25rem;
-          padding: 3rem;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 3rem;
-        }
-        @media (min-width: 860px) {
-          .editorial-tab-panel {
-            grid-template-columns: 1.1fr 0.9fr;
-          }
-        }
-        .panel-title {
-          font-family: var(--font-serif);
-          font-size: 1.8rem;
-          font-weight: 700;
-          color: #0f172a;
-          margin-bottom: 0.4rem;
-        }
-        .panel-sub-highlight {
-          font-size: 1.05rem;
-          font-weight: 700;
-          color: #C05621;
-          margin-bottom: 1rem;
-        }
-        .panel-desc {
-          font-size: 0.98rem;
-          color: #475569;
-          line-height: 1.65;
-          margin-bottom: 1.5rem;
-        }
-        .points-header-lbl {
-          font-size: 0.85rem;
-          font-weight: 800;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          color: #0f172a;
-          margin-bottom: 1.2rem;
-        }
-        .points-stack {
+        .card-checklist {
           display: flex;
           flex-direction: column;
-          gap: 1rem;
+          gap: 1.25rem;
+          margin-bottom: 2rem;
         }
-        .point-item-row {
+        .check-row {
           display: flex;
           align-items: flex-start;
           gap: 12px;
         }
-        .point-badge-check {
+        .check-circle {
           width: 22px;
           height: 22px;
           border-radius: 50%;
-          background: rgba(39, 201, 63, 0.15);
-          color: #1b8a2c;
-          font-weight: 900;
-          font-size: 0.75rem;
+          background: var(--color-teal-light);
+          color: var(--color-teal-dark);
           display: flex;
           align-items: center;
           justify-content: center;
+          font-size: 0.78rem;
+          font-weight: 800;
           flex-shrink: 0;
-          margin-top: 1px;
+          margin-top: 2px;
         }
-        .point-item-text {
+        .check-text {
           font-size: 0.92rem;
-          color: #334155;
-          line-height: 1.5;
+          color: var(--color-text-muted);
+          line-height: 1.45;
+        }
+        .check-text strong {
+          color: var(--color-navy);
+          font-weight: 700;
+        }
+        .card-bottom-pill {
+          background: var(--color-bg-light);
+          border: 1px dashed var(--color-border-gray);
+          color: var(--color-navy);
+          font-size: 0.82rem;
+          font-weight: 700;
+          text-align: center;
+          padding: 10px 14px;
+          border-radius: 10px;
         }
 
-        /* 8. STRATEGIC ECOSYSTEM PARTNERS */
-        .partners-editorial-section {
-          padding: 5.5rem 0;
-          border-bottom: 1px solid var(--color-border-stone, #d6d1c4);
-          background-color: var(--color-bg-warm-subtle, #F5F2EA);
+        /* 3. Core Services */
+        .bpo-services-section {
+          padding: 5rem 0;
+          background: #ffffff;
         }
-        .partners-editorial-grid {
+        .section-head {
+          max-width: 680px;
+          margin: 0 auto 3.5rem auto;
+        }
+        .text-center {
+          text-align: center;
+        }
+        .badge-sub {
+          display: inline-block;
+          font-size: 0.8rem;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: 1.2px;
+          color: var(--color-teal);
+          margin-bottom: 0.75rem;
+        }
+        .section-title {
+          font-size: 2.2rem;
+          color: var(--color-navy);
+          font-weight: 800;
+          margin-bottom: 1rem;
+        }
+        .section-desc {
+          font-size: 1.05rem;
+          color: var(--color-text-muted);
+          line-height: 1.6;
+        }
+        .services-cards-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          margin-bottom: 2.5rem;
+        }
+        @media (min-width: 992px) {
+          .services-cards-grid {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+        .service-card-top {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          margin-bottom: 0.5rem;
+        }
+        .service-icon-wrap {
+          color: var(--color-teal);
+          background: var(--color-teal-light);
+          width: 50px;
+          height: 50px;
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .service-card-title {
+          font-size: 1.35rem;
+          color: var(--color-navy);
+          font-weight: 800;
+          margin-bottom: 0.4rem;
+        }
+        .service-card-headline {
+          font-weight: 700;
+          font-size: 0.95rem;
+          color: var(--color-text-dark);
+          margin-bottom: 0.6rem;
+          line-height: 1.4;
+        }
+        .service-card-desc {
+          font-size: 0.88rem;
+          color: var(--color-text-muted);
+          line-height: 1.5;
+          margin-bottom: 1.5rem;
+        }
+        .service-deliverables {
+          background: var(--color-bg-light);
+          padding: 1.25rem;
+          border-radius: 10px;
+          margin-bottom: 1.5rem;
+          flex-grow: 1;
+        }
+        .deliverables-title {
+          display: block;
+          font-size: 0.8rem;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          color: var(--color-navy);
+          margin-bottom: 0.75rem;
+        }
+        .service-deliverables ul {
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+        .service-deliverables li {
+          display: flex;
+          align-items: flex-start;
+          gap: 8px;
+          font-size: 0.84rem;
+          color: var(--color-text-dark);
+          line-height: 1.3;
+        }
+        .service-btn {
+          width: 100%;
+        }
+        .text-teal-bold {
+          color: var(--color-teal);
+          font-weight: 700;
+          text-decoration: underline;
+        }
+
+        /* 4. Process Timeline */
+        .bpo-process-section {
+          padding: 5rem 0;
+          background: var(--color-bg-light);
+          border-top: 1px solid var(--color-border-gray);
+          border-bottom: 1px solid var(--color-border-gray);
+        }
+        .process-timeline-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          margin-bottom: 3rem;
+        }
+        @media (min-width: 768px) {
+          .process-timeline-grid {
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.25rem;
+          }
+        }
+        .step-title {
+          font-size: 1.1rem;
+          font-weight: 800;
+          color: var(--color-navy);
+          margin-bottom: 0.5rem;
+        }
+        .step-desc {
+          font-size: 0.85rem;
+          color: var(--color-text-muted);
+          line-height: 1.45;
+        }
+
+        /* 5. Why SasaKazi */
+        .bpo-why-section {
+          padding: 5rem 0;
+          background: #ffffff;
+        }
+        .why-content-wrapper {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 3rem;
+          align-items: center;
+        }
+        @media (min-width: 992px) {
+          .why-content-wrapper {
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+          }
+        }
+        .why-intro h2 {
+          font-size: 2.2rem;
+          color: var(--color-navy);
+          font-weight: 800;
+          margin-bottom: 1rem;
+        }
+        .why-intro p {
+          font-size: 1.05rem;
+          color: var(--color-text-muted);
+          line-height: 1.6;
+          margin-bottom: 1.5rem;
+        }
+        .why-callout {
+          background: var(--color-navy-light);
+          border-left: 4px solid var(--color-navy);
+          padding: 1rem 1.25rem;
+          border-radius: 0 8px 8px 0;
+          font-size: 0.9rem;
+          color: var(--color-navy);
+        }
+        .why-grid {
           display: grid;
           grid-template-columns: 1fr;
           gap: 1.5rem;
         }
-        @media (min-width: 600px) {
-          .partners-editorial-grid {
+        @media (min-width: 576px) {
+          .why-grid {
             grid-template-columns: repeat(2, 1fr);
           }
         }
-        @media (min-width: 1024px) {
-          .partners-editorial-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
+        .why-card {
+          background: var(--color-bg-light);
+          padding: 1.5rem;
+          border-radius: 12px;
+          border: 1px solid var(--color-border-gray);
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
-        .partner-editorial-card {
-          background: #ffffff;
-          border: 1px solid var(--color-border-stone, #d6d1c4);
-          border-radius: 1rem;
-          padding: 2.2rem 1.8rem;
-          display: flex;
-          flex-direction: column;
-          transition: transform 0.2s ease, box-shadow 0.2s ease;
+        .why-card:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 8px 20px rgba(31, 78, 121, 0.08);
+          border-color: rgba(13, 148, 136, 0.3);
         }
-        .partner-editorial-card:hover {
-          transform: translateY(-4px);
-          border-color: #0f3d61;
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-        }
-        .partner-card-top {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
+        .why-icon {
+          color: var(--color-teal);
           margin-bottom: 0.75rem;
         }
-        .partner-name-bold {
-          font-family: var(--font-serif);
-          font-size: 1.25rem;
-          font-weight: 700;
-          color: #0f172a;
-        }
-        .partner-short-tag {
-          font-family: var(--font-mono);
-          font-size: 0.75rem;
-          background: #FAF7F0;
-          padding: 3px 8px;
-          border-radius: 4px;
-          color: #57534e;
-          border: 1px solid #e7e5e4;
-        }
-        .partner-role-badge {
-          font-size: 0.8rem;
-          font-weight: 700;
-          color: #C05621;
-          margin-bottom: 0.75rem;
-        }
-        .partner-desc-text {
-          font-size: 0.9rem;
-          color: #57534e;
-          line-height: 1.6;
-          margin-bottom: 1.25rem;
-          flex-grow: 1;
-        }
-        .partner-focus-area {
-          font-size: 0.8rem;
-          color: #78716c;
-          border-top: 1px solid #f1f5f9;
-          padding-top: 0.85rem;
-        }
-        .focus-lbl {
-          font-weight: 700;
-          color: #334155;
-        }
-
-        /* 9. FAQ SECTION */
-        .faq-editorial-section {
-          padding: 5.5rem 0;
-          border-bottom: 1px solid var(--color-border-stone, #d6d1c4);
-          background-color: var(--color-bg-warm, #FAF7F0);
-        }
-        .faq-accordion-stack {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-          max-width: 800px;
-          margin: 0 auto;
-        }
-        .faq-item-card {
-          background: #ffffff;
-          border: 1px solid var(--color-border-stone, #d6d1c4);
-          border-radius: 0.85rem;
-          overflow: hidden;
-          transition: border-color 0.2s ease;
-        }
-        .faq-item-card:hover {
-          border-color: #0f3d61;
-        }
-        .faq-question-btn {
-          width: 100%;
-          text-align: left;
-          background: none;
-          border: none;
-          padding: 1.4rem 1.75rem;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          cursor: pointer;
-          gap: 1rem;
-        }
-        .faq-q-text {
-          font-family: var(--font-serif);
-          font-size: 1.15rem;
-          font-weight: 700;
-          color: #0f172a;
-        }
-        .faq-chevron {
-          font-size: 1.1rem;
-          color: #78716c;
-          transition: transform 0.25s ease;
-        }
-        .faq-chevron.open {
-          transform: rotate(180deg);
-          color: #0f3d61;
-        }
-        .faq-answer-box {
-          padding: 0 1.75rem 1.4rem;
-        }
-        .faq-answer-box p {
-          font-size: 0.95rem;
-          color: #475569;
-          line-height: 1.65;
-          margin: 0;
-        }
-
-        /* 10. FINAL EDITORIAL CTA */
-        .final-editorial-cta {
-          position: relative;
-          padding: 6.5rem 0;
-          text-align: center;
-          color: #ffffff;
-          overflow: hidden;
-        }
-        .cta-bg-wrapper {
-          position: absolute;
-          inset: 0;
-          z-index: 0;
-        }
-        .cta-bg-img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          display: block;
-        }
-        .cta-dark-overlay {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(
-            to bottom,
-            rgba(15, 61, 97, 0.95) 0%,
-            rgba(15, 61, 97, 0.92) 100%
-          );
-        }
-        .cta-content-container {
-          position: relative;
-          z-index: 10;
-          max-width: 780px;
-          margin: 0 auto;
-        }
-        .cta-kicker-tag {
-          display: inline-block;
-          font-size: 0.82rem;
+        .why-card h4 {
+          font-size: 1.05rem;
           font-weight: 800;
-          text-transform: uppercase;
-          letter-spacing: 2px;
-          color: #fbb63f;
+          color: var(--color-navy);
+          margin-bottom: 0.4rem;
+        }
+        .why-card p {
+          font-size: 0.85rem;
+          color: var(--color-text-muted);
+          line-height: 1.45;
+          margin-bottom: 0;
+        }
+
+        /* 6. FAQ Section */
+        .bpo-faq-section {
+          padding: 5rem 0;
+          background: var(--color-bg-light);
+        }
+        .faq-container {
+          max-width: 820px;
+        }
+        .faq-accordion {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+        .faq-item {
+          background: #ffffff;
+          border: 1px solid var(--color-border-gray);
+          border-radius: 10px;
+          padding: 1.25rem 1.5rem;
+          cursor: pointer;
+          transition: var(--transition-fast);
+        }
+        .faq-item:hover {
+          border-color: var(--color-teal);
+        }
+        .faq-question {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-weight: 700;
+          font-size: 1.02rem;
+          color: var(--color-navy);
+        }
+        .faq-arrow {
+          font-size: 1.3rem;
+          color: var(--color-teal);
+          font-weight: 800;
+        }
+        .faq-answer {
+          margin-top: 1rem;
+          padding-top: 1rem;
+          border-top: 1px solid var(--color-border-gray);
+          font-size: 0.92rem;
+          color: var(--color-text-muted);
+          line-height: 1.6;
+        }
+
+        /* 7. Final High-Conversion CTA */
+        .bpo-final-cta-section {
+          padding: 4rem 0 5rem 0;
+          background: var(--color-bg-light);
+        }
+        .final-cta-card {
+          background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-dark) 100%);
+          border-radius: 20px;
+          padding: 3.5rem 2rem;
+          color: #ffffff;
+          box-shadow: 0 16px 36px rgba(15, 47, 77, 0.25);
+        }
+        .final-cta-content {
+          max-width: 700px;
+          margin: 0 auto;
+        }
+        .final-pill {
+          display: inline-block;
+          background: rgba(13, 148, 136, 0.25);
+          color: #5eead4;
+          font-size: 0.8rem;
+          font-weight: 700;
+          padding: 4px 14px;
+          border-radius: var(--radius-full);
+          margin-bottom: 1.25rem;
+          border: 1px solid rgba(13, 148, 136, 0.4);
+        }
+        .final-cta-content h2 {
+          font-size: 2.2rem;
+          color: #ffffff;
+          font-weight: 800;
           margin-bottom: 1rem;
         }
-        .cta-display-title {
-          font-family: var(--font-serif);
-          font-size: 2.6rem;
-          font-weight: 700;
-          color: #ffffff;
-          line-height: 1.2;
-          letter-spacing: -0.02em;
-          margin-bottom: 1.25rem;
+        .final-cta-content p {
+          font-size: 1.05rem;
+          color: rgba(255, 255, 255, 0.85);
+          line-height: 1.6;
+          margin-bottom: 2rem;
         }
-        @media (min-width: 768px) {
-          .cta-display-title {
-            font-size: 3.25rem;
-          }
-        }
-        .cta-narrative {
-          font-size: 1.15rem;
-          color: rgba(255, 255, 255, 0.9);
-          line-height: 1.65;
-          margin-bottom: 2.5rem;
-        }
-        .cta-button-group {
+        .final-cta-btns {
           display: flex;
           justify-content: center;
           flex-wrap: wrap;
-          gap: 1.25rem;
-          margin-bottom: 2.5rem;
+          gap: 1rem;
         }
-        .btn-warm-gold-lg {
-          background-color: var(--color-yellow);
-          color: #0f172a !important;
-          font-weight: 700;
-          font-size: 1rem;
-          padding: 1rem 2.2rem;
-          border-radius: 12px;
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          box-shadow: 0 8px 25px rgba(251, 182, 63, 0.4);
-          transition: all 0.25s ease;
-          text-decoration: none;
-        }
-        .btn-warm-gold-lg:hover {
-          background-color: var(--color-yellow-dark);
-          transform: translateY(-2px);
-        }
-        .btn-outline-glass-lg {
-          background-color: rgba(255, 255, 255, 0.12);
-          color: #ffffff !important;
-          font-weight: 700;
-          font-size: 1rem;
-          padding: 1rem 2.2rem;
-          border-radius: 12px;
-          border: 2px solid rgba(255, 255, 255, 0.85);
-          backdrop-filter: blur(6px);
-          transition: all 0.25s ease;
-          text-decoration: none;
-          display: inline-flex;
-          align-items: center;
-        }
-        .btn-outline-glass-lg:hover {
-          background-color: #ffffff;
-          color: #0f172a !important;
-          transform: translateY(-2px);
-        }
-        .cta-contact-subtext {
-          font-size: 0.85rem;
-          color: rgba(255, 255, 255, 0.7);
-        }
-        .cta-contact-subtext a {
-          color: #ffffff;
-          text-decoration: underline;
-        }
-        .subtext-sep {
-          margin: 0 8px;
-          color: rgba(255, 255, 255, 0.4);
-        }
-
-        @media (max-width: 768px) {
-          .editorial-tab-panel {
-            padding: 1.75rem;
-          }
-          .editorial-heading {
-            font-size: 2rem;
-          }
-          .hero-editorial-title {
-            font-size: 2.3rem;
-          }
+        .btn-lg {
+          padding: 1rem 2.2rem !important;
+          font-size: 1.05rem !important;
         }
       `}</style>
     </div>
   );
-};
-
-export default Home;
+}

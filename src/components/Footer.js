@@ -12,20 +12,26 @@ export default function Footer() {
         {/* Brand Block */}
         <div className="footer-col brand-col">
           <Link href="/" className="footer-logo-link">
-            <Image 
-              src="/logo.png" 
-              alt="SasaKazi Logo" 
-              width={140} 
-              height={44} 
-              className="footer-logo-img"
-            />
+            <div className="footer-logo-lockup">
+              <Image 
+                src="/logo.png" 
+                alt="SasaKazi BPO Logo" 
+                width={140} 
+                height={44} 
+                className="footer-logo-img"
+              />
+              <span className="footer-bpo-tag">BPO</span>
+            </div>
           </Link>
           <p className="footer-tagline">
-            SasaKazi connects businesses with vetted African professionals through digital projects, managed BPO services and flexible workforce solutions.
+            Practical digital BPO for Kenyan businesses. Delivered by vetted local talent. Clear outcomes in 30–45 days with no expensive software lock-in.
           </p>
+          <div className="footer-powered-by">
+            <span>Powered by <strong>EldoHub</strong> • Eldoret &amp; Nairobi</span>
+          </div>
           <div className="footer-socials">
-            <a href="https://instagram.com/Sasakazi" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            <a href="https://wa.me/254723567263?text=Hello%20SasaKazi%2C%20I%20am%20interested%20in%20your%20practical%20digital%20BPO%20services." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Contact">
+              <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" /></svg>
             </a>
             <a href="https://facebook.com/Sasakazi" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -33,98 +39,93 @@ export default function Footer() {
             <a href="https://twitter.com/Sasakazi" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
               <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
             </a>
-            <a href="https://wa.me/254723567263?text=Hello%20SasaKazi%2C%20I%20am%20interested%20in%20connecting%20with%20your%20digital%20talent%20and%20BPO%20services." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Contact">
-              <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" /></svg>
+            <a href="https://instagram.com/Sasakazi" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
             </a>
           </div>
         </div>
 
-        {/* Links Column 1: Explore */}
+        {/* Links Column 1: Core BPO Services */}
         <div className="footer-col links-col">
-          <h3>Explore</h3>
+          <h3>BPO Services</h3>
           <ul className="footer-links-list">
-            <li><Link href="/">Home</Link></li>
-            <li><Link href="/#who-we-are">Who We Are</Link></li>
-            <li><Link href="/#services">Capabilities &amp; Services</Link></li>
-            <li><Link href="/#opportunities">Featured Opportunities</Link></li>
-            <li><Link href="/#how-it-works">How It Works</Link></li>
-            <li><Link href="/#partners">Our Partners</Link></li>
-            <li><Link href="/#faqs">FAQs</Link></li>
-            <li><a href="https://eldohub.co.ke" target="_blank" rel="noopener noreferrer">Knowledge Hub ↗</a></li>
+            <li><Link href="/services/stock-inventory">Stock &amp; Inventory Visibility</Link></li>
+            <li><Link href="/services/payments-reconciliation">Payments Reconciliation</Link></li>
+            <li><Link href="/services/customer-follow-up">Customer Follow-up</Link></li>
+            <li><Link href="/services">View All Services ↗</Link></li>
           </ul>
         </div>
 
-        {/* Links Column 2: Get Started */}
+        {/* Links Column 2: Company */}
         <div className="footer-col links-col">
-          <h3>Get Started</h3>
+          <h3>Company</h3>
           <ul className="footer-links-list">
-            <li><Link href="/register/business">Hire Tech Talent</Link></li>
-            <li><Link href="/#services">Start a Project</Link></li>
-            <li><Link href="/register">Join as Talent</Link></li>
-            <li><Link href="/#opportunities">Explore Live Openings</Link></li>
-            <li><Link href="/#contact">Partner With Us</Link></li>
+            <li><Link href="/about">About SasaKazi</Link></li>
+            <li><Link href="/how-it-works">How Delivery Works</Link></li>
+            <li><Link href="/for-businesses">For Businesses</Link></li>
+            <li><Link href="/contact">Talk to Us / Book a Call</Link></li>
+            <li><a href="https://eldohub.co.ke" target="_blank" rel="noopener noreferrer">EldoHub Ecosystem ↗</a></li>
           </ul>
         </div>
 
-        {/* Links Column 3: Legal and Safety */}
-        <div className="footer-col links-col">
-          <h3>Legal &amp; Safety</h3>
-          <ul className="footer-links-list">
-            <li><Link href="/privacy">Privacy Policy</Link></li>
-            <li><Link href="/terms">Terms &amp; Conditions</Link></li>
-            <li><Link href="/cookies">Cookie Policy</Link></li>
-            <li><Link href="/safeguarding">Safeguarding Statement</Link></li>
-            <li><Link href="/code-of-conduct">Code of Conduct</Link></li>
-            <li><Link href="/report-concern">Report a Concern</Link></li>
-          </ul>
-        </div>
-
-        {/* Links Column 4: Contact Details */}
+        {/* Links Column 3: Contact & Eldoret Address */}
         <div className="footer-col contact-col">
           <h3>Contact Details</h3>
           <ul className="footer-contact-list">
             <li>
               <span className="contact-icon-svg">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-blue)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                   <polyline points="22,6 12,13 2,6" />
                 </svg>
               </span>
               <div>
-                <span className="contact-label">Email</span>
-                <a href="mailto:info@sasakazi.com">info@sasakazi.com</a>
+                <span className="contact-label">Email Us</span>
+                <a href="mailto:info@sasakazi.co.ke">info@sasakazi.co.ke</a>
               </div>
             </li>
             <li>
               <span className="contact-icon-svg">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-blue)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                 </svg>
               </span>
               <div>
-                <span className="contact-label">Telephone</span>
+                <span className="contact-label">Phone &amp; WhatsApp</span>
                 <a href="tel:+254723567263">+254 723 567 263</a>
               </div>
             </li>
             <li>
               <span className="contact-icon-svg">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-blue)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>
               </span>
               <div>
                 <span className="contact-label">Location</span>
-                <span>Kenya</span>
+                <span>EldoHub Campus, Eldoret &amp; Nairobi, Kenya</span>
               </div>
             </li>
           </ul>
         </div>
       </div>
 
+      {/* Talent Secondary Note */}
+      <div className="footer-talent-strip">
+        <div className="container footer-talent-container">
+          <p>
+            Are you a local tech or operations professional?{" "}
+            <Link href="/register" className="footer-talent-link">
+              Apply to join the SasaKazi vetted talent roster &rarr;
+            </Link>
+          </p>
+        </div>
+      </div>
+
       <div className="footer-bottom">
         <div className="container footer-bottom-container">
-          <p>&copy; {currentYear} SasaKazi. Unlocking the digital future for African businesses with top-tier tech talent.</p>
+          <p>&copy; {currentYear} SasaKazi. A modern practical digital BPO capability powered by EldoHub.</p>
           <div className="footer-bottom-links">
             <Link href="/safeguarding">Safeguarding</Link>
             <span className="sep">•</span>
@@ -161,18 +162,18 @@ export default function Footer() {
         
         @media (min-width: 992px) {
           .footer-grid-container {
-            grid-template-columns: 1.8fr 1fr 1fr 1fr 1.3fr;
+            grid-template-columns: 1.8fr 1.2fr 1.2fr 1.5fr;
           }
         }
         
         .footer-col h3 {
-          color: var(--color-blue-dark);
+          color: var(--color-navy);
           font-size: 0.95rem;
           font-weight: 800;
           margin-bottom: var(--spacing-lg);
           position: relative;
           text-transform: uppercase;
-          letter-spacing: 1.5px;
+          letter-spacing: 1.2px;
         }
         
         .footer-col h3::after {
@@ -182,7 +183,7 @@ export default function Footer() {
           bottom: -8px;
           width: 24px;
           height: 3px;
-          background-color: var(--color-yellow);
+          background-color: var(--color-teal);
           border-radius: var(--radius-full);
         }
         
@@ -194,13 +195,25 @@ export default function Footer() {
         }
         
         .footer-logo-link {
+          display: inline-flex;
+          align-items: center;
+          text-decoration: none;
+        }
+        .footer-logo-lockup {
           display: flex;
           align-items: center;
-          gap: 0.75rem;
-          transition: transform 0.3s ease;
+          gap: 8px;
         }
-        .footer-logo-link:hover {
-          transform: scale(1.02);
+        .footer-bpo-tag {
+          background-color: var(--color-navy);
+          color: #ffffff;
+          font-family: var(--font-primary);
+          font-size: 0.75rem;
+          font-weight: 800;
+          letter-spacing: 0.8px;
+          padding: 2px 7px;
+          border-radius: 4px;
+          line-height: 1.3;
         }
         
         .footer-tagline {
@@ -210,11 +223,21 @@ export default function Footer() {
           max-width: 320px;
           margin-top: 0.25rem;
         }
+
+        .footer-powered-by {
+          font-size: 0.85rem;
+          color: var(--color-navy);
+          background-color: var(--color-navy-light);
+          padding: 6px 12px;
+          border-radius: 6px;
+          display: inline-block;
+          width: fit-content;
+        }
         
         .footer-socials {
           display: flex;
           gap: 0.75rem;
-          margin-top: 0.5rem;
+          margin-top: 0.25rem;
         }
         
         .footer-socials a {
@@ -223,19 +246,19 @@ export default function Footer() {
           justify-content: center;
           width: 38px;
           height: 38px;
-          border-radius: 12px;
+          border-radius: 10px;
           background-color: var(--color-white);
-          color: var(--color-blue);
+          color: var(--color-navy);
           border: 1px solid var(--color-border-gray);
-          transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+          transition: all 0.25s ease;
         }
         
         .footer-socials a:hover {
-          background-color: var(--color-blue);
+          background-color: var(--color-teal);
           color: var(--color-white);
-          border-color: var(--color-blue);
-          transform: translateY(-4px) scale(1.05);
-          box-shadow: 0 10px 20px rgba(26, 91, 140, 0.1);
+          border-color: var(--color-teal);
+          transform: translateY(-3px);
+          box-shadow: 0 8px 16px rgba(13, 148, 136, 0.25);
         }
         
         /* Links Column */
@@ -249,30 +272,16 @@ export default function Footer() {
         .footer-links-list a {
           font-size: 0.9rem;
           color: var(--color-text-muted);
-          transition: all 0.3s ease;
+          transition: all 0.2s ease;
           display: inline-flex;
           align-items: center;
           gap: 6px;
           text-decoration: none;
         }
         
-        .footer-links-list a::before {
-          content: '→';
-          opacity: 0;
-          transform: translateX(-10px);
-          transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-          color: var(--color-yellow-dark);
-          font-weight: 800;
-        }
-        
         .footer-links-list a:hover {
-          color: var(--color-blue);
-          padding-left: 8px;
-        }
-        
-        .footer-links-list a:hover::before {
-          opacity: 1;
-          transform: translateX(0);
+          color: var(--color-teal);
+          padding-left: 6px;
         }
         
         /* Contact Column */
@@ -309,18 +318,17 @@ export default function Footer() {
           width: 32px;
           height: 32px;
           border-radius: 8px;
-          background-color: var(--color-blue-light);
-          color: var(--color-blue);
+          background-color: var(--color-navy-light);
+          color: var(--color-navy);
           flex-shrink: 0;
           margin-top: 2px;
-          transition: all 0.3s ease;
+          transition: all 0.2s ease;
         }
         
         .footer-contact-list li:hover .contact-icon-svg {
-          background-color: var(--color-yellow-light);
-          color: var(--color-yellow-dark);
-          transform: scale(1.1);
-          box-shadow: 0 4px 10px rgba(251, 182, 63, 0.1);
+          background-color: var(--color-teal-light);
+          color: var(--color-teal);
+          transform: scale(1.08);
         }
         
         .footer-contact-list a {
@@ -330,15 +338,36 @@ export default function Footer() {
         }
         
         .footer-contact-list a:hover {
-          color: var(--color-blue);
+          color: var(--color-navy);
+        }
+
+        /* Talent Strip */
+        .footer-talent-strip {
+          border-top: 1px dashed var(--color-border-gray);
+          background-color: rgba(31, 78, 121, 0.03);
+          padding: 1rem 0;
+          font-size: 0.88rem;
+          color: var(--color-text-muted);
+        }
+        .footer-talent-container {
+          display: flex;
+          justify-content: center;
+          text-align: center;
+        }
+        .footer-talent-link {
+          color: var(--color-teal);
+          font-weight: 700;
+          text-decoration: underline;
+        }
+        .footer-talent-link:hover {
+          color: var(--color-teal-dark);
         }
         
         /* Bottom Bar */
         .footer-bottom {
           border-top: 1px solid var(--color-border-gray);
           padding: 1.5rem 0;
-          margin-top: var(--spacing-xl);
-          background-color: rgba(26, 91, 140, 0.02);
+          background-color: #ffffff;
           font-size: 0.85rem;
         }
         

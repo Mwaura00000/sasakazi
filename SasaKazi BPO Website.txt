@@ -1,0 +1,100 @@
+SasaKazi BPO Website
+Detailed Wireframe & Page-by-Page Content Outline
+Modern BPO Repositioning  |  October 2026
+This document provides a complete page-by-page content outline and wireframe structure for redesigning sasakazi.co.ke as a modern Business Process Outsourcing (BPO) website. It is based on the approved visual mockup direction and the SasaKazi BPO operating model.
+1. Global Elements (All Pages)
+Header / Navigation
+•  Logo: SasaKazi | BPO (left)
+•  Primary navigation: Services  |  How It Works  |  For Businesses  |  About  |  Contact
+•  Right-side primary CTA button: “Talk to Us” (solid teal)
+•  Optional secondary: small “Talent?” link placed in the footer or under Contact
+Footer
+•  Logo + short tagline
+•  Company links (About, How It Works, For Businesses, Contact)
+•  Services list (three core services + “More services”)
+•  Contact details: email, phone, WhatsApp, Eldoret address
+•  “Powered by EldoHub” with location indicator
+•  Copyright and privacy links
+Design System Notes
+•  Primary colour: Deep navy #1F4E79
+•  Accent / CTA colour: Teal #0D9488 (or close equivalent)
+•  Backgrounds: White + very light grey #F8FAFC
+•  Cards: White with soft shadow and rounded corners
+•  Typography: Clean geometric sans-serif (Inter or Plus Jakarta Sans style)
+•  Mobile: Thumb-friendly buttons; consider sticky bottom CTA bar
+2. Homepage (/)
+Purpose: Convert business visitors quickly. Lead with outcomes, not platform features.
+Section	Content & Notes
+Hero	Headline: “Practical digital BPO for Kenyan businesses” Sub-headline: “Delivered by vetted local talent. Clear outcomes in 30–45 days. No expensive software.” Primary CTA: “Book a short call” Secondary CTA: “View our services” Trust line: “Powered by EldoHub • Eldoret & Nairobi” Notes: Large, clean, minimal illustration or abstract shapes. Primary CTA solid; secondary outlined.
+Core Services	Three equal cards: 1. Stock & Inventory Visibility – “From KES 25,000” + Learn more 2. Payments Reconciliation – “From KES 20,000” + Learn more 3. Customer Follow-up – “From KES 18,000” + Learn more Notes: Icons above titles. Short benefit sentence under each title.
+How It Works	Five-step horizontal process: 1. Qualify → 2. Assess needs → 3. Match talent → 4. Deliver with QA → 5. Handover Notes: Numbered circles with short labels. Can link to the full How It Works page.
+Trust / Proof Bar	Four metrics or statements: “50+ businesses supported”, “Vetted local talent”, “Fixed-price pilots”, “Mentorship included” Notes: Dark navy background with white icons and text.
+Why SasaKazi (optional)	Three to four short differentiators in a row or 2×2 grid. Keep very concise on the homepage.
+Final CTA	“Ready to solve one practical problem?” + “Book a call” button. Full-width or centred block.
+3. Services Overview (/services)
+Purpose: Show the full packaged offer and make it easy to choose.
+•  Hero: “Our BPO Services” + short introductory paragraph
+•  Service grid: Larger cards or list for the three core services (designed to expand later)
+•  “Who this is for”: Short audience description focused on Eldoret and Kenyan SMEs
+•  Process reminder: Mini “How it works” strip
+•  CTA: “Not sure which service fits? Book a short conversation”
+4. Individual Service Pages
+Create one dedicated page per core service (and later for additional lines). Example paths: /services/stock-inventory, /services/payments-reconciliation, /services/customer-follow-up.
+Recommended structure for each service page
+•  Hero – Service name + one strong outcome sentence + “From KES XX,000” + primary CTA
+•  The Problem – Three to four bullet points describing the client’s pain
+•  What You Get – Clear list of pilot deliverables (scope)
+•  Who It’s For – Target client types
+•  How Delivery Works – Short version of the process focused on this service
+•  Investment – Pilot price bands + optional monthly support
+•  Quality Promise – Acceptance criteria and satisfaction standard
+•  CTA – “Start with a short conversation” or “Request this pilot”
+Apply the same clean structure to all three core services: Stock & Inventory Visibility, Payments Reconciliation, and Customer Follow-up.
+5. How It Works (/how-it-works)
+Purpose: Build BPO credibility through process transparency.
+•  Hero: “A clear, governed process from first conversation to handover”
+•  Full process: Detailed five-to-six steps with icons and two-to-three sentences each
+•  Quality & Governance: Short note on mentorship, QA gates, weekly reviews, and acceptance
+•  What happens after the pilot: Path to monthly support or further projects
+•  CTA: “See if this process fits your business – talk to us”
+6. For Businesses (/for-businesses)
+Purpose: Speak directly to the buyer.
+•  Hero: Outcome-focused message for business owners and managers
+•  Problems we solve: Inventory, payments, customer follow-up, basic reporting
+•  Why choose SasaKazi: Local talent + process + fixed price + handover
+•  Typical engagement: Pilot → results → optional ongoing support
+•  CTA: Strong “Book a needs conversation”
+7. About (/about)
+Purpose: Establish credibility and link clearly to EldoHub.
+•  Who we are: Short paragraph repositioning SasaKazi as the BPO capability
+•  Part of EldoHub: Clear connection and shared values
+•  Our approach: Talent + mentorship + practical delivery
+•  Locations: Eldoret (primary) and Nairobi
+•  Optional metrics: Businesses supported, talent placed, etc.
+•  CTA: Contact / Talk to us
+8. Contact / Start a Pilot (/contact)
+Purpose: Lowest-friction conversion point.
+Element	Recommendation
+Headline	“Let’s solve one practical problem together”
+Form fields	Name, Business name, Phone/WhatsApp, Which service interests you (dropdown), Short description of need, Preferred contact time
+Alternatives	Prominent WhatsApp button + phone number + email address
+Trust line	“We respond within one business day. No long sales process.”
+Location	Eldoret address (and optional map)
+9. Talent Section (Secondary)
+Either a simple /talent page or a clear footer/header link that leads to the existing talent-facing experience. Do not allow talent messaging to dominate the main business journey. Keep this path clearly secondary.
+10. Content & Tone Guidelines
+•  Lead with business outcomes, not platform features.
+•  Use simple, direct language suitable for SME owners.
+•  Always show price entry points for the three core services.
+•  Make the delivery process visible — this is a major trust builder for BPO buyers.
+•  Keep secondary talent messaging clearly separated from the business narrative.
+•  Every page should have one primary CTA and one lower-commitment secondary action.
+11. Recommended Build Priority
+•  1. Homepage (new hero + services + process + trust bar)
+•  2. Contact / Talk to Us page
+•  3. Three individual service pages
+•  4. How It Works page
+•  5. For Businesses + About pages
+•  6. Visual polish, mobile optimisation, and page speed
+This outline is detailed enough for a designer or developer to begin wireframing in Figma or to start building directly. It aligns with the visual mockup and the SasaKazi BPO commercial model.
+— End of Outline —

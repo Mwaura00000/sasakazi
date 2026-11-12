@@ -1,35 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..800;1,6..72,400..800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Strict White, Blue, and Yellow Brand Palette (from Sasakazi Logo) */
-  --color-blue: #1a5b8c;          /* Brand primary blue */
-  --color-blue-dark: #0f3d61;     /* Darker blue for contrast */
-  --color-blue-light: #e6f0fa;    /* Very light blue tint */
+  /* Modern BPO Palette (From SasaKazi BPO Design System) */
+  --color-navy: #1F4E79;           /* Primary brand deep navy */
+  --color-navy-dark: #0F2F4D;      /* Darker navy for proof bar & contrast */
+  --color-navy-light: #EBF3FA;     /* Very light navy tint */
   
-  --color-yellow: #fbb63f;        /* Brand accent yellow */
-  --color-yellow-dark: #e09b1f;   /* Darker yellow/orange for contrast */
-  --color-yellow-light: #fef8ec;  /* Very light yellow tint */
-  --color-terracotta: #C05621;    /* Warm editorial terracotta kicker */
+  --color-teal: #0D9488;           /* Primary accent & CTA teal */
+  --color-teal-dark: #0F766E;      /* Darker teal for hover states */
+  --color-teal-light: #F0FDFA;     /* Very light teal tint */
   
-  --color-white: #ffffff;         /* Pure white background */
-  --color-bg-warm: #FAF7F0;       /* Editorial oatmeal/cream background */
-  --color-bg-warm-subtle: #F5F2EA;/* Secondary warm ledger background */
-  --color-bg-light: #f8fafc;      /* Clean off-white/light gray tint */
+  --color-blue: #1F4E79;           /* Legacy alias mapped to Navy */
+  --color-blue-dark: #0F2F4D;      /* Legacy alias mapped to Dark Navy */
+  --color-blue-light: #EBF3FA;     /* Legacy alias mapped to Light Navy */
   
-  --color-text-dark: #0f172a;     /* Slate-900 high-contrast text */
-  --color-text-muted: #475569;    /* Slate-600 readable muted text */
-  --color-border-stone: #d6d1c4;  /* Hairline stone border */
-  --color-border-gray: #e2e8f0;   /* Light gray borders */
+  --color-yellow: #0D9488;         /* Replaced with Teal for high-converting CTA */
+  --color-yellow-dark: #0F766E;    /* Replaced with Teal Dark */
+  --color-yellow-light: #F0FDFA;   /* Replaced with Teal Light */
+  --color-terracotta: #C05621;     /* Editorial kicker */
+  
+  --color-white: #ffffff;          /* Pure white background */
+  --color-bg-light: #F8FAFC;       /* Modern clean light slate */
+  --color-bg-warm: #F8FAFC;        /* Light clean background */
+  --color-bg-warm-subtle: #F1F5F9; /* Secondary light background */
+  
+  --color-text-dark: #0F172A;      /* Slate-900 high-contrast text */
+  --color-text-muted: #475569;     /* Slate-600 readable muted text */
+  --color-text-light: #64748B;     /* Slate-500 secondary text */
+  --color-border-stone: #E2E8F0;   /* Clean stone border */
+  --color-border-gray: #E2E8F0;    /* Light gray borders */
   
   /* Semantic Color Mapping */
-  --color-primary: var(--color-blue);
-  --color-primary-dark: var(--color-blue-dark);
-  --color-primary-light: var(--color-blue-light);
-  --color-accent: var(--color-yellow);
-  --color-accent-dark: var(--color-yellow-dark);
-  --color-accent-light: var(--color-yellow-light);
+  --color-primary: var(--color-navy);
+  --color-primary-dark: var(--color-navy-dark);
+  --color-primary-light: var(--color-navy-light);
+  --color-accent: var(--color-teal);
+  --color-accent-dark: var(--color-teal-dark);
+  --color-accent-light: var(--color-teal-light);
   
-  /* Twigs and Brooms Typography: Newsreader + Plus Jakarta Sans + JetBrains Mono */
+  /* Typography: Plus Jakarta Sans / Inter style */
   --font-primary: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-serif: 'Newsreader', Georgia, Cambria, serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -44,17 +53,18 @@
   
   /* Shadows & Radius */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 12px rgba(26, 91, 140, 0.05);
-  --shadow-lg: 0 12px 24px rgba(26, 91, 140, 0.1);
-  --shadow-accent: 0 8px 16px rgba(251, 182, 63, 0.15);
-  --radius-sm: 4px;
-  --radius-md: 8px;
+  --shadow-md: 0 4px 14px rgba(31, 78, 121, 0.08);
+  --shadow-lg: 0 14px 28px rgba(31, 78, 121, 0.12);
+  --shadow-teal: 0 8px 20px rgba(13, 148, 136, 0.25);
+  --shadow-accent: 0 8px 20px rgba(13, 148, 136, 0.25);
+  --radius-sm: 6px;
+  --radius-md: 10px;
   --radius-lg: 16px;
   --radius-full: 9999px;
   
   /* Transitions */
-  --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-  --transition-fast: all 0.2s ease;
+  --transition-smooth: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-fast: all 0.15s ease;
 }
 
 /* Base Styles */
@@ -657,7 +667,7 @@ a {
 .cap-link {
   font-size: 0.88rem !important;
   font-weight: 700 !important;
-  color: #0f3d61 !important;
+  color: #1F4E79 !important;
   display: inline-flex !important;
   align-items: center !important;
   gap: 6px !important;
@@ -665,9 +675,225 @@ a {
   transition: color 0.2s ease !important;
 }
 .cap-link:hover {
-  color: #C05621 !important;
+  color: #0D9488 !important;
 }
 .featured-link {
-  color: #fbb63f !important;
+  color: #0D9488 !important;
 }
+
+/* =========================================================================
+   BPO DESIGN SYSTEM UTILITIES (Modern BPO Repositioning)
+   ========================================================================= */
+
+/* Button Teal - High Conversion Action */
+.btn-teal {
+  background-color: var(--color-teal) !important;
+  color: #ffffff !important;
+  font-family: var(--font-primary);
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  padding: 0.85rem 1.8rem !important;
+  border-radius: var(--radius-md) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.28) !important;
+  transition: var(--transition-smooth) !important;
+  border: 1px solid transparent !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+}
+.btn-teal:hover {
+  background-color: var(--color-teal-dark) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 22px rgba(13, 148, 136, 0.38) !important;
+  color: #ffffff !important;
+}
+
+/* Button Navy */
+.btn-navy {
+  background-color: var(--color-navy) !important;
+  color: #ffffff !important;
+  font-family: var(--font-primary);
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  padding: 0.85rem 1.8rem !important;
+  border-radius: var(--radius-md) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  transition: var(--transition-smooth) !important;
+  border: 1px solid transparent !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+}
+.btn-navy:hover {
+  background-color: var(--color-navy-dark) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(31, 78, 121, 0.25) !important;
+}
+
+/* Button Outline Teal & Navy */
+.btn-outline-navy {
+  background-color: transparent !important;
+  color: var(--color-navy) !important;
+  border: 2px solid var(--color-navy) !important;
+  font-family: var(--font-primary);
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  padding: 0.85rem 1.8rem !important;
+  border-radius: var(--radius-md) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  transition: var(--transition-smooth) !important;
+  text-decoration: none !important;
+}
+.btn-outline-navy:hover {
+  background-color: var(--color-navy) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Dark Navy Proof Bar */
+.bpo-proof-bar {
+  background-color: var(--color-navy-dark);
+  color: #ffffff;
+  padding: 2.2rem 0;
+  width: 100%;
+}
+.bpo-proof-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .bpo-proof-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+}
+.bpo-proof-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.bpo-proof-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background-color: rgba(13, 148, 136, 0.18);
+  color: var(--color-teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.bpo-proof-text strong {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  font-family: var(--font-primary);
+}
+.bpo-proof-text span {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Core Service Cards */
+.bpo-service-card {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-gray);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+.bpo-service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(31, 78, 121, 0.12);
+  border-color: rgba(13, 148, 136, 0.35);
+}
+.bpo-service-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background-color: var(--color-teal-light);
+  color: var(--color-teal-dark);
+  align-self: flex-start;
+  margin-bottom: 1rem;
+}
+.bpo-service-price {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--color-navy);
+  margin-bottom: 0.75rem;
+  font-family: var(--font-primary);
+}
+.bpo-service-price span {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text-light);
+}
+
+/* 5-Step Process Timeline */
+.bpo-process-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+.bpo-step-number {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-navy);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(31, 78, 121, 0.2);
+}
+.bpo-step-active .bpo-step-number {
+  background: var(--color-teal);
+  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.35);
+}
+
+/* Sticky Bottom Mobile Bar */
+@media (max-width: 767px) {
+  .sticky-mobile-cta-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border-top: 1px solid var(--color-border-gray);
+    padding: 10px 16px;
+    z-index: 998;
+    display: flex;
+    gap: 10px;
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
+  }
+}
+@media (min-width: 768px) {
+  .sticky-mobile-cta-bar {
+    display: none;
+  }
+}
+
 

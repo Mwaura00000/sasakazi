@@ -6,37 +6,29 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  const toggleModal = () => setIsOpen(!isOpen);
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
   const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "Who We Are", href: "/#who-we-are" },
-    { name: "Services", href: "/#services" },
-    { name: "Opportunities", href: "/#opportunities" },
-    { name: "How It Works", href: "/#how-it-works" },
-    { name: "Our Partners", href: "/#partners" },
-    { name: "FAQs", href: "/#faqs" },
-    { name: "Knowledge Hub", href: "https://eldohub.co.ke", external: true },
+    { name: "Services", href: "/services" },
+    { name: "How It Works", href: "/how-it-works" },
+    { name: "For Businesses", href: "/for-businesses" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
   ];
 
   const isActive = (href) => {
     if (href === "/") {
       return pathname === "/";
     }
-    if (href.startsWith("/#")) {
-      return false;
-    }
     return pathname.startsWith(href);
   };
 
   return (
     <>
-      {/* Sticky Navigation Wrapper (Twigs & Brooms Style) */}
+      {/* Sticky Navigation Wrapper */}
       <div className="sticky-nav-wrapper">
         {/* Top Contact & Quick Info Bar */}
         <div className="navbar-top-bar">
@@ -49,24 +41,24 @@ export default function Header() {
                 <span>+254 723 567 263</span>
               </a>
               <span className="top-bar-sep">•</span>
-              <a href="mailto:info@sasakazi.com" className="top-bar-item">
+              <a href="mailto:info@sasakazi.co.ke" className="top-bar-item">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                   <polyline points="22,6 12,13 2,6" />
                 </svg>
-                <span>info@sasakazi.com</span>
+                <span>info@sasakazi.co.ke</span>
               </a>
               <span className="top-bar-sep">•</span>
               <span className="top-bar-item">
-                <span>Kenya</span>
+                <span>Eldoret &amp; Nairobi</span>
               </span>
             </div>
             <div className="top-bar-right">
-              <a href="https://wa.me/254723567263" target="_blank" rel="noopener noreferrer" className="top-social-link">
-                WhatsApp Inquiry
-              </a>
+              <span className="top-brand-motto">Powered by EldoHub</span>
               <span className="top-bar-sep">|</span>
-              <span className="top-brand-motto">SasaKazi — Your Gateway to Africa’s Top Tech Talent</span>
+              <Link href="/register" className="top-social-link">
+                Talent? ↗
+              </Link>
             </div>
           </div>
         </div>
@@ -74,16 +66,19 @@ export default function Header() {
         {/* Main Header */}
         <header className="navbar-header">
           <div className="container navbar-container">
-            {/* Logo & Brand Group */}
+            {/* Logo: SasaKazi | BPO */}
             <Link href="/" className="navbar-logo-link" onClick={() => setMobileMenuOpen(false)}>
-              <Image 
-                src="/logo.png" 
-                alt="Sasakazi Logo" 
-                width={140} 
-                height={44} 
-                priority
-                className="navbar-logo-img"
-              />
+              <div className="logo-bpo-lockup">
+                <Image 
+                  src="/logo.png" 
+                  alt="SasaKazi Logo" 
+                  width={130} 
+                  height={42} 
+                  priority
+                  className="navbar-logo-img"
+                />
+                <span className="logo-bpo-tag">BPO</span>
+              </div>
             </Link>
 
             {/* Desktop Navigation */}
@@ -91,33 +86,19 @@ export default function Header() {
               <ul className="navbar-nav-list">
                 {navLinks.map((link) => (
                   <li key={link.name} className="navbar-nav-item">
-                    {link.external ? (
-                      <a
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="navbar-nav-link"
-                      >
-                        {link.name} ↗
-                      </a>
-                    ) : (
-                      <Link 
-                        href={link.href}
-                        className={`navbar-nav-link ${isActive(link.href) ? "active" : ""}`}
-                      >
-                        {link.name}
-                      </Link>
-                    )}
+                    <Link 
+                      href={link.href}
+                      className={`navbar-nav-link ${isActive(link.href) ? "active" : ""}`}
+                    >
+                      {link.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
               <div className="navbar-actions-group">
-                <Link href="/login" className="navbar-login-link">
-                  Login
+                <Link href="/contact" className="btn btn-teal cta-btn">
+                  Talk to Us
                 </Link>
-                <button onClick={toggleModal} className="btn btn-primary btn-sm cta-btn">
-                  Get Started
-                </button>
               </div>
             </nav>
 
@@ -141,11 +122,14 @@ export default function Header() {
         </header>
       </div>
 
-      {/* Mobile Drawer Slide-out Menu (White Background Theme) */}
+      {/* Mobile Drawer Slide-out Menu */}
       <div className={`navbar-mobile-drawer ${mobileMenuOpen ? "open" : ""}`}>
         <div className="drawer-header">
           <div className="drawer-logo-group">
-            <Image src="/logo.png" alt="Sasakazi Logo" width={110} height={36} className="drawer-logo" />
+            <div className="logo-bpo-lockup">
+              <Image src="/logo.png" alt="SasaKazi Logo" width={110} height={36} className="drawer-logo" />
+              <span className="logo-bpo-tag">BPO</span>
+            </div>
           </div>
           <button className="drawer-close" onClick={() => setMobileMenuOpen(false)} aria-label="Close menu">
             &times;
@@ -155,45 +139,32 @@ export default function Header() {
           <ul className="drawer-nav-list">
             {navLinks.map((link) => (
               <li key={link.name} className="drawer-nav-item">
-                {link.external ? (
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="drawer-nav-link"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {link.name} ↗
-                  </a>
-                ) : (
-                  <Link
-                    href={link.href}
-                    className={`drawer-nav-link ${isActive(link.href) ? "active" : ""}`}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {link.name}
-                  </Link>
-                )}
+                <Link
+                  href={link.href}
+                  className={`drawer-nav-link ${isActive(link.href) ? "active" : ""}`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
               </li>
             ))}
           </ul>
           <div className="drawer-actions-block">
             <Link 
-              href="/login" 
-              className="drawer-login-link"
+              href="/contact" 
+              className="btn btn-teal drawer-cta-btn"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Login
+              Talk to Us
             </Link>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                toggleModal();
-              }}
-              className="btn btn-primary drawer-cta-btn"
-            >
-              Get Started
-            </button>
+            <div className="drawer-secondary-link">
+              <Link 
+                href="/register" 
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Looking for work? Join as Talent ↗
+              </Link>
+            </div>
           </div>
         </nav>
       </div>
@@ -201,56 +172,6 @@ export default function Header() {
       {/* Mobile drawer backdrop */}
       {mobileMenuOpen && (
         <div className="navbar-overlay-backdrop" onClick={() => setMobileMenuOpen(false)}></div>
-      )}
-
-      {/* Persona Chooser Modal */}
-      {isOpen && (
-        <div className="modal-overlay" onClick={toggleModal}>
-          <div className="modal-content glass" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={toggleModal}>&times;</button>
-            
-            <div className="modal-header">
-              <h2>Join Sasakazi Platform</h2>
-              <p>Select your path to get started with Kenya's premier talent platform</p>
-            </div>
-
-            <div className="modal-grid">
-              {/* Talent Path */}
-              <div className="modal-card">
-                <div className="modal-card-icon talent-icon">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                  </svg>
-                </div>
-                <h3>I'm Digital Talent</h3>
-                <p>Build your profile, match with projects, access mentorship, and grow your career.</p>
-                <Link href="/register" className="btn btn-accent" onClick={toggleModal}>
-                  Join as Talent
-                </Link>
-              </div>
-
-              {/* Business Path */}
-              <div className="modal-card">
-                <div className="modal-card-icon business-icon">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-                  </svg>
-                </div>
-                <h3>I'm a Business</h3>
-                <p>Post tech projects, evaluate vetted applicants, and track secure milestone delivery.</p>
-                <Link href="/register/business" className="btn btn-primary" onClick={toggleModal}>
-                  Register Business
-                </Link>
-              </div>
-            </div>
-            
-            <div className="modal-footer">
-              <p>Are you a mentor or program partner? <Link href="/about" className="highlight-link" onClick={toggleModal}>Partner with Us</Link></p>
-            </div>
-          </div>
-        </div>
       )}
 
       {/* Header and Drawer styles (matching Twigs & Brooms editorial navbar system) */}
@@ -266,7 +187,7 @@ export default function Header() {
 
         /* Top Contact & Quick Info Strip (Twigs & Brooms Navy Bar) */
         .navbar-top-bar {
-          background-color: #0f3d61;
+          background-color: var(--color-navy-dark, #0F2F4D);
           color: rgba(255, 255, 255, 0.9);
           font-size: 0.78rem;
           font-family: var(--font-primary);
@@ -298,7 +219,7 @@ export default function Header() {
           transition: color 0.2s ease;
         }
         .top-bar-item:hover {
-          color: #fbb63f;
+          color: var(--color-teal);
         }
         .top-bar-sep {
           color: rgba(255, 255, 255, 0.35);
@@ -315,7 +236,7 @@ export default function Header() {
           }
         }
         .top-social-link {
-          color: #fbb63f;
+          color: var(--color-teal);
           font-weight: 700;
           text-decoration: none;
           display: inline-flex;
@@ -328,22 +249,21 @@ export default function Header() {
           text-decoration: underline;
         }
         .top-brand-motto {
-          font-family: var(--font-mono);
-          font-size: 0.72rem;
-          color: rgba(255, 255, 255, 0.65);
-          letter-spacing: 0.3px;
+          font-size: 0.75rem;
+          color: rgba(255, 255, 255, 0.75);
+          font-weight: 500;
         }
 
-        /* Main Editorial Header */
+        /* Main BPO Header */
         .navbar-header {
           position: relative;
           width: 100%;
           height: 72px;
-          background-color: rgba(255, 255, 255, 0.96);
+          background-color: rgba(255, 255, 255, 0.98);
           backdrop-filter: blur(12px);
           -webkit-backdrop-filter: blur(12px);
-          border-bottom: 1px solid var(--color-border-stone, #d6d1c4);
-          box-shadow: 0 2px 10px rgba(15, 61, 97, 0.05);
+          border-bottom: 1px solid var(--color-border-gray, #E2E8F0);
+          box-shadow: 0 2px 10px rgba(31, 78, 121, 0.05);
           display: flex;
           align-items: center;
           transition: var(--transition-smooth);
@@ -358,15 +278,32 @@ export default function Header() {
           display: flex;
           align-items: center;
           flex-shrink: 0;
+          text-decoration: none;
+        }
+        .logo-bpo-lockup {
+          display: flex;
+          align-items: center;
+          gap: 8px;
         }
         .navbar-logo-img {
-          height: 42px;
+          height: 40px;
           width: auto;
           object-fit: contain;
-          transition: var(--transition-smooth);
+        }
+        .logo-bpo-tag {
+          background-color: var(--color-navy);
+          color: #ffffff;
+          font-family: var(--font-primary);
+          font-size: 0.7rem;
+          font-weight: 800;
+          letter-spacing: 0.8px;
+          padding: 2px 7px;
+          border-radius: 4px;
+          display: inline-block;
+          line-height: 1.3;
         }
         .navbar-logo-link:hover .navbar-logo-img {
-          transform: scale(1.05);
+          transform: scale(1.03);
         }
 
         /* Desktop Nav */
@@ -396,7 +333,7 @@ export default function Header() {
         }
         :global(.navbar-nav-link):hover,
         :global(.navbar-nav-link.active) {
-          color: var(--color-blue) !important;
+          color: var(--color-navy) !important;
         }
         :global(.navbar-nav-link.active) {
           font-weight: 800;
@@ -408,7 +345,7 @@ export default function Header() {
           bottom: -4px;
           width: 0;
           height: 3px;
-          background-color: var(--color-yellow);
+          background-color: var(--color-teal);
           transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1);
           display: block;
         }
@@ -421,16 +358,19 @@ export default function Header() {
           align-items: center;
           gap: 1.5rem;
         }
-        .navbar-login-link {
-          font-weight: 600;
-          font-size: 0.95rem;
-          color: var(--color-text-muted);
-        }
-        .navbar-login-link:hover {
-          color: var(--color-blue);
-        }
         .cta-btn {
-          padding: 0.6rem 1.4rem !important;
+          padding: 0.65rem 1.6rem !important;
+          font-size: 0.9rem !important;
+        }
+        .drawer-secondary-link {
+          margin-top: 1.5rem;
+          text-align: center;
+        }
+        .drawer-secondary-link a {
+          font-size: 0.85rem;
+          color: var(--color-text-muted);
+          text-decoration: underline;
+        }
           font-size: 0.85rem !important;
         }
 
