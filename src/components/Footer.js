@@ -116,7 +116,7 @@ export default function Footer() {
         <div className="container footer-talent-container">
           <p>
             Are you a local tech or operations professional?{" "}
-            <Link href="/register" className="footer-talent-link">
+            <Link href="/talent" className="footer-talent-link">
               Apply to join the SasaKazi vetted talent roster &rarr;
             </Link>
           </p>

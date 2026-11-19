@@ -6,77 +6,89 @@ import Link from "next/link";
 export default function CustomerFollowUpServicePage() {
   const problems = [
     {
-      title: "Quotes Sent With Zero Follow-up",
-      desc: "Prospects request pricing or pro-forma invoices, but busy staff never follow up. More than 60% of potential sales die quietly in WhatsApp chats."
+      title: "Leads Going Cold",
+      desc: "Valuable customer inquiries and price quotation requests going cold because no one follows up systematically after the initial message."
     },
     {
-      title: "Valuable Client Contacts Lost on Staff Phones",
-      desc: "Customer numbers and chat histories are locked on individual sales attendants' personal phones. When a staff member leaves, client relationships vanish."
+      title: "Inconsistent, Ad-Hoc Outreach",
+      desc: "Follow-up depends on who is free or remembers to send a text, resulting in missed sales and an unorganized brand impression."
     },
     {
-      title: "Dormant Repeat Clients Ignored",
-      desc: "Existing buyers who used to order monthly are forgotten. Nobody proactively checks in on their next project or replenishment cycle."
+      title: "No Conversation Tracking System",
+      desc: "Customer chats scattered across individual staff personal phones with no shared pipeline showing who was quoted, who replied, or what comes next."
     },
     {
-      title: "Delayed Replies to Inbound Inquiries",
-      desc: "Incoming leads from social media, Google, or referrals wait 24 to 48 hours for a reply, by which time they have already purchased from a competitor."
+      title: "Lost Sales & Weak Conversion",
+      desc: "Spending money or effort generating leads only to see low conversion rates because warm prospects buy from competitors who followed up first."
     }
   ];
 
   const deliverables = [
     {
-      title: "Consolidated Master Customer Directory",
-      desc: "We extract, deduplicate, and organize all your customer contact details into a clean, searchable database or lightweight CRM."
+      title: "Lead & Inquiry Database Cleanup",
+      desc: "Centralize and clean customer contacts from WhatsApp chats, phone call logs, email threads, and walk-in records into one clear tracker."
     },
     {
-      title: "Structured Follow-up Cadence (Day 1, 3, 7)",
-      desc: "Polite, persistent messaging and calling scripts tailored to your brand voice to nurture stalled quotes into closed orders."
+      title: "Multi-Touch Cadence Protocol",
+      desc: "Disciplined Day 1, Day 3, and Day 7 follow-up routine via WhatsApp Business, phone calls, and email tailored to your typical sales cycle."
     },
     {
-      title: "Live Quote & Deal Pipeline Tracker",
-      desc: "A visual dashboard showing every open quotation, its value, probability of closing, and next scheduled contact date."
+      title: "Quote Pipeline & Status Tracker",
+      desc: "Live visual status board tracking every pending quotation, objection raised, follow-up date, and deal closure value."
     },
     {
-      title: "Inbound Lead Triage & Response Protocol",
-      desc: "Fast-response workflow ensuring any inquiry on WhatsApp Business or email receives a professional response within 15 minutes."
+      title: "Brand-Aligned Response Playbook",
+      desc: "Professional, polite message scripts and objection-handling templates customized to your business voice and pricing rules."
     },
     {
-      title: "Weekly Conversion & Customer Voice Insights",
-      desc: "Management report summarizing total quotes followed up, revenue recovered, common objections, and repeat order trends."
+      title: "Win/Loss Feedback & Objection Logs",
+      desc: "Actionable weekly log highlighting why prospects hesitated, competitor price comparisons, and customer sentiment."
     },
     {
-      title: "Sales Attendant Playbook & Handover",
-      desc: "Proven follow-up scripts, objection handling templates, and staff training so your team can maintain the sales momentum."
+      title: "Weekly Revenue Conversion Report",
+      desc: "Executive weekly summary for the business owner highlighting converted leads, closed revenue, and pipeline health."
     }
   ];
 
   const whoItsFor = [
-    "B2B Equipment, Solar & Agricultural Machinery Suppliers",
-    "Professional Services, Consultants & Legal / Accounting Agencies",
-    "Specialized Clinics, Wellness Centers & Dental Practices",
-    "Building Material & Hardware Wholesalers with commercial accounts"
+    {
+      sector: "SMEs Generating Inquiries",
+      desc: "Businesses receiving regular walk-ins, phone calls, WhatsApp messages, or website inquiries that fail to convert."
+    },
+    {
+      sector: "Contractors & Service Providers",
+      desc: "Fabricators, interior designers, consultants, and event planners sending out high-value quotes that stall without decisions."
+    },
+    {
+      sector: "B2B Wholesalers & Suppliers",
+      desc: "Companies wanting to reactivate dormant past buyers and re-engage dormant customer accounts."
+    },
+    {
+      sector: "Growing Businesses",
+      desc: "Owners wanting professional sales coordination without committing to the fixed overhead of a full-time in-house sales rep."
+    }
   ];
 
   const deliverySchedule = [
     {
       week: "Week 1",
-      title: "Contact Audit & Lead Mining",
-      desc: "Consolidation of past 90 days of quotes, leads, and customer databases into a single tracking sheet."
+      title: "Pipeline Audit & Scripting",
+      desc: "Audit of historical leads, dormant quote extraction, and creation of customized follow-up message scripts."
     },
     {
       week: "Week 2",
-      title: "Scripting & Cadence Setup",
-      desc: "Crafting customized Kenyan-friendly messaging sequences for WhatsApp, SMS, and direct telephone follow-up."
+      title: "Cadence Launch & Initial Waves",
+      desc: "Setup of shared tracking sheets, WhatsApp Business templates, and launch of outreach to recent open quotes."
     },
     {
       week: "Weeks 3-4",
-      title: "Active Outreach & Pipeline Re-engagement",
-      desc: "Vetted SasaKazi talent conducts structured follow-up campaigns under senior customer success mentor supervision."
+      title: "Active Outreach & Conversion",
+      desc: "Disciplined daily follow-ups, quote reviving, objection escalation, and senior EldoHub QA reviews."
     },
     {
       week: "Handover",
-      title: "Revenue Report & Process Handover",
-      desc: "Sign-off on recovered quote revenue, delivery of standard follow-up playbook, and optional ongoing retainer."
+      title: "Conversion Sign-Off & Playbook",
+      desc: "Delivery of converted sales report, handed-over contact database, and optional monthly retainer setup."
     }
   ];
 
@@ -91,29 +103,29 @@ export default function CustomerFollowUpServicePage() {
 
           <div className="hero-grid">
             <div className="hero-text">
-              <span className="badge-sub">30-Day Fixed Pilot</span>
+              <span className="badge-sub">30–45 Day Fixed Pilot</span>
               <h1>Customer Follow-up &amp; Retention</h1>
               <p className="hero-lead">
-                Turn stalled quotes, unanswered WhatsApp inquiries, and dormant client accounts into closed revenue with dedicated local talent.
+                Stop losing leads and customers through inconsistent follow-up. Put a reliable process in place.
               </p>
 
               <div className="hero-pricing-box">
                 <div className="price-tag">
                   From KES 18,000 <span>/ 30-Day Pilot</span>
                 </div>
-                <p className="price-sub">Fixed price • Delivered by vetted local talent • Senior QA included</p>
+                <p className="price-sub">Fixed price • Delivered by vetted local talent • Senior QA included • Lowest barrier entry point</p>
               </div>
 
               <div className="hero-cta-group">
-                <Link href="/contact" className="btn btn-teal btn-lg">
-                  Request This Pilot
+                <Link href="/contact?service=customer-follow-up" className="btn btn-teal btn-lg">
+                  Request Follow-up Pilot
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M5 12h14" />
                     <path d="m12 5 7 7-7 7" />
                   </svg>
                 </Link>
                 <a 
-                  href="https://wa.me/254723567263?text=Hello%20SasaKazi%2C%20I%20am%20interested%20in%20the%20Customer%20Follow-up%20pilot." 
+                  href="https://wa.me/254723567263?text=Hello%20SasaKazi%2C%20I%20am%20interested%20in%20the%20Customer%20Follow-up%20pilot%20(From%20KES%2018%2C000)." 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="btn btn-outline-navy btn-lg"
@@ -127,22 +139,19 @@ export default function CustomerFollowUpServicePage() {
               <h3>Pilot Snapshot</h3>
               <ul className="snapshot-list">
                 <li>
-                  <strong>Target Duration:</strong> 30 Days (4 Weeks)
+                  <strong>Target Duration:</strong> 30–45 Days to Outcome
                 </li>
                 <li>
-                  <strong>Investment:</strong> KES 18,000 – KES 30,000 (Based on pipeline size)
+                  <strong>Starting Investment:</strong> From KES 18,000 fixed
                 </li>
                 <li>
                   <strong>Monthly Retainer Option:</strong> From KES 12,000/mo ongoing
                 </li>
                 <li>
-                  <strong>Channels Supported:</strong> WhatsApp Business, Phone Calls &amp; Email
+                  <strong>Channels Covered:</strong> WhatsApp Business, Phone Calls &amp; Email
                 </li>
                 <li>
-                  <strong>Supervision:</strong> Governed by EldoHub customer success mentors
-                </li>
-                <li>
-                  <strong>Location:</strong> Eldoret, Nairobi &amp; Remote across Kenya
+                  <strong>Governed QA:</strong> Supervised by senior EldoHub customer success mentors
                 </li>
               </ul>
             </div>
@@ -154,10 +163,10 @@ export default function CustomerFollowUpServicePage() {
       <section className="section-padded bg-white">
         <div className="container">
           <div className="section-head text-center">
-            <span className="badge-sub">The Challenge</span>
-            <h2>Why Quotes Go Cold in Kenyan Businesses</h2>
+            <span className="badge-sub">The Problem</span>
+            <h2>Where Kenyan Businesses Lose Warm Revenue</h2>
             <p className="section-desc">
-              Your business spends money marketing and generating leads. Losing them due to slow or absent follow-up is pure waste.
+              Over 60% of customer inquiries drop off simply because no one replied quickly or followed up when the customer got busy.
             </p>
           </div>
 
@@ -177,10 +186,10 @@ export default function CustomerFollowUpServicePage() {
       <section className="section-padded bg-light">
         <div className="container">
           <div className="section-head text-center">
-            <span className="badge-sub">Tangible Scope</span>
-            <h2>What You Receive in the 30-Day Pilot</h2>
+            <span className="badge-sub">What You Get</span>
+            <h2>Tangible Deliverables in Your 30-Day Pilot</h2>
             <p className="section-desc">
-              A disciplined, high-touch follow-up system that recovers stalled deals without annoying your clients.
+              Organized contact databases, structured follow-up cadences, converted revenue, and a repeatable playbook your team owns forever.
             </p>
           </div>
 
@@ -203,16 +212,16 @@ export default function CustomerFollowUpServicePage() {
         <div className="container">
           <div className="who-container">
             <div className="who-header text-center">
-              <span className="badge-sub">Ideal Fit</span>
-              <h2>Who This Pilot Is Designed For</h2>
-              <p>Businesses whose sales cycle relies on quotations, proposals, and relationship building.</p>
+              <span className="badge-sub">Who It's For</span>
+              <h2>Designed for Businesses That Generate Leads But Convert Weakly</h2>
+              <p>SMEs that want professional sales and client follow-up without hiring a full-time coordinator immediately.</p>
             </div>
 
             <div className="who-cards-row">
               {whoItsFor.map((item, i) => (
                 <div key={i} className="who-item-card">
-                  <span className="who-badge">Target Industry</span>
-                  <p>{item}</p>
+                  <span className="who-badge">{item.sector}</span>
+                  <p>{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -220,12 +229,15 @@ export default function CustomerFollowUpServicePage() {
         </div>
       </section>
 
-      {/* 5. DELIVERY SCHEDULE */}
+      {/* 5. HOW DELIVERY WORKS */}
       <section className="section-padded bg-light">
         <div className="container">
           <div className="section-head text-center">
-            <span className="badge-sub">Execution Roadmap</span>
-            <h2>How the 30-Day Pilot Unfolds</h2>
+            <span className="badge-sub">How Delivery Works</span>
+            <h2>A Governed 4-Stage Lead Conversion Roadmap</h2>
+            <p className="section-desc">
+              Vetted local talent paired with senior EldoHub customer success mentors to protect your reputation and brand voice.
+            </p>
           </div>
 
           <div className="schedule-timeline">
@@ -237,6 +249,12 @@ export default function CustomerFollowUpServicePage() {
               </div>
             ))}
           </div>
+
+          <div className="text-center" style={{ marginTop: '2.5rem' }}>
+            <Link href="/how-it-works" className="btn btn-outline-navy">
+              See Our Full 5-Step Governed Process &rarr;
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -245,57 +263,59 @@ export default function CustomerFollowUpServicePage() {
         <div className="container">
           <div className="investment-grid">
             <div className="investment-card">
-              <span className="badge-sub">Fixed Investment</span>
+              <span className="badge-sub">Investment</span>
               <h3>Pilot Pricing Bands</h3>
               <p className="invest-desc">
-                Clear, transparent pilot fees with immediate ROI from closed quotes.
+                Clear upfront pilot pricing with agreed milestones. Lowest entry barrier of our three core services.
               </p>
               <div className="price-row">
-                <strong>KES 18,000</strong>
-                <span>Standard Pilot (Up to 150 active/dormant leads re-engaged)</span>
+                <strong>From KES 18,000</strong>
+                <span>Standard SME Pilot (Up to 100 active leads &amp; quotes / 1 pipeline)</span>
               </div>
               <div className="price-row">
-                <strong>KES 28,000</strong>
-                <span>Growth Pilot (Up to 400 leads + multi-channel outreach)</span>
+                <strong>From KES 28,000</strong>
+                <span>High-Volume Pipeline (Up to 300 active leads across multi-channel campaigns)</span>
               </div>
               <div className="price-row">
                 <strong>From KES 12,000/mo</strong>
-                <span>Dedicated ongoing monthly customer follow-up cadence</span>
+                <span>Optional ongoing monthly follow-up &amp; retention retainer after pilot</span>
               </div>
             </div>
 
             <div className="quality-card">
-              <span className="badge-sub">Quality Guarantee</span>
-              <h3>Professional Tone &amp; Governance</h3>
+              <span className="badge-sub">Quality Promise</span>
+              <h3>Brand Protection &amp; Courteous QA</h3>
               <p>
-                Every message and call is conducted under strict professional brand guidelines. Our QA team monitors customer interactions to safeguard your reputation.
+                Every message, phone conversation, and email is conducted courteously and strictly adheres to your approved brand guidelines.
               </p>
               <ul className="quality-bullets">
-                <li>Pre-approved communication templates before outreach begins</li>
-                <li>Daily logging of client sentiment and response status</li>
-                <li>Comprehensive handover session with your internal team</li>
+                <li>Senior mentor review on all customer response templates</li>
+                <li>Zero-spam guarantee with immediate opt-out compliance</li>
+                <li>Full client ownership of phone logs, CRM sheets, and lead notes</li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 7. BOTTOM CTA */}
+      {/* 7. FINAL CTA */}
       <section className="service-bottom-cta">
         <div className="container text-center">
-          <h2>Ready to turn cold quotes into revenue?</h2>
+          <h2>Stop Losing Inquiries and Dormant Customers</h2>
           <p>
-            Book a 15-minute diagnostic call with our team. We'll examine your current lead pipeline and show you how much revenue you can recover.
+            Request a pilot or start with a 15-minute diagnostic call. We will review your inquiry flow and confirm if this pilot fits your business.
           </p>
           <div className="cta-action-row">
-            <Link href="/contact" className="btn btn-teal btn-lg">
-              Book a Short Consultation
+            <Link href="/contact?service=customer-follow-up" className="btn btn-teal btn-lg">
+              Request Follow-up Pilot
             </Link>
             <a 
-              href="tel:+254723567263" 
+              href="https://wa.me/254723567263?text=Hello%20SasaKazi%2C%20I%20am%20ready%20to%20discuss%20the%20Customer%20Follow-up%20pilot." 
+              target="_blank" 
+              rel="noopener noreferrer" 
               className="btn btn-outline-white btn-lg"
             >
-              Call +254 723 567 263
+              Discuss on WhatsApp
             </a>
           </div>
         </div>
@@ -305,148 +325,160 @@ export default function CustomerFollowUpServicePage() {
         .service-detail-page {
           background-color: var(--color-bg-light);
         }
+
         .service-hero {
-          background: #ffffff;
-          padding: 3.5rem 0 4rem 0;
-          border-bottom: 1px solid var(--color-border-gray);
+          background: linear-gradient(180deg, #ffffff 0%, var(--color-bg-light) 100%);
+          padding: 3rem 0 4rem 0;
+          border-bottom: 1px solid var(--color-border);
         }
+
         .breadcrumb {
-          font-size: 0.85rem;
+          font-size: 0.88rem;
           color: var(--color-text-muted);
-          margin-bottom: 1.5rem;
+          margin-bottom: 2rem;
           display: flex;
           align-items: center;
-          gap: 6px;
+          gap: 8px;
         }
+
         .breadcrumb a {
-          color: var(--color-navy);
-          text-decoration: underline;
+          color: var(--color-teal);
+          text-decoration: none;
+          font-weight: 600;
         }
+
         .hero-grid {
           display: grid;
-          grid-template-columns: 1fr;
-          gap: 2.5rem;
+          grid-template-columns: 1.3fr 0.9fr;
+          gap: 3rem;
           align-items: center;
         }
-        @media (min-width: 992px) {
+
+        @media (max-width: 992px) {
           .hero-grid {
-            grid-template-columns: 1.35fr 1fr;
-            gap: 4rem;
+            grid-template-columns: 1fr;
+            gap: 2rem;
           }
         }
-        .badge-sub {
-          display: inline-block;
-          font-size: 0.8rem;
-          font-weight: 800;
-          text-transform: uppercase;
-          letter-spacing: 1.2px;
-          color: var(--color-teal);
-          margin-bottom: 0.5rem;
-        }
+
         .hero-text h1 {
-          font-size: 2.4rem;
+          font-size: 2.8rem;
           color: var(--color-navy);
           font-weight: 800;
-          line-height: 1.2;
-          margin-bottom: 1rem;
+          line-height: 1.15;
+          margin: 0.75rem 0 1.25rem 0;
+          letter-spacing: -0.02em;
         }
-        @media (min-width: 768px) {
-          .hero-text h1 {
-            font-size: 3rem;
-          }
-        }
+
         .hero-lead {
-          font-size: 1.15rem;
+          font-size: 1.2rem;
           color: var(--color-text-muted);
           line-height: 1.6;
-          margin-bottom: 1.5rem;
-        }
-        .hero-pricing-box {
-          background: var(--color-bg-light);
-          border-left: 4px solid var(--color-teal);
-          padding: 1.25rem 1.5rem;
-          border-radius: 0 10px 10px 0;
           margin-bottom: 2rem;
         }
+
+        .hero-pricing-box {
+          background: #ffffff;
+          border: 1px solid var(--color-border);
+          border-left: 4px solid var(--color-teal);
+          border-radius: var(--radius-md);
+          padding: 1.25rem 1.5rem;
+          margin-bottom: 2rem;
+          box-shadow: var(--shadow-sm);
+        }
+
         .price-tag {
           font-size: 1.8rem;
           font-weight: 800;
           color: var(--color-navy);
         }
+
         .price-tag span {
-          font-size: 0.95rem;
+          font-size: 1rem;
           font-weight: 600;
-          color: var(--color-text-muted);
+          color: var(--color-teal);
         }
+
         .price-sub {
-          font-size: 0.85rem;
+          font-size: 0.88rem;
           color: var(--color-text-muted);
-          margin-bottom: 0;
           margin-top: 4px;
         }
+
         .hero-cta-group {
           display: flex;
           flex-wrap: wrap;
           gap: 1rem;
         }
+
         .hero-summary-card {
-          background: var(--color-bg-light);
-          border-radius: 16px;
-          border: 1px solid var(--color-border-gray);
-          padding: 2rem;
-          box-shadow: 0 8px 24px rgba(31, 78, 121, 0.06);
+          background: #ffffff;
+          border-radius: var(--radius-lg);
+          border: 1px solid var(--color-border);
+          padding: 2.25rem;
+          box-shadow: var(--shadow-md);
         }
+
         .hero-summary-card h3 {
-          font-size: 1.2rem;
+          font-size: 1.3rem;
           color: var(--color-navy);
-          font-weight: 800;
-          margin-bottom: 1.25rem;
+          font-weight: 700;
+          margin-bottom: 1.5rem;
+          border-bottom: 1px solid var(--color-border);
           padding-bottom: 0.75rem;
-          border-bottom: 1px solid var(--color-border-gray);
         }
+
         .snapshot-list {
           list-style: none;
+          padding: 0;
+          margin: 0;
           display: flex;
           flex-direction: column;
-          gap: 0.9rem;
+          gap: 1.1rem;
         }
+
         .snapshot-list li {
-          font-size: 0.88rem;
-          color: var(--color-text-dark);
-          line-height: 1.4;
+          font-size: 0.95rem;
+          color: var(--color-text-main);
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
         }
+
         .snapshot-list strong {
           color: var(--color-navy);
-          display: block;
-          font-size: 0.75rem;
+          font-size: 0.82rem;
           text-transform: uppercase;
           letter-spacing: 0.5px;
         }
 
+        /* Shared Section Styles */
         .section-padded {
-          padding: 5rem 0;
+          padding: 4.5rem 0;
         }
+
         .bg-white {
           background: #ffffff;
         }
+
         .bg-light {
           background: var(--color-bg-light);
         }
-        .text-center {
-          text-align: center;
-        }
+
         .section-head {
-          max-width: 680px;
+          max-width: 700px;
           margin: 0 auto 3rem auto;
         }
+
         .section-head h2 {
           font-size: 2.2rem;
           color: var(--color-navy);
           font-weight: 800;
-          margin-bottom: 0.75rem;
+          margin: 0.5rem 0 1rem 0;
         }
+
         .section-desc {
-          font-size: 1rem;
+          font-size: 1.05rem;
           color: var(--color-text-muted);
           line-height: 1.6;
         }
@@ -454,66 +486,74 @@ export default function CustomerFollowUpServicePage() {
         /* Problems Grid */
         .problems-grid {
           display: grid;
-          grid-template-columns: 1fr;
+          grid-template-columns: repeat(2, 1fr);
           gap: 1.5rem;
         }
-        @media (min-width: 768px) {
+
+        @media (max-width: 768px) {
           .problems-grid {
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr;
           }
         }
+
         .problem-card {
-          background: var(--color-bg-light);
-          padding: 1.75rem;
-          border-radius: 12px;
-          border: 1px solid var(--color-border-gray);
-          position: relative;
+          background: #ffffff;
+          padding: 2rem;
+          border-radius: var(--radius-lg);
+          border: 1px solid var(--color-border);
+          box-shadow: var(--shadow-sm);
         }
+
         .problem-num {
-          font-size: 0.8rem;
+          font-size: 1rem;
           font-weight: 800;
           color: var(--color-teal);
           margin-bottom: 0.5rem;
         }
+
         .problem-card h4 {
-          font-size: 1.15rem;
+          font-size: 1.2rem;
           color: var(--color-navy);
-          font-weight: 800;
+          font-weight: 700;
           margin-bottom: 0.5rem;
         }
+
         .problem-card p {
-          font-size: 0.9rem;
+          font-size: 0.92rem;
           color: var(--color-text-muted);
-          line-height: 1.5;
-          margin-bottom: 0;
+          line-height: 1.6;
         }
 
-        /* Deliverables */
+        /* Deliverables Grid */
         .deliverables-grid {
           display: grid;
-          grid-template-columns: 1fr;
+          grid-template-columns: repeat(2, 1fr);
           gap: 1.5rem;
         }
-        @media (min-width: 768px) {
+
+        @media (max-width: 768px) {
           .deliverables-grid {
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr;
           }
         }
+
         .deliverable-card {
           background: #ffffff;
           padding: 1.75rem;
-          border-radius: 12px;
-          border: 1px solid var(--color-border-gray);
+          border-radius: var(--radius-lg);
+          border: 1px solid var(--color-border);
           display: flex;
-          align-items: flex-start;
           gap: 1rem;
+          align-items: flex-start;
+          box-shadow: var(--shadow-sm);
         }
+
         .del-check {
           width: 28px;
           height: 28px;
           border-radius: 50%;
-          background: var(--color-teal-light);
-          color: var(--color-teal-dark);
+          background: rgba(13, 148, 136, 0.12);
+          color: var(--color-teal);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -522,152 +562,189 @@ export default function CustomerFollowUpServicePage() {
           flex-shrink: 0;
           margin-top: 2px;
         }
+
         .deliverable-card h4 {
           font-size: 1.1rem;
           color: var(--color-navy);
-          font-weight: 800;
+          font-weight: 700;
           margin-bottom: 0.4rem;
         }
+
         .deliverable-card p {
-          font-size: 0.88rem;
+          font-size: 0.9rem;
           color: var(--color-text-muted);
-          line-height: 1.5;
-          margin-bottom: 0;
+          line-height: 1.55;
+          margin: 0;
         }
 
-        /* Who It's For */
+        /* Who Cards */
         .who-cards-row {
           display: grid;
-          grid-template-columns: 1fr;
+          grid-template-columns: repeat(4, 1fr);
           gap: 1.25rem;
+          margin-top: 2.5rem;
         }
-        @media (min-width: 768px) {
+
+        @media (max-width: 992px) {
           .who-cards-row {
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(2, 1fr);
           }
         }
+
+        @media (max-width: 576px) {
+          .who-cards-row {
+            grid-template-columns: 1fr;
+          }
+        }
+
         .who-item-card {
           background: var(--color-bg-light);
-          padding: 1.5rem;
-          border-radius: 12px;
-          border: 1px solid var(--color-border-gray);
+          padding: 1.75rem;
+          border-radius: var(--radius-lg);
+          border: 1px solid var(--color-border);
         }
+
         .who-badge {
           display: inline-block;
-          font-size: 0.72rem;
-          font-weight: 800;
+          font-size: 0.8rem;
+          font-weight: 700;
           text-transform: uppercase;
           color: var(--color-teal);
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.75rem;
         }
+
         .who-item-card p {
-          font-size: 0.9rem;
-          font-weight: 600;
-          color: var(--color-navy);
-          line-height: 1.4;
-          margin-bottom: 0;
+          font-size: 0.92rem;
+          color: var(--color-text-main);
+          line-height: 1.5;
+          margin: 0;
         }
 
         /* Schedule Timeline */
         .schedule-timeline {
           display: grid;
-          grid-template-columns: 1fr;
-          gap: 1.5rem;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 1.25rem;
         }
-        @media (min-width: 768px) {
+
+        @media (max-width: 992px) {
           .schedule-timeline {
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(2, 1fr);
           }
         }
+
+        @media (max-width: 576px) {
+          .schedule-timeline {
+            grid-template-columns: 1fr;
+          }
+        }
+
         .schedule-item {
           background: #ffffff;
           padding: 1.75rem;
-          border-radius: 12px;
-          border: 1px solid var(--color-border-gray);
+          border-radius: var(--radius-lg);
+          border: 1px solid var(--color-border);
+          box-shadow: var(--shadow-sm);
         }
+
         .step-tag {
-          font-size: 0.75rem;
-          font-weight: 800;
+          font-size: 0.78rem;
+          font-weight: 700;
           background: var(--color-navy);
           color: #ffffff;
-          padding: 2px 8px;
-          border-radius: 4px;
+          padding: 3px 10px;
+          border-radius: var(--radius-full);
           display: inline-block;
           margin-bottom: 0.75rem;
         }
+
         .schedule-item h4 {
           font-size: 1.1rem;
           color: var(--color-navy);
-          font-weight: 800;
+          font-weight: 700;
           margin-bottom: 0.4rem;
         }
+
         .schedule-item p {
-          font-size: 0.85rem;
+          font-size: 0.88rem;
           color: var(--color-text-muted);
           line-height: 1.5;
-          margin-bottom: 0;
+          margin: 0;
         }
 
-        /* Investment & Quality */
+        /* Investment & Quality Grid */
         .investment-grid {
           display: grid;
-          grid-template-columns: 1fr;
+          grid-template-columns: 1fr 1fr;
           gap: 2rem;
         }
-        @media (min-width: 768px) {
+
+        @media (max-width: 768px) {
           .investment-grid {
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
           }
         }
+
         .investment-card, .quality-card {
           background: var(--color-bg-light);
           padding: 2.25rem;
-          border-radius: 16px;
-          border: 1px solid var(--color-border-gray);
+          border-radius: var(--radius-lg);
+          border: 1px solid var(--color-border);
         }
+
         .investment-card h3, .quality-card h3 {
           font-size: 1.4rem;
           color: var(--color-navy);
           font-weight: 800;
-          margin-bottom: 0.75rem;
+          margin: 0.5rem 0 0.75rem 0;
         }
+
         .invest-desc {
-          font-size: 0.9rem;
+          font-size: 0.92rem;
           color: var(--color-text-muted);
           margin-bottom: 1.5rem;
+          line-height: 1.5;
         }
+
         .price-row {
           background: #ffffff;
-          border-radius: 8px;
+          border-radius: var(--radius-md);
           padding: 1rem 1.25rem;
           margin-bottom: 0.75rem;
-          border: 1px solid var(--color-border-gray);
+          border: 1px solid var(--color-border);
         }
+
         .price-row strong {
           display: block;
           color: var(--color-navy);
           font-size: 1.15rem;
           margin-bottom: 2px;
         }
+
         .price-row span {
-          font-size: 0.82rem;
+          font-size: 0.85rem;
           color: var(--color-text-muted);
         }
+
         .quality-bullets {
           list-style: none;
+          padding: 0;
           display: flex;
           flex-direction: column;
-          gap: 0.75rem;
-          margin-top: 1.25rem;
+          gap: 0.85rem;
+          margin-top: 1.5rem;
         }
+
         .quality-bullets li {
-          font-size: 0.9rem;
-          color: var(--color-text-dark);
+          font-size: 0.92rem;
+          color: var(--color-text-main);
           position: relative;
-          padding-left: 1.25rem;
+          padding-left: 1.4rem;
+          line-height: 1.5;
         }
+
         .quality-bullets li::before {
-          content: '✔';
+          content: '✓';
           position: absolute;
           left: 0;
           color: var(--color-teal);
@@ -678,29 +755,50 @@ export default function CustomerFollowUpServicePage() {
         .service-bottom-cta {
           background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-dark) 100%);
           color: #ffffff;
-          padding: 5rem 0;
+          padding: 4.5rem 0;
         }
+
         .service-bottom-cta h2 {
           font-size: 2.4rem;
           color: #ffffff;
           font-weight: 800;
           margin-bottom: 1rem;
         }
+
         .service-bottom-cta p {
           font-size: 1.1rem;
           color: rgba(255, 255, 255, 0.85);
-          max-width: 600px;
+          max-width: 650px;
           margin: 0 auto 2rem auto;
           line-height: 1.6;
         }
+
         .cta-action-row {
           display: flex;
           justify-content: center;
           flex-wrap: wrap;
           gap: 1rem;
         }
+
+        .btn-outline-white {
+          background: rgba(255, 255, 255, 0.1);
+          color: #ffffff;
+          border: 1.5px solid rgba(255, 255, 255, 0.8);
+          padding: 0.85rem 1.75rem;
+          border-radius: var(--radius-md);
+          font-weight: 700;
+          font-size: 1rem;
+          text-decoration: none;
+          transition: all 0.2s ease;
+          display: inline-flex;
+          align-items: center;
+        }
+
+        .btn-outline-white:hover {
+          background: #ffffff;
+          color: var(--color-navy);
+        }
       `}</style>
     </div>
   );
 }
-

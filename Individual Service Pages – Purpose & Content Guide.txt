@@ -1,0 +1,98 @@
+SasaKazi BPO Website
+Individual Service Pages – Purpose & Content Guide
+Consolidated explanation for developers and content stakeholders  •  November 2026
+1. Overview
+The website has three dedicated individual service pages. Each page focuses on one core BPO offer and is designed to turn a specific operational problem into a clear, low-risk pilot conversation.
+All three pages share the same structure and conversion logic. Only the content (problem, deliverables, audience, and pricing) changes.
+The three pages are:
+•	Stock & Inventory Visibility  →  /services/stock-inventory  (From KES 25,000)
+•	Payments Reconciliation  →  /services/payments-reconciliation  (From KES 20,000)
+•	Customer Follow-up  →  /services/customer-follow-up  (From KES 18,000)
+2. Shared Page Structure
+Every individual service page follows this exact sequence:
+•	Hero – Service name + one strong outcome sentence + “From KES XX,000” + Primary CTA
+•	The Problem – Three to four bullet points describing the client’s pain
+•	What You Get – Clear list of pilot deliverables (scope)
+•	Who It’s For – Target client types
+•	How Delivery Works – Short version of the process focused on this service
+•	Investment – Pilot price bands + optional monthly support
+•	Quality Promise – Acceptance criteria and satisfaction standard
+•	Final CTA – “Start with a short conversation” or “Request this pilot”
+Primary CTA on every service page routes the visitor to /contact and should pre-select the relevant service in the form dropdown via a query parameter (e.g. ?service=stock-inventory).
+3. Stock & Inventory Visibility
+URL: /services/stock-inventory
+Starting price: From KES 25,000
+What this page does
+This page positions SasaKazi as the practical partner that helps Kenyan SMEs finally see what stock they actually have, where it is, and what is moving or stuck. Many businesses lose money through stock-outs, overstock, or pure lack of visibility. The page explains that a fixed-price pilot, delivered by vetted local talent in 30–45 days, can create usable inventory visibility without forcing the client to buy expensive software.
+Core message
+“Stop guessing your stock position. Get clear visibility, practical processes, and a clean handover.”
+Typical problem points to surface
+•	No reliable real-time or near-real-time view of stock levels
+•	Frequent stock-outs or excess inventory tying up cash
+•	Manual counts that are slow, error-prone, or rarely done
+•	Difficulty knowing what is selling versus what is sitting
+Who it’s for
+•	Retailers, wholesalers, distributors and SMEs that carry physical stock
+•	Businesses that have outgrown pure manual tracking but are not ready for complex ERP systems
+Suggested primary CTA labels
+•	Request Inventory Pilot
+•	Start with a short conversation
+4. Payments Reconciliation
+URL: /services/payments-reconciliation
+Starting price: From KES 20,000
+What this page does
+This page addresses the common SME frustration of payments that do not match invoices, bank statements, M-Pesa records or customer accounts. It shows that SasaKazi can take over the messy reconciliation work, clean a defined period, produce clear reports, and leave the business with a repeatable process so the owner no longer spends hours chasing missing money or fixing the books.
+Core message
+“Get your payments matched, reported and under control — without the daily headache.”
+Typical problem points to surface
+•	Unmatched or missing payments across bank, mobile money and cash
+•	Delayed or incomplete reconciliations that hide cash-flow problems
+•	Time wasted on manual matching and follow-up
+•	Uncertainty about what has actually been received versus what is still outstanding
+Who it’s for
+•	Businesses receiving money through multiple channels (bank transfers, M-Pesa, cash, cards, etc.)
+•	Owners or finance staff who currently reconcile manually or irregularly
+Suggested primary CTA labels
+•	Request Payments Pilot
+•	Start with a short conversation
+5. Customer Follow-up
+URL: /services/customer-follow-up
+Starting price: From KES 18,000
+What this page does
+This page targets the revenue that is lost when leads and customers are not followed up consistently. It positions the service as a practical way to ensure enquiries, quotes and existing customers receive timely, professional follow-up — handled by trained local talent under SasaKazi’s process and quality checks. The pilot is the lowest entry point of the three core services.
+Core message
+“Stop losing leads and customers through inconsistent follow-up. Put a reliable process in place.”
+Typical problem points to surface
+•	Leads going cold because no one follows up systematically
+•	Inconsistent or ad-hoc follow-up depending on who is free
+•	No simple system for tracking conversations and next actions
+•	Lost sales and weak conversion of enquiries into paying customers
+Who it’s for
+•	SMEs that generate leads (walk-ins, calls, WhatsApp, website, referrals) but struggle to convert them consistently
+•	Businesses that want professional follow-up without hiring a full-time sales coordinator immediately
+Suggested primary CTA labels
+•	Request Follow-up Pilot
+•	Start with a short conversation
+6. Quick Comparison
+Service	From Price	Core Problem Solved	Primary Audience
+Stock & Inventory Visibility	KES 25,000	No clear view of stock levels and movement	Retailers, wholesalers, distributors
+Payments Reconciliation	KES 20,000	Unmatched payments and messy cash tracking	Multi-channel payment receivers
+Customer Follow-up	KES 18,000	Leads and customers not followed up consistently	SMEs generating leads but converting poorly
+7. Role in the Overall Conversion System
+These pages sit in the middle of the main business journey:
+•	Visitor discovers a service on the Homepage or Services Overview
+•	Clicks “Learn more” and lands on the relevant individual service page
+•	Reads the problem, deliverables, price and process
+•	Clicks the primary CTA and is taken to /contact with the service already pre-selected
+•	Completes the short form or uses WhatsApp / phone
+Because each page shows a clear price entry point and a concrete pilot scope, it reduces uncertainty and makes the decision to start a conversation feel safer for SME owners.
+8. Content & Tone Notes for These Pages
+•	Lead with business outcomes, not technology or platform features
+•	Use simple, direct language suitable for busy SME owners
+•	Always show the “From KES …” price
+•	Keep the delivery process visible — this builds trust for BPO buyers
+•	One primary CTA only (solid teal) and one lower-commitment secondary action if needed
+•	Avoid mixing talent-recruitment messaging into these pages
+
+— End of Individual Service Pages Guide —
+This document consolidates the purpose, messaging and structural role of the three core service pages for implementation and content writing.

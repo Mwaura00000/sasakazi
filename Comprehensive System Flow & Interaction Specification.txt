@@ -1,0 +1,234 @@
+SasaKazi BPO Website
+Comprehensive System Flow & Interaction Specification
+For Developer Implementation  •  Based on October 2026 Wireframe Outline
+Version 1.0  |  November 2026
+1. Purpose & Scope
+This document defines the complete system flow for the redesigned sasakazi.co.ke BPO website. It translates the approved wireframe into actionable page logic, navigation rules, user journeys, CTA routing, form behaviour, and state handling so a developer can implement consistently without ambiguity.
+Primary audience: Business owners and managers of Kenyan SMEs (especially Eldoret & Nairobi). Secondary (clearly separated): Talent seeking opportunities.
+Core conversion goal: Drive qualified businesses into a short conversation / pilot request with minimal friction.
+2. Information Architecture (Site Map)
+All routes are relative to the domain root. Talent path remains secondary and must not compete with business navigation.
+Primary Business Journey Routes
+•	/  →  Homepage (conversion landing)
+•	/services  →  Services Overview
+•	/services/stock-inventory  →  Stock & Inventory Visibility
+•	/services/payments-reconciliation  →  Payments Reconciliation
+•	/services/customer-follow-up  →  Customer Follow-up
+•	/how-it-works  →  Process & Governance
+•	/for-businesses  →  Buyer-focused messaging
+•	/about  →  Credibility & EldoHub link
+•	/contact  →  Primary conversion form (Talk to Us)
+Secondary / Supporting Routes
+•	/talent  →  Talent landing (or external existing experience) – clearly secondary
+•	/privacy  →  Privacy policy
+•	/terms  →  Terms (if required)
+Global Persistent Elements
+•	Header (all pages): Logo | Services | How It Works | For Businesses | About | Contact + primary CTA “Talk to Us”
+•	Footer (all pages): Logo + tagline | Company links | Services list | Contact details | Powered by EldoHub | Copyright + Privacy
+•	Mobile: Consider sticky bottom CTA bar (“Talk to Us” / “Book a call”) on key conversion pages
+3. Global Navigation & CTA Rules
+3.1 Header Behaviour
+•	Logo click → always returns to / (Homepage)
+•	Primary nav items are direct links to the corresponding routes listed above
+•	“Talk to Us” button (solid teal) → always routes to /contact (or opens contact modal if implemented; prefer full page for simplicity and SEO)
+•	Active state: current section/page highlighted in nav (Services remains active on all /services/* pages)
+•	Mobile: Hamburger menu collapses nav; CTA remains visible or accessible in sticky bar
+3.2 Footer Behaviour
+•	Services list links to individual service pages + “More services” → /services
+•	Company links mirror primary nav
+•	WhatsApp / Phone / Email are clickable (tel:, mailto:, wa.me links)
+•	“Powered by EldoHub” may link to EldoHub site or /about section explaining the relationship
+3.3 Primary vs Secondary CTAs
+Every page must expose exactly one primary CTA and one lower-commitment secondary action:
+•	Primary CTA (solid teal): Always drives toward conversation / pilot request → /contact (or service-specific pre-filled form)
+•	Secondary CTA (outlined or text link): Lower commitment – View services, Learn more, See how it works, etc.
+Never place competing primary CTAs of equal visual weight on the same viewport.
+4. Primary User Journeys
+These are the critical paths the system must support smoothly. All other navigation is secondary.
+Journey A – Fast Conversion (Homepage → Contact)
+1.	Visitor lands on /
+2.	Reads Hero value proposition + trust line
+3.	Clicks Primary CTA “Book a short call” → /contact
+4.	Completes form (or uses WhatsApp / phone alternative)
+5.	System shows success state + confirmation messaging
+6.	Internal: Lead notification to team (email / CRM / WhatsApp alert)
+Journey B – Service Exploration → Conversion
+7.	Visitor lands on / or /services
+8.	Clicks a service card “Learn more” → individual service page
+9.	Reviews Problem / What You Get / Investment
+10.	Clicks Primary CTA “Request this pilot” or “Start with a short conversation” → /contact (optionally pre-select the service in the dropdown)
+11.	Form submission → success state
+Journey C – Process Validation → Conversion
+12.	Visitor goes to /how-it-works (from homepage process strip or nav)
+13.	Reviews full process + Quality & Governance
+14.	Clicks CTA “See if this process fits your business – talk to us” → /contact
+15.	Form submission
+Journey D – Buyer Education → Conversion
+16.	Visitor goes to /for-businesses
+17.	Reads problems solved + why SasaKazi + typical engagement
+18.	Clicks strong CTA “Book a needs conversation” → /contact
+Journey E – Credibility Check → Conversion
+19.	Visitor goes to /about
+20.	Confirms EldoHub relationship and approach
+21.	Clicks Contact / Talk to Us → /contact
+Secondary Journey – Talent
+22.	Visitor clicks “Talent?” link (footer or under Contact)
+23.	Lands on /talent or external talent experience
+24.	This path must remain visually and navigationally secondary – no primary business CTAs should be overridden
+5. Page-by-Page System Flow & Logic
+5.1 Homepage (/)
+Purpose: Convert business visitors quickly. Lead with outcomes.
+Sections & Interactions
+•	Hero
+–	Primary CTA “Book a short call” → /contact
+–	Secondary CTA “View our services” → /services
+–	Trust line is static (Powered by EldoHub • Eldoret & Nairobi)
+•	Core Services (3 cards)
+–	Each card “Learn more” → respective individual service page
+–	Price entry points displayed (“From KES XX,000”)
+•	How It Works (5-step horizontal)
+–	Entire strip or individual steps can link to /how-it-works
+•	Trust / Proof Bar – static metrics (no interaction required)
+•	Why SasaKazi (optional) – static or light links
+•	Final CTA block “Ready to solve one practical problem?” + “Book a call” → /contact
+State / Notes
+•	No form on homepage – pure routing to deeper pages or /contact
+•	All CTAs must be trackable (UTM or event names recommended)
+5.2 Services Overview (/services)
+Purpose: Show full packaged offer and make choice easy.
+Sections & Interactions
+•	Hero: static intro
+•	Service grid / larger cards → link to individual service pages
+•	“Who this is for” – static audience copy
+•	Mini “How it works” strip → /how-it-works
+•	CTA “Not sure which service fits? Book a short conversation” → /contact
+5.3 Individual Service Pages
+Routes: /services/stock-inventory | /services/payments-reconciliation | /services/customer-follow-up
+Shared structure for all three:
+•	Hero – Service name + outcome sentence + “From KES XX,000” + Primary CTA
+–	Primary CTA (“Request this pilot” / “Start with a short conversation”) → /contact?service=[slug] (pre-select dropdown)
+•	The Problem – static bullets
+•	What You Get – static deliverables list
+•	Who It’s For – static
+•	How Delivery Works – short process (can link to full /how-it-works)
+•	Investment – price bands + optional monthly support (static)
+•	Quality Promise – static acceptance criteria
+•	Final CTA – same primary action as Hero
+Service-specific data to hard-code or config
+Service	From Price	Suggested CTA Label
+Stock & Inventory Visibility	KES 25,000	Request Inventory Pilot
+Payments Reconciliation	KES 20,000	Request Payments Pilot
+Customer Follow-up	KES 18,000	Request Follow-up Pilot
+5.4 How It Works (/how-it-works)
+Purpose: Build BPO credibility through process transparency.
+Sections & Interactions
+•	Hero – static process promise
+•	Full process (5–6 detailed steps with icons) – static content
+•	Quality & Governance section – static
+•	What happens after the pilot – static path description
+•	CTA “See if this process fits your business – talk to us” → /contact
+5.5 For Businesses (/for-businesses)
+Purpose: Speak directly to the buyer.
+Sections & Interactions
+•	Hero – outcome-focused message
+•	Problems we solve – inventory, payments, customer follow-up, basic reporting (can deep-link to services)
+•	Why choose SasaKazi – static differentiators
+•	Typical engagement – Pilot → results → optional ongoing support
+•	Strong CTA “Book a needs conversation” → /contact
+5.6 About (/about)
+Purpose: Establish credibility and link clearly to EldoHub.
+Sections & Interactions
+•	Who we are – repositioning statement
+•	Part of EldoHub – clear connection (optional external link)
+•	Our approach – talent + mentorship + practical delivery
+•	Locations – Eldoret (primary) + Nairobi
+•	Optional metrics
+•	CTA “Contact / Talk to us” → /contact
+5.7 Contact / Start a Pilot (/contact)
+Purpose: Lowest-friction conversion point. This is the primary system endpoint for lead capture.
+Form Specification
+Field	Type / Required	Notes / Validation
+Name	Text / Required	Min 2 characters
+Business name	Text / Required	Min 2 characters
+Phone / WhatsApp	Tel / Required	Kenyan format preferred; accept +254 or 07xx
+Which service interests you	Dropdown / Optional	Options: Stock & Inventory | Payments Reconciliation | Customer Follow-up | Not sure / Other. Pre-fill from query param ?service=
+Short description of need	Textarea / Optional	Max ~500–800 characters recommended
+Preferred contact time	Text or Select / Optional	Free text or simple options (Morning / Afternoon / Anytime)
+
+Form Behaviour & States
+•	On load: If URL contains ?service=stock-inventory (or payments-reconciliation / customer-follow-up), pre-select the matching dropdown option
+•	Submit button label: “Send message” or “Request conversation” (solid teal)
+•	Client-side validation before submit; show inline errors
+•	On successful submit:
+–	Replace form with success message: “Thank you. We will respond within one business day.”
+–	Optionally show the same WhatsApp / phone alternatives again
+–	Fire analytics event (e.g. generate_lead or form_submit)
+–	Backend: Send notification email / webhook to team + optional auto-reply to user
+•	On error (network / server): Show friendly retry message; do not clear form data
+Alternative Contact Channels (always visible)
+•	Prominent WhatsApp button → wa.me link (pre-filled message optional)
+•	Clickable phone number (tel:)
+•	Clickable email (mailto:)
+•	Trust line: “We respond within one business day. No long sales process.”
+•	Location: Eldoret address + optional embedded map
+5.8 Talent Section (Secondary)
+•	Access via small “Talent?” link in footer or under Contact area
+•	Route: /talent (or redirect to existing talent experience)
+•	Must not appear in primary navigation
+•	Must not use the same primary CTA visual language as business pages
+•	If implemented as a page on this site, keep messaging and design clearly distinct
+6. Cross-Cutting System Behaviour
+6.1 Lead Capture & Notification Flow
+25.	User submits /contact form
+26.	Frontend validates → POST to backend endpoint (or form service)
+27.	Backend stores lead (or forwards to CRM / email / WhatsApp notification)
+28.	Team receives alert with: Name, Business, Phone, Service interest, Description, Preferred time, Timestamp, Source page / UTM if present
+29.	User sees success state on page
+30.	Optional: Auto-reply email or WhatsApp confirmation
+6.2 Query Parameter Handling
+•	?service=stock-inventory | payments-reconciliation | customer-follow-up → pre-selects dropdown on /contact
+•	UTM parameters (utm_source, utm_medium, utm_campaign, etc.) should be preserved and logged with the lead if possible
+•	Any other tracking parameters should be passed through or stored as metadata
+6.3 Analytics Events (Recommended)
+•	page_view on every route
+•	cta_click with labels: book_call, view_services, learn_more_[service], request_pilot_[service], etc.
+•	form_start (when user focuses first field)
+•	form_submit_success / form_submit_error
+•	whatsapp_click / phone_click / email_click
+6.4 Mobile Considerations
+•	All primary CTAs must be thumb-friendly (min ~44px height)
+•	Consider sticky bottom CTA bar on Homepage, Service pages, How It Works, For Businesses, About
+•	Form fields must be large enough and keyboard-friendly (tel input type for phone)
+•	Navigation collapses cleanly; CTA remains accessible
+6.5 Accessibility & Performance Basics
+•	Semantic HTML, proper heading hierarchy, alt text on icons/images
+•	Focus states on all interactive elements
+•	Colour contrast meeting WCAG AA (navy/teal on white/light grey)
+•	Fast load: optimise images, minimal JS for core journey
+7. Error Handling & Edge Cases
+•	Invalid or missing required form fields → inline validation messages, no submit
+•	Network failure on form submit → retain data, show “Something went wrong. Please try again or contact us on WhatsApp.”
+•	Deep link to non-existent service slug → 404 or redirect to /services
+•	Direct visit to /contact with unknown ?service= value → ignore and leave dropdown on default
+•	JavaScript disabled → form should still post (progressive enhancement) or show clear contact alternatives
+8. Implementation Priority (aligned with wireframe)
+31.	Homepage (new hero + services cards + process strip + trust bar + final CTA)
+32.	Contact / Talk to Us page (form + alternatives + success state)
+33.	Three individual service pages (shared template + content)
+34.	How It Works page
+35.	For Businesses + About pages
+36.	Visual polish, mobile optimisation, sticky CTA, page speed, analytics
+9. Developer Handoff Checklist
+•	All routes listed in Section 2 exist and resolve
+•	Header & Footer consistent on every page
+•	Every page has one clear primary CTA routing to /contact (or service-prefilled)
+•	Service cards and “Learn more” links correctly target individual service pages
+•	/contact form validates, pre-fills from ?service=, shows success/error states
+•	WhatsApp, phone, email links work on mobile and desktop
+•	Talent path is secondary and does not pollute primary nav or CTAs
+•	Analytics events wired for key CTAs and form
+•	Mobile sticky CTA (if implemented) does not obscure content or form
+•	404 and basic error handling in place
+
+— End of System Flow Specification —
+This document is sufficient for a developer to implement page logic, routing, forms, and conversion paths without further clarification of the core business journey.

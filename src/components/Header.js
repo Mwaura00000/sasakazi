@@ -56,7 +56,7 @@ export default function Header() {
             <div className="top-bar-right">
               <span className="top-brand-motto">Powered by EldoHub</span>
               <span className="top-bar-sep">|</span>
-              <Link href="/register" className="top-social-link">
+              <Link href="/talent" className="top-social-link">
                 Talent? ↗
               </Link>
             </div>
