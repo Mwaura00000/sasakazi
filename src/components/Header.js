@@ -56,8 +56,8 @@ export default function Header() {
             <div className="top-bar-right">
               <span className="top-brand-motto">Powered by EldoHub</span>
               <span className="top-bar-sep">|</span>
-              <Link href="/talent" className="top-social-link">
-                Talent? ↗
+              <Link href="/talent" className="top-talent-badge">
+                <span>🚀 Tech Talent? Enrol Here &rarr;</span>
               </Link>
             </div>
           </div>
@@ -70,9 +70,9 @@ export default function Header() {
             <Link href="/" className="navbar-logo-link" onClick={() => setMobileMenuOpen(false)}>
               <div className="logo-bpo-lockup">
                 <Image 
-                  src="/logo.png" 
+                  src="/logo.svg" 
                   alt="SasaKazi Logo" 
-                  width={130} 
+                  width={150} 
                   height={42} 
                   priority
                   className="navbar-logo-img"
@@ -96,6 +96,9 @@ export default function Header() {
                 ))}
               </ul>
               <div className="navbar-actions-group">
+                <Link href="/talent" className="nav-talent-pill">
+                  Enrol as Talent
+                </Link>
                 <Link href="/contact" className="btn btn-teal cta-btn">
                   Talk to Us
                 </Link>
@@ -127,7 +130,7 @@ export default function Header() {
         <div className="drawer-header">
           <div className="drawer-logo-group">
             <div className="logo-bpo-lockup">
-              <Image src="/logo.png" alt="SasaKazi Logo" width={110} height={36} className="drawer-logo" />
+              <Image src="/logo.svg" alt="SasaKazi Logo" width={130} height={36} className="drawer-logo" />
               <span className="logo-bpo-tag">BPO</span>
             </div>
           </div>
@@ -157,14 +160,13 @@ export default function Header() {
             >
               Talk to Us
             </Link>
-            <div className="drawer-secondary-link">
-              <Link 
-                href="/register" 
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Looking for work? Join as Talent ↗
-              </Link>
-            </div>
+            <Link 
+              href="/talent" 
+              className="btn btn-outline-navy drawer-talent-cta"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              🚀 Enrol as Tech Talent
+            </Link>
           </div>
         </nav>
       </div>
@@ -356,22 +358,49 @@ export default function Header() {
         .navbar-actions-group {
           display: flex;
           align-items: center;
-          gap: 1.5rem;
+          gap: 1.25rem;
         }
         .cta-btn {
           padding: 0.65rem 1.6rem !important;
           font-size: 0.9rem !important;
         }
-        .drawer-secondary-link {
-          margin-top: 1.5rem;
-          text-align: center;
+        .nav-talent-pill {
+          font-size: 0.86rem;
+          font-weight: 700;
+          color: var(--color-navy);
+          background: rgba(31, 78, 121, 0.08);
+          padding: 6px 14px;
+          border-radius: var(--radius-full);
+          text-decoration: none;
+          transition: all 0.2s ease;
         }
-        .drawer-secondary-link a {
-          font-size: 0.85rem;
-          color: var(--color-text-muted);
-          text-decoration: underline;
+        .nav-talent-pill:hover {
+          background: var(--color-navy);
+          color: #ffffff;
         }
-          font-size: 0.85rem !important;
+        .top-talent-badge {
+          background: rgba(248, 168, 36, 0.2);
+          color: #f8a824 !important;
+          padding: 2px 10px;
+          border-radius: var(--radius-full);
+          font-size: 0.75rem;
+          font-weight: 700;
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          border: 1px solid rgba(248, 168, 36, 0.4);
+          transition: all 0.2s ease;
+        }
+        .top-talent-badge:hover {
+          background: #f8a824;
+          color: #0f172a !important;
+        }
+        .drawer-talent-cta {
+          margin-top: 0.75rem;
+          width: 100%;
+          justify-content: center;
+          font-size: 0.9rem !important;
+          padding: 0.75rem !important;
         }
 
         /* Hamburger button */

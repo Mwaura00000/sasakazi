@@ -142,12 +142,10 @@ export default function HowItWorksClient() {
               Talk to Us About a Pilot
             </Link>
             <a 
-              href="https://wa.me/254723567263?text=Hello%20SasaKazi%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20governed%20delivery%20process." 
-              target="_blank" 
-              rel="noopener noreferrer" 
+              href="tel:+254723567263" 
               className="btn btn-outline-navy btn-lg"
             >
-              Discuss on WhatsApp
+              Call +254 723 567 263
             </a>
           </div>
         </div>
@@ -301,12 +299,10 @@ export default function HowItWorksClient() {
               Book a Short Diagnostic Call
             </Link>
             <a 
-              href="https://wa.me/254723567263?text=Hello%20SasaKazi%2C%20I%20would%20like%20to%20discuss%20a%20BPO%20pilot%20for%20my%20business." 
-              target="_blank" 
-              rel="noopener noreferrer" 
+              href="tel:+254723567263" 
               className="btn btn-outline-white btn-lg"
             >
-              Connect on WhatsApp
+              Call +254 723 567 263
             </a>
           </div>
         </div>

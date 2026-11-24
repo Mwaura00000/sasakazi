@@ -83,12 +83,10 @@ export default function ForBusinessesPage() {
               </svg>
             </Link>
             <a 
-              href="https://wa.me/254723567263?text=Hello%20SasaKazi%2C%20I%20am%20a%20business%20owner%20interested%20in%20your%20BPO%20pilots." 
-              target="_blank" 
-              rel="noopener noreferrer" 
+              href="tel:+254723567263" 
               className="btn btn-outline-navy btn-lg"
             >
-              Chat on WhatsApp
+              Call +254 723 567 263
             </a>
           </div>
         </div>
@@ -209,12 +207,10 @@ export default function ForBusinessesPage() {
               Book a Needs Conversation
             </Link>
             <a 
-              href="https://wa.me/254723567263?text=Hello%20SasaKazi%2C%20I%20would%20like%20to%20discuss%20a%20pilot%20for%20my%20business." 
-              target="_blank" 
-              rel="noopener noreferrer" 
+              href="tel:+254723567263" 
               className="btn btn-outline-white btn-lg"
             >
-              WhatsApp Us Directly
+              Call +254 723 567 263
             </a>
           </div>
         </div>

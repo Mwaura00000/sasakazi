@@ -14,9 +14,9 @@ export default function Footer() {
           <Link href="/" className="footer-logo-link">
             <div className="footer-logo-lockup">
               <Image 
-                src="/logo.png" 
+                src="/logo-white.svg" 
                 alt="SasaKazi BPO Logo" 
-                width={140} 
+                width={150} 
                 height={44} 
                 className="footer-logo-img"
               />
@@ -30,9 +30,6 @@ export default function Footer() {
             <span>Powered by <strong>EldoHub</strong> • Eldoret &amp; Nairobi</span>
           </div>
           <div className="footer-socials">
-            <a href="https://wa.me/254723567263?text=Hello%20SasaKazi%2C%20I%20am%20interested%20in%20your%20practical%20digital%20BPO%20services." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Contact">
-              <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" /></svg>
-            </a>
             <a href="https://facebook.com/Sasakazi" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
             </a>
@@ -91,7 +88,7 @@ export default function Footer() {
                 </svg>
               </span>
               <div>
-                <span className="contact-label">Phone &amp; WhatsApp</span>
+                <span className="contact-label">Direct Telephone</span>
                 <a href="tel:+254723567263">+254 723 567 263</a>
               </div>
             </li>
@@ -115,9 +112,9 @@ export default function Footer() {
       <div className="footer-talent-strip">
         <div className="container footer-talent-container">
           <p>
-            Are you a local tech or operations professional?{" "}
-            <Link href="/talent" className="footer-talent-link">
-              Apply to join the SasaKazi vetted talent roster &rarr;
+            🚀 <strong>Are you a local tech, data, or operations professional?</strong>{" "}
+            <Link href="/register" className="footer-talent-link">
+              Enrol to join the SasaKazi vetted talent roster &rarr;
             </Link>
           </p>
         </div>

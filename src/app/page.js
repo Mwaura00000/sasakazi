@@ -574,6 +574,58 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* 6.5 DEDICATED TECH TALENT ENROLMENT CTA */}
+      <section className="bpo-talent-enrol-section">
+        <div className="container">
+          <div className="talent-enrol-card reveal-on-scroll">
+            <div className="talent-enrol-content">
+              <span className="talent-enrol-pill">🚀 For Kenyan Tech &amp; Operations Talent</span>
+              <h2>Are You a Skilled Tech, Data, or Operations Talent?</h2>
+              <p className="talent-enrol-desc">
+                SasaKazi connects vetted Kenyan digital talent to real business projects across inventory management, financial reconciliation, and customer operations. Gain practical client experience, EldoHub mentorship, and paid contract opportunities.
+              </p>
+              
+              <div className="talent-perks-row">
+                <div className="talent-perk-badge">
+                  <span className="perk-icon">💼</span>
+                  <div className="perk-text">
+                    <strong>Paid Engagements</strong>
+                    <small>Real business projects</small>
+                  </div>
+                </div>
+                <div className="talent-perk-badge">
+                  <span className="perk-icon">🎓</span>
+                  <div className="perk-text">
+                    <strong>EldoHub Mentorship</strong>
+                    <small>Continuous upskilling</small>
+                  </div>
+                </div>
+                <div className="talent-perk-badge">
+                  <span className="perk-icon">📈</span>
+                  <div className="perk-text">
+                    <strong>Verified Portfolio</strong>
+                    <small>Proven track record</small>
+                  </div>
+                </div>
+              </div>
+
+              <div className="talent-enrol-actions">
+                <Link href="/register" className="btn btn-teal btn-lg">
+                  Enrol as Tech Talent Now
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </Link>
+                <Link href="/talents" className="btn btn-outline-navy btn-lg">
+                  Browse Talent Roster
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 7. FINAL HIGH-CONVERSION CTA */}
       <section className="bpo-final-cta-section">
         <div className="container">
@@ -592,14 +644,18 @@ export default function HomePage() {
                     <path d="m12 5 7 7-7 7" />
                   </svg>
                 </Link>
-                <a 
-                  href="https://wa.me/254723567263?text=Hello%20SasaKazi%2C%20I%20would%20like%20to%20discuss%20a%20BPO%20pilot%20for%20my%20business." 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <button 
+                  type="button"
+                  onClick={() => {
+                    if (typeof window !== "undefined") {
+                      window.dispatchEvent(new CustomEvent('open-sasakazi-chat'));
+                    }
+                  }}
                   className="btn btn-outline-white btn-lg"
+                  style={{ cursor: 'pointer' }}
                 >
-                  WhatsApp Us Directly
-                </a>
+                  💬 Chat with Concierge
+                </button>
               </div>
             </div>
           </div>
@@ -1110,6 +1166,110 @@ export default function HomePage() {
           font-size: 0.92rem;
           color: var(--color-text-muted);
           line-height: 1.6;
+        }
+
+        /* 6.5 Talent Enrolment CTA Section */
+        .bpo-talent-enrol-section {
+          padding: 2rem 0 3.5rem 0;
+          background: var(--color-bg-light);
+        }
+        .talent-enrol-card {
+          background: #ffffff;
+          border-radius: 20px;
+          padding: 3rem 2rem;
+          border: 1px solid var(--color-border-gray);
+          box-shadow: 0 10px 30px rgba(31, 78, 121, 0.06);
+          position: relative;
+          overflow: hidden;
+        }
+        .talent-enrol-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 4px;
+          background: linear-gradient(90deg, var(--color-teal) 0%, var(--color-gold) 100%);
+        }
+        .talent-enrol-content {
+          max-width: 800px;
+          margin: 0 auto;
+          text-align: center;
+        }
+        .talent-enrol-pill {
+          display: inline-block;
+          background: var(--color-teal-light);
+          color: var(--color-teal-dark);
+          font-size: 0.85rem;
+          font-weight: 700;
+          padding: 6px 16px;
+          border-radius: var(--radius-full);
+          margin-bottom: 1.25rem;
+        }
+        .talent-enrol-content h2 {
+          font-size: 2rem;
+          color: var(--color-navy);
+          font-weight: 800;
+          margin-bottom: 1rem;
+        }
+        .talent-enrol-desc {
+          font-size: 1.05rem;
+          color: var(--color-text-muted);
+          line-height: 1.6;
+          margin-bottom: 2rem;
+          max-width: 680px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .talent-perks-row {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 1.25rem;
+          margin-bottom: 2.5rem;
+          text-align: left;
+        }
+        @media (min-width: 768px) {
+          .talent-perks-row {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+        .talent-perk-badge {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          padding: 1rem 1.25rem;
+          background: var(--color-bg-light);
+          border-radius: 12px;
+          border: 1px solid var(--color-border-gray);
+        }
+        .perk-icon {
+          font-size: 1.6rem;
+          flex-shrink: 0;
+        }
+        .perk-text strong {
+          display: block;
+          font-size: 0.95rem;
+          color: var(--color-navy);
+        }
+        .perk-text small {
+          display: block;
+          font-size: 0.8rem;
+          color: var(--color-text-muted);
+        }
+        .talent-enrol-actions {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 1rem;
+        }
+        .btn-outline-navy {
+          background: transparent;
+          color: var(--color-navy);
+          border: 2px solid var(--color-navy);
+        }
+        .btn-outline-navy:hover {
+          background: var(--color-navy);
+          color: #ffffff;
         }
 
         /* 7. Final High-Conversion CTA */

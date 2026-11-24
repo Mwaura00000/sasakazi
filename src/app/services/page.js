@@ -116,12 +116,10 @@ export default function ServicesOverviewPage() {
               Book a Needs Conversation
             </Link>
             <a 
-              href="https://wa.me/254723567263?text=Hello%20SasaKazi%2C%20I%20am%20exploring%20your%20BPO%20services." 
-              target="_blank" 
-              rel="noopener noreferrer" 
+              href="tel:+254723567263" 
               className="btn btn-outline-navy"
             >
-              WhatsApp Our Advisors
+              Call Us (+254 723 567 263)
             </a>
           </div>
         </div>
@@ -232,12 +230,10 @@ export default function ServicesOverviewPage() {
               Book a Short Consultation
             </Link>
             <a 
-              href="https://wa.me/254723567263?text=Hello%20SasaKazi%2C%20I%20would%20like%20guidance%20on%20which%20BPO%20service%20fits%20my%20business." 
-              target="_blank" 
-              rel="noopener noreferrer" 
+              href="tel:+254723567263" 
               className="btn btn-outline-white btn-lg"
             >
-              Ask on WhatsApp
+              Call +254 723 567 263
             </a>
           </div>
         </div>

@@ -176,12 +176,10 @@ export default function AboutClient() {
               Book a Short Call
             </Link>
             <a 
-              href="https://wa.me/254723567263?text=Hello%20SasaKazi%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20BPO%20services." 
-              target="_blank" 
-              rel="noopener noreferrer" 
+              href="tel:+254723567263" 
               className="btn btn-outline-white btn-lg"
             >
-              WhatsApp Us (+254 723 567 263)
+              Call +254 723 567 263
             </a>
           </div>
         </div>

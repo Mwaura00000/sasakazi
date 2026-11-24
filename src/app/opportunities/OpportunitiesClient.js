@@ -190,9 +190,9 @@ export default function OpportunitiesClient() {
                   <Link href="/register/business" className="btn btn-primary btn-lg">
                     Submit a Business Requirement
                   </Link>
-                  <a href="https://wa.me/254723567263?text=Hello%20SasaKazi%2C%20I%20would%20like%20to%20book%20a%20consultation." target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-lg">
+                  <Link href="/contact" className="btn btn-secondary btn-lg">
                     Book a Consultation
-                  </a>
+                  </Link>
                 </div>
               </div>
             )}

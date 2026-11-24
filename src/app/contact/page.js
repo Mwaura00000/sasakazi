@@ -49,7 +49,7 @@ function ContactFormContent() {
     }
     const cleanPhone = formData.phone.replace(/[\s\-]/g, "");
     if (!cleanPhone || cleanPhone.length < 9) {
-      errs.phone = "Please enter a valid phone or WhatsApp number (e.g. +254 712 345 678)";
+      errs.phone = "Please enter a valid phone number (e.g. +254 712 345 678)";
     }
     return errs;
   };
@@ -78,11 +78,6 @@ function ContactFormContent() {
     }, 400);
   };
 
-  const whatsappMessage = encodeURIComponent(
-    `Hello SasaKazi! I would like to book a call regarding ${formData.service || "BPO services"} for my business (${formData.businessName || "My Business"}).`
-  );
-  const whatsappUrl = `https://wa.me/254723567263?text=${whatsappMessage}`;
-
   return (
     <div className="contact-grid">
       {/* Form Column */}
@@ -103,15 +98,18 @@ function ContactFormContent() {
               We received your request for <strong>{formData.businessName}</strong> regarding <strong>{formData.service}</strong>. A SasaKazi solutions lead from our Eldoret hub will contact you on <strong>{formData.phone}</strong>.
             </p>
             <div className="success-action">
-              <a 
-                href={whatsappUrl} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <button 
+                type="button"
+                onClick={() => {
+                  if (typeof window !== "undefined") {
+                    window.dispatchEvent(new CustomEvent('open-sasakazi-chat'));
+                  }
+                }}
                 className="btn btn-teal"
-                style={{ width: "100%", justifyContent: "center" }}
+                style={{ width: "100%", justifyContent: "center", cursor: "pointer" }}
               >
-                Connect on WhatsApp Now for Faster Response
-              </a>
+                💬 Chat with SasaKazi Concierge
+              </button>
             </div>
             <button 
               onClick={() => {
@@ -135,7 +133,7 @@ function ContactFormContent() {
           <form onSubmit={handleSubmit} className="bpo-inquiry-form" noValidate>
             <div className="form-header">
               <h3>Request a Pilot Consultation</h3>
-              <p>Fill in this 6-field form or connect directly on WhatsApp.</p>
+              <p>Fill in this 6-field form or chat with our live concierge widget.</p>
             </div>
 
             <div className="form-group">
@@ -169,7 +167,7 @@ function ContactFormContent() {
             </div>
 
             <div className="form-group">
-              <label htmlFor="phone">Phone / WhatsApp Number *</label>
+              <label htmlFor="phone">Direct Telephone Number *</label>
               <input 
                 type="tel" 
                 id="phone" 
@@ -220,7 +218,7 @@ function ContactFormContent() {
               >
                 <option value="Morning (9am - 12pm)">Morning (9am - 12pm EAT)</option>
                 <option value="Afternoon (1pm - 5pm)">Afternoon (1pm - 5pm EAT)</option>
-                <option value="Anytime via WhatsApp">Anytime via WhatsApp</option>
+                <option value="Anytime during business hours">Anytime during business hours</option>
               </select>
             </div>
 
@@ -241,26 +239,29 @@ function ContactFormContent() {
 
       {/* Direct Channels & Office Info Column */}
       <div className="contact-info-col">
-        {/* WhatsApp Fast Track Card */}
+        {/* Concierge Fast Track Card */}
         <div className="fast-track-card">
           <div className="fast-track-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
             </svg>
           </div>
-          <h3>Prefer WhatsApp?</h3>
+          <h3>SasaKazi Concierge</h3>
           <p>
-            Chat directly with our solutions team. Send us a message and we will respond promptly during business hours.
+            Have immediate questions regarding pilot deliverables, pricing, or talent matching? Chat directly with our concierge widget.
           </p>
-          <a 
-            href="https://wa.me/254723567263?text=Hello%20SasaKazi%2C%20I%20am%20interested%20in%20discussing%20a%20practical%20digital%20BPO%20service." 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <button 
+            type="button"
+            onClick={() => {
+              if (typeof window !== "undefined") {
+                window.dispatchEvent(new CustomEvent('open-sasakazi-chat'));
+              }
+            }}
             className="btn btn-teal"
-            style={{ width: "100%", justifyContent: "center" }}
+            style={{ width: "100%", justifyContent: "center", cursor: "pointer" }}
           >
-            Chat on WhatsApp (+254 723 567 263)
-          </a>
+            💬 Open Concierge Chat
+          </button>
         </div>
 
         {/* Direct Info List */}

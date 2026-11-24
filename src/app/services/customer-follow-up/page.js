@@ -125,12 +125,10 @@ export default function CustomerFollowUpServicePage() {
                   </svg>
                 </Link>
                 <a 
-                  href="https://wa.me/254723567263?text=Hello%20SasaKazi%2C%20I%20am%20interested%20in%20the%20Customer%20Follow-up%20pilot%20(From%20KES%2018%2C000)." 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                  href="tel:+254723567263" 
                   className="btn btn-outline-navy btn-lg"
                 >
-                  Discuss on WhatsApp
+                  Call +254 723 567 263
                 </a>
               </div>
             </div>
@@ -310,12 +308,10 @@ export default function CustomerFollowUpServicePage() {
               Request Follow-up Pilot
             </Link>
             <a 
-              href="https://wa.me/254723567263?text=Hello%20SasaKazi%2C%20I%20am%20ready%20to%20discuss%20the%20Customer%20Follow-up%20pilot." 
-              target="_blank" 
-              rel="noopener noreferrer" 
+              href="tel:+254723567263" 
               className="btn btn-outline-white btn-lg"
             >
-              Discuss on WhatsApp
+              Call +254 723 567 263
             </a>
           </div>
         </div>
