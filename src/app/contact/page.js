@@ -19,6 +19,7 @@ function ContactFormContent() {
   const [formData, setFormData] = useState({
     name: "",
     businessName: "",
+    email: "",
     phone: "",
     service: "Stock & Inventory Visibility",
     description: "",
@@ -28,6 +29,7 @@ function ContactFormContent() {
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [refId, setRefId] = useState("");
 
   // Sync service from query parameter ?service=
   useEffect(() => {
@@ -46,6 +48,9 @@ function ContactFormContent() {
     }
     if (!formData.businessName || formData.businessName.trim().length < 2) {
       errs.businessName = "Please enter your business or company name";
+    }
+    if (!formData.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
+      errs.email = "Please enter a valid email address (e.g. info@company.co.ke)";
     }
     const cleanPhone = formData.phone.replace(/[\s\-]/g, "");
     if (!cleanPhone || cleanPhone.length < 9) {
@@ -71,7 +76,21 @@ function ContactFormContent() {
     }
 
     setSubmitting(true);
-    // Simulate swift validation & submission
+    const newRef = "SK-" + Math.floor(1000 + Math.random() * 9000);
+    setRefId(newRef);
+
+    try {
+      if (typeof window !== "undefined") {
+        const existing = JSON.parse(localStorage.getItem("sasakazi_inquiries") || "[]");
+        existing.unshift({
+          refId: newRef,
+          ...formData,
+          submittedAt: new Date().toISOString()
+        });
+        localStorage.setItem("sasakazi_inquiries", JSON.stringify(existing.slice(0, 50)));
+      }
+    } catch (err) {}
+
     setTimeout(() => {
       setSubmitting(false);
       setSubmitted(true);
@@ -90,12 +109,13 @@ function ContactFormContent() {
                 <polyline points="22 4 12 14.01 9 11.01" />
               </svg>
             </div>
+            <div className="ref-badge">Inquiry Reference: #{refId}</div>
             <h3>Thank you, {formData.name || "there"}!</h3>
             <p className="success-lead">
-              We will respond within <strong>one business day</strong>. No long sales process.
+              Your consultation request has been received. Guaranteed callback within <strong>one business day</strong>.
             </p>
             <p className="success-detail">
-              We received your request for <strong>{formData.businessName}</strong> regarding <strong>{formData.service}</strong>. A SasaKazi solutions lead from our Eldoret hub will contact you on <strong>{formData.phone}</strong>.
+              We received your operational inquiry for <strong>{formData.businessName}</strong> regarding <strong>{formData.service}</strong>. A dedicated SasaKazi solutions lead from our EldoHub team will contact you on <strong>{formData.phone}</strong> and follow up at <strong>{formData.email}</strong>.
             </p>
             <div className="success-action">
               <button 
@@ -120,6 +140,7 @@ function ContactFormContent() {
                 setFormData({
                   name: "",
                   businessName: "",
+                  email: "",
                   phone: "",
                   service: "Stock & Inventory Visibility",
                   description: "",
@@ -136,7 +157,7 @@ function ContactFormContent() {
           <form onSubmit={handleSubmit} className="bpo-inquiry-form" noValidate>
             <div className="form-header">
               <h3>Request a Pilot Consultation</h3>
-              <p>Fill in this 6-field form or chat with our live concierge widget.</p>
+              <p>Fill in this form to speak directly with our solutions team, or use our digital concierge below.</p>
             </div>
 
             <div className="form-group">
@@ -167,6 +188,21 @@ function ContactFormContent() {
                 className={errors.businessName ? "input-error" : ""}
               />
               {errors.businessName && <span className="field-error-msg">{errors.businessName}</span>}
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="email">Official Business Email *</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                required 
+                placeholder="e.g. info@company.co.ke"
+                value={formData.email}
+                onChange={handleChange}
+                className={errors.email ? "input-error" : ""}
+              />
+              {errors.email && <span className="field-error-msg">{errors.email}</span>}
             </div>
 
             <div className="form-group">
@@ -582,6 +618,20 @@ export default function ContactPage() {
         .submission-success {
           text-align: center;
           padding: 2.5rem 1rem;
+        }
+
+        .ref-badge {
+          display: inline-block;
+          background: rgba(31, 78, 121, 0.08);
+          color: var(--color-navy);
+          font-family: monospace;
+          font-size: 0.88rem;
+          font-weight: 700;
+          letter-spacing: 0.5px;
+          padding: 4px 14px;
+          border-radius: var(--radius-full);
+          margin-bottom: 1rem;
+          border: 1px solid rgba(31, 78, 121, 0.15);
         }
 
         .success-icon {
