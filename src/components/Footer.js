@@ -12,16 +12,13 @@ export default function Footer() {
         {/* Brand Block */}
         <div className="footer-col brand-col">
           <Link href="/" className="footer-logo-link">
-            <div className="footer-logo-lockup">
-              <Image 
-                src="/logo-white.svg" 
-                alt="SasaKazi BPO Logo" 
-                width={150} 
-                height={44} 
-                className="footer-logo-img"
-              />
-              <span className="footer-bpo-tag">BPO</span>
-            </div>
+            <Image 
+              src="/logo-white.svg" 
+              alt="SasaKazi Logo" 
+              width={160} 
+              height={48} 
+              className="footer-logo-img"
+            />
           </Link>
           <p className="footer-tagline">
             Practical digital BPO for Kenyan businesses. Delivered by vetted local talent. Clear outcomes in 30–45 days with no expensive software lock-in.

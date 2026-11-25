@@ -66,19 +66,16 @@ export default function Header() {
         {/* Main Header */}
         <header className="navbar-header">
           <div className="container navbar-container">
-            {/* Logo: SasaKazi | BPO */}
+            {/* Logo: SasaKazi */}
             <Link href="/" className="navbar-logo-link" onClick={() => setMobileMenuOpen(false)}>
-              <div className="logo-bpo-lockup">
-                <Image 
-                  src="/logo.svg" 
-                  alt="SasaKazi Logo" 
-                  width={150} 
-                  height={42} 
-                  priority
-                  className="navbar-logo-img"
-                />
-                <span className="logo-bpo-tag">BPO</span>
-              </div>
+              <Image 
+                src="/logo.svg" 
+                alt="SasaKazi Logo" 
+                width={155} 
+                height={46} 
+                priority
+                className="navbar-logo-img"
+              />
             </Link>
 
             {/* Desktop Navigation */}
@@ -129,10 +126,7 @@ export default function Header() {
       <div className={`navbar-mobile-drawer ${mobileMenuOpen ? "open" : ""}`}>
         <div className="drawer-header">
           <div className="drawer-logo-group">
-            <div className="logo-bpo-lockup">
-              <Image src="/logo.svg" alt="SasaKazi Logo" width={130} height={36} className="drawer-logo" />
-              <span className="logo-bpo-tag">BPO</span>
-            </div>
+            <Image src="/logo.svg" alt="SasaKazi Logo" width={140} height={42} className="drawer-logo" />
           </div>
           <button className="drawer-close" onClick={() => setMobileMenuOpen(false)} aria-label="Close menu">
             &times;
