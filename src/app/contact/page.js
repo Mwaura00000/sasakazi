@@ -106,9 +106,12 @@ function ContactFormContent() {
                   }
                 }}
                 className="btn btn-teal"
-                style={{ width: "100%", justifyContent: "center", cursor: "pointer" }}
+                style={{ width: "100%", justifyContent: "center", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: "8px" }}
               >
-                💬 Chat with SasaKazi Concierge
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+                Chat with SasaKazi Concierge
               </button>
             </div>
             <button 
@@ -231,7 +234,11 @@ function ContactFormContent() {
             </button>
 
             <p className="form-note">
-              🔒 No spam. We respond within one business day. No long sales process.
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ display: "inline-block", verticalAlign: "-2px", marginRight: "6px" }}>
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+              Strict confidentiality &amp; NDA protected. Guaranteed 24-hour turnaround on business inquiries.
             </p>
           </form>
         )}
@@ -258,9 +265,12 @@ function ContactFormContent() {
               }
             }}
             className="btn btn-teal"
-            style={{ width: "100%", justifyContent: "center", cursor: "pointer" }}
+            style={{ width: "100%", justifyContent: "center", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: "8px" }}
           >
-            💬 Open Concierge Chat
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+            Open Concierge Chat
           </button>
         </div>
 
@@ -338,16 +348,31 @@ export default function ContactPage() {
       {/* Hero Header */}
       <section className="contact-hero">
         <div className="container text-center">
-          <span className="badge-sub">Start with a 15-Minute Conversation</span>
+          <span className="badge-sub">15-Minute Operational Discovery</span>
           <h1 className="contact-title">Let’s solve one practical problem together</h1>
           <p className="contact-subtitle">
-            We respond within one business day. No long sales process, no aggressive pitches—just a clear assessment of your operational bottleneck.
+            No aggressive sales pitch or complicated setup—just a focused review of your stock, reconciliation, or customer follow-up bottlenecks.
           </p>
-          <div className="contact-trust-pill">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" strokeWidth="2.5">
-              <polyline points="20 6 9 17 4 12" />
-            </svg>
-            <span>We respond within one business day. No long sales process.</span>
+          <div className="contact-trust-badges">
+            <span className="contact-trust-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              24-Hour Response Guarantee
+            </span>
+            <span className="contact-trust-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+              Confidential &amp; NDA Protected
+            </span>
+            <span className="contact-trust-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              Clear 30–45 Day Milestones
+            </span>
           </div>
         </div>
       </section>
@@ -415,15 +440,37 @@ export default function ContactPage() {
           line-height: 1.6;
         }
 
+        .badge-sub {
+          display: inline-block;
+          background: rgba(13, 148, 136, 0.1);
+          color: var(--color-teal);
+          font-size: 0.82rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.8px;
+          padding: 6px 16px;
+          border-radius: var(--radius-full);
+          margin-bottom: 0.75rem;
+        }
+
+        .contact-trust-badges {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 12px;
+          margin-top: 1rem;
+        }
+
         .contact-trust-pill {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          background: rgba(13, 148, 136, 0.1);
+          background: rgba(13, 148, 136, 0.08);
           color: var(--color-teal);
-          padding: 6px 16px;
+          border: 1px solid rgba(13, 148, 136, 0.2);
+          padding: 6px 14px;
           border-radius: var(--radius-full);
-          font-size: 0.88rem;
+          font-size: 0.85rem;
           font-weight: 600;
         }
 

@@ -57,7 +57,7 @@ export default function Header() {
               <span className="top-brand-motto">Powered by EldoHub</span>
               <span className="top-bar-sep">|</span>
               <Link href="/talent" className="top-talent-badge">
-                <span>🚀 Tech Talent? Enrol Here &rarr;</span>
+                <span>Tech Talent? Enrol Here &rarr;</span>
               </Link>
             </div>
           </div>
@@ -159,7 +159,7 @@ export default function Header() {
               className="btn btn-outline-navy drawer-talent-cta"
               onClick={() => setMobileMenuOpen(false)}
             >
-              🚀 Enrol as Tech Talent
+              Enrol as Tech Talent &rarr;
             </Link>
           </div>
         </nav>

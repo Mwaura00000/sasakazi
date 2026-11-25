@@ -579,7 +579,7 @@ export default function HomePage() {
         <div className="container">
           <div className="talent-enrol-card reveal-on-scroll">
             <div className="talent-enrol-content">
-              <span className="talent-enrol-pill">🚀 For Kenyan Tech &amp; Operations Talent</span>
+              <span className="talent-enrol-pill">For Kenyan Tech &amp; Operations Talent</span>
               <h2>Are You a Skilled Tech, Data, or Operations Talent?</h2>
               <p className="talent-enrol-desc">
                 SasaKazi connects vetted Kenyan digital talent to real business projects across inventory management, financial reconciliation, and customer operations. Gain practical client experience, EldoHub mentorship, and paid contract opportunities.
@@ -587,21 +587,36 @@ export default function HomePage() {
               
               <div className="talent-perks-row">
                 <div className="talent-perk-badge">
-                  <span className="perk-icon">💼</span>
+                  <div className="perk-icon-svg">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                    </svg>
+                  </div>
                   <div className="perk-text">
                     <strong>Paid Engagements</strong>
                     <small>Real business projects</small>
                   </div>
                 </div>
                 <div className="talent-perk-badge">
-                  <span className="perk-icon">🎓</span>
+                  <div className="perk-icon-svg">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                      <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                    </svg>
+                  </div>
                   <div className="perk-text">
                     <strong>EldoHub Mentorship</strong>
                     <small>Continuous upskilling</small>
                   </div>
                 </div>
                 <div className="talent-perk-badge">
-                  <span className="perk-icon">📈</span>
+                  <div className="perk-icon-svg">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                      <polyline points="17 6 23 6 23 12" />
+                    </svg>
+                  </div>
                   <div className="perk-text">
                     <strong>Verified Portfolio</strong>
                     <small>Proven track record</small>
@@ -652,9 +667,12 @@ export default function HomePage() {
                     }
                   }}
                   className="btn btn-outline-white btn-lg"
-                  style={{ cursor: 'pointer' }}
+                  style={{ cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                 >
-                  💬 Chat with Concierge
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                  </svg>
+                  Chat with Concierge
                 </button>
               </div>
             </div>
@@ -1236,15 +1254,35 @@ export default function HomePage() {
         .talent-perk-badge {
           display: flex;
           align-items: center;
-          gap: 1rem;
-          padding: 1rem 1.25rem;
-          background: var(--color-bg-light);
+          gap: 1.25rem;
+          padding: 1.25rem 1.5rem;
+          background: #ffffff;
           border-radius: 12px;
           border: 1px solid var(--color-border-gray);
+          box-shadow: 0 4px 12px rgba(31, 78, 121, 0.04);
+          transition: all 0.25s ease;
         }
-        .perk-icon {
-          font-size: 1.6rem;
+        .talent-perk-badge:hover {
+          transform: translateY(-2px);
+          border-color: var(--color-teal);
+          box-shadow: 0 8px 20px rgba(13, 148, 136, 0.12);
+        }
+        .perk-icon-svg {
+          width: 46px;
+          height: 46px;
+          border-radius: 10px;
+          background: rgba(13, 148, 136, 0.08);
+          color: var(--color-teal);
+          display: flex;
+          align-items: center;
+          justify-content: center;
           flex-shrink: 0;
+          transition: all 0.25s ease;
+        }
+        .talent-perk-badge:hover .perk-icon-svg {
+          background: var(--color-teal);
+          color: #ffffff;
+          transform: scale(1.05);
         }
         .perk-text strong {
           display: block;

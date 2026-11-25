@@ -2,115 +2,145 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
+  const inputRef = useRef(null);
 
   const initialMessages = [
     {
       id: 1,
       sender: "bot",
-      text: "Hello! 👋 I'm your SasaKazi Concierge. We help Kenyan businesses solve operational bottlenecks in 30–45 days with vetted local talent, and connect skilled youth to governed tech work. How can I help you today?",
+      text: "Hello, welcome to SasaKazi Concierge. We deliver governed practical digital BPO solutions for Kenyan businesses in 30–45 days, and connect vetted digital talent with supervised commercial projects.\n\nHow can I assist you today?",
       chips: [
-        { label: "📦 Stock & Inventory", query: "Tell me about Stock & Inventory pilot" },
-        { label: "💳 Payments Matching", query: "Tell me about Payments Reconciliation" },
-        { label: "📞 Customer Follow-up", query: "Tell me about Customer Follow-up" },
-        { label: "🚀 Enrol as Tech Talent", query: "How do I enrol as a tech talent?" },
-        { label: "📅 Book Diagnostic Call", query: "I want to book a call" }
+        { label: "Stock & Inventory", query: "Tell me about Stock & Inventory Visibility" },
+        { label: "Payments Reconciliation", query: "Tell me about Payments Reconciliation" },
+        { label: "Customer Follow-up", query: "Tell me about Customer Follow-up" },
+        { label: "Enrol as Tech Talent", query: "How do I enrol as tech talent?" },
+        { label: "Pricing & Pilot Models", query: "What are your pilot prices?" },
+        { label: "Book Consultation", query: "I would like to book a consultation" }
       ]
     }
   ];
 
   const [messages, setMessages] = useState(initialMessages);
 
-  // Auto-scroll to bottom on new messages
+  // Auto-scroll on message updates
   useEffect(() => {
     if (isOpen) {
       messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }
   }, [messages, isOpen, isTyping]);
 
-  // Support opening chatbot via global custom event: window.dispatchEvent(new CustomEvent('open-sasakazi-chat'))
+  // Focus input when modal opens
+  useEffect(() => {
+    if (isOpen) {
+      setTimeout(() => inputRef.current?.focus(), 150);
+    }
+  }, [isOpen]);
+
+  // Support opening chatbot via global custom event
   useEffect(() => {
     const handleOpenChat = () => setIsOpen(true);
     window.addEventListener("open-sasakazi-chat", handleOpenChat);
     return () => window.removeEventListener("open-sasakazi-chat", handleOpenChat);
   }, []);
 
+  const handleResetChat = () => {
+    setMessages(initialMessages);
+    setInput("");
+    setIsTyping(false);
+  };
+
   const handleSend = (textToSend) => {
     const query = (textToSend || input).trim();
     if (!query) return;
 
-    // Add user message
     const userMsg = { id: Date.now(), sender: "user", text: query };
     setMessages((prev) => [...prev, userMsg]);
     setInput("");
     setIsTyping(true);
 
-    // Simulate concierge response
     setTimeout(() => {
       const botResponse = generateBotResponse(query);
       setMessages((prev) => [...prev, { id: Date.now() + 1, sender: "bot", ...botResponse }]);
       setIsTyping(false);
-    }, 600);
+    }, 500);
   };
 
   const generateBotResponse = (query) => {
     const q = query.toLowerCase();
 
     // 1. Talent Enrolment
-    if (q.includes("talent") || q.includes("enrol") || q.includes("join") || q.includes("apply") || q.includes("developer") || q.includes("job")) {
+    if (q.includes("talent") || q.includes("enrol") || q.includes("enroll") || q.includes("join") || q.includes("apply") || q.includes("developer") || q.includes("job") || q.includes("career") || q.includes("intern")) {
       return {
-        text: "Are you a skilled tech or operations professional? SasaKazi deploys vetted Kenyan talent to governed SME projects with agreed milestone compensation and senior EldoHub mentorship. You will work on real client workflows without bidding wars.",
+        text: "Are you a skilled tech, data, or operations professional? SasaKazi partners with EldoHub to deploy vetted Kenyan talent into verified commercial projects with structured milestone pay and senior mentorship. You work directly on practical client deliverables without bidding wars.",
         action: {
           label: "Enrol as Tech Talent Now →",
-          href: "/talent"
+          href: "/register"
         },
         chips: [
           { label: "Talent Requirements", query: "What are the requirements to join as talent?" },
-          { label: "Book a Client Pilot", query: "I want a business service instead" }
+          { label: "Browse Talent Roster", query: "Can I view the talent directory?" },
+          { label: "Business Services Instead", query: "I am a business owner looking for BPO services" }
         ]
       };
     }
 
-    // 2. Stock & Inventory
-    if (q.includes("stock") || q.includes("inventory") || q.includes("shrinkage") || q.includes("pos")) {
+    // 2. Talent Requirements
+    if (q.includes("requirement") || q.includes("vetting") || q.includes("qualification") || q.includes("criteria")) {
       return {
-        text: "Our Stock & Inventory Visibility pilot (From KES 25,000) fixes stock shrinkage, daily counting routines, and reorder alerts in 30–45 days. We work directly inside your existing spreadsheets or POS—no expensive software required.",
+        text: "Talent onboarding follows a 3-step quality assurance process:\n1. Online registration and portfolio review.\n2. Practical skills assessment administered with EldoHub.\n3. Placement into mentor-supervised work pods for live client delivery.",
+        action: {
+          label: "Create Talent Account →",
+          href: "/register"
+        },
+        chips: [
+          { label: "Browse Talent Roster", query: "Can I view the talent directory?" },
+          { label: "Ask About Pilots", query: "What business services do you offer?" }
+        ]
+      };
+    }
+
+    // 3. Stock & Inventory
+    if (q.includes("stock") || q.includes("inventory") || q.includes("shrinkage") || q.includes("pos") || q.includes("warehouse")) {
+      return {
+        text: "Our Stock & Inventory Visibility pilot (From KES 25,000) fixes stock shrinkage, daily counting routines, and reorder alerts in 30–45 days. We work directly inside your existing spreadsheets or point-of-sale system—no expensive ERP software required.",
         action: {
           label: "Request Inventory Pilot →",
           href: "/contact?service=stock-inventory"
         },
         chips: [
-          { label: "View Deliverables", query: "What are the deliverables for inventory?" },
-          { label: "Check Payments Reconciliation", query: "Tell me about Payments Reconciliation" }
+          { label: "Payments Reconciliation", query: "Tell me about Payments Reconciliation" },
+          { label: "Customer Follow-up", query: "Tell me about Customer Follow-up" },
+          { label: "Pricing Overview", query: "What is your pricing?" }
         ]
       };
     }
 
-    // 3. Payments Reconciliation
-    if (q.includes("payment") || q.includes("reconcil") || q.includes("mpesa") || q.includes("m-pesa") || q.includes("bank") || q.includes("till")) {
+    // 4. Payments Reconciliation
+    if (q.includes("payment") || q.includes("reconcil") || q.includes("mpesa") || q.includes("m-pesa") || q.includes("bank") || q.includes("till") || q.includes("paybill") || q.includes("finance")) {
       return {
-        text: "Our Payments Reconciliation pilot (From KES 20,000) maps your daily M-Pesa till/Paybill collections, cash deposits, and bank transfers to customer invoices with zero missing shillings. Strictly read-only access (no passwords needed).",
+        text: "Our Payments Reconciliation pilot (From KES 20,000) maps your daily M-Pesa till/Paybill collections, cash deposits, and bank statements to customer invoices with zero missing shillings. We operate strictly on read-only statements—no transactional or login credentials required.",
         action: {
           label: "Request Payments Pilot →",
           href: "/contact?service=payments-reconciliation"
         },
         chips: [
-          { label: "View Deliverables", query: "What are the deliverables for payments?" },
-          { label: "Customer Follow-up Pilot", query: "Tell me about Customer Follow-up" }
+          { label: "Stock Visibility Pilot", query: "Tell me about Stock & Inventory Visibility" },
+          { label: "Customer Follow-up", query: "Tell me about Customer Follow-up" },
+          { label: "Data Confidentiality", query: "How do you protect business data?" }
         ]
       };
     }
 
-    // 4. Customer Follow-up
-    if (q.includes("customer") || q.includes("follow") || q.includes("quote") || q.includes("leads") || q.includes("sales")) {
+    // 5. Customer Follow-up
+    if (q.includes("customer") || q.includes("follow") || q.includes("quote") || q.includes("lead") || q.includes("sales") || q.includes("client")) {
       return {
-        text: "Our Customer Follow-up pilot (From KES 18,000) is the fastest way to turn cold inquiries and unanswered price quotes into active revenue. Vetted professionals follow up via phone, email, and WhatsApp using your approved brand voice.",
+        text: "Our Customer Follow-up pilot (From KES 18,000) turns cold inquiries and unanswered price quotes into active revenue. Vetted professionals follow up across telephone, email, and digital messaging using your approved script and brand voice.",
         action: {
           label: "Request Follow-up Pilot →",
           href: "/contact?service=customer-follow-up"
@@ -122,63 +152,93 @@ export default function Chatbot() {
       };
     }
 
-    // 5. Pricing
-    if (q.includes("price") || q.includes("cost") || q.includes("how much") || q.includes("kes") || q.includes("rate")) {
+    // 6. Pricing & Costs
+    if (q.includes("price") || q.includes("pricing") || q.includes("cost") || q.includes("how much") || q.includes("kes") || q.includes("rate") || q.includes("fee")) {
       return {
-        text: "We offer transparent, fixed-price 30–45 day pilots for Kenyan businesses:\n• Customer Follow-up: From KES 18,000\n• Payments Reconciliation: From KES 20,000\n• Stock & Inventory Visibility: From KES 25,000\nEvery pilot includes senior EldoHub QA mentorship and a full handover.",
+        text: "We offer clear, fixed-milestone pricing for 30–45 day pilots:\n• Customer Follow-up: From KES 18,000\n• Payments Reconciliation: From KES 20,000\n• Stock & Inventory Visibility: From KES 25,000\nEvery engagement includes EldoHub senior mentorship, defined acceptance criteria, and zero hidden software subscription fees.",
         action: {
-          label: "View All Services →",
+          label: "View All BPO Services →",
           href: "/services"
         },
         chips: [
-          { label: "Book a Needs Call", query: "I want to book a call" },
-          { label: "Enrol as Tech Talent", query: "How do I enrol as a tech talent?" }
+          { label: "Book Diagnostic Call", query: "I want to book a call" },
+          { label: "Enrol as Tech Talent", query: "How do I enrol as tech talent?" }
         ]
       };
     }
 
-    // 6. Contact / Booking
-    if (q.includes("call") || q.includes("contact") || q.includes("book") || q.includes("phone") || q.includes("email") || q.includes("talk")) {
+    // 7. Security, NDA & Data Protection
+    if (q.includes("security") || q.includes("safe") || q.includes("nda") || q.includes("confidential") || q.includes("privacy") || q.includes("protect")) {
       return {
-        text: "We would love to speak with you! You can request a 15-minute diagnostic consultation right here. We respond within one business day with no aggressive sales pitch.",
+        text: "We uphold strict enterprise data safeguards:\n• All talent and coordinators execute comprehensive NDAs.\n• Deliverables operate on strictly read-only exports and shared cloud sheets.\n• No administrative financial access or passwords are ever requested.\n• Every engagement is governed by EldoHub's institutional quality standards.",
         action: {
-          label: "Book a 15-Min Consultation →",
+          label: "Review Safeguarding Policy →",
+          href: "/safeguarding"
+        },
+        chips: [
+          { label: "Book a Consultation", query: "I want to book a call" },
+          { label: "Pilot Deliverables", query: "What are your pilot prices?" }
+        ]
+      };
+    }
+
+    // 8. Timeline & Pilot Structure
+    if (q.includes("timeline") || q.includes("how long") || q.includes("duration") || q.includes("days") || q.includes("process") || q.includes("how it works")) {
+      return {
+        text: "Our pilots are designed for speed and measurable impact:\n• Day 1–5: Operational discovery and bottleneck diagnosis.\n• Day 6–25: Supervised talent deployment and daily workflow execution.\n• Day 26–30+: Process stabilization, documented standard operating procedures (SOPs), and internal staff handover.",
+        action: {
+          label: "Learn How It Works →",
+          href: "/how-it-works"
+        },
+        chips: [
+          { label: "Pricing Overview", query: "What is your pricing?" },
+          { label: "Book Diagnostic Call", query: "I want to book a call" }
+        ]
+      };
+    }
+
+    // 9. Contact / Direct channels
+    if (q.includes("call") || q.includes("contact") || q.includes("phone") || q.includes("telephone") || q.includes("email") || q.includes("reach") || q.includes("talk") || q.includes("book")) {
+      return {
+        text: "We are ready to assist you:\n• Direct Telephone: +254 723 567 263\n• Email: info@sasakazi.co.ke\n• Response Time: Guaranteed within one business day\n• Format: 15-minute diagnostic call with zero aggressive sales pitch.",
+        action: {
+          label: "Book a 15-Minute Consultation →",
           href: "/contact"
         },
         chips: [
-          { label: "Call Hotline", query: "What is your phone number?" },
-          { label: "Our Locations", query: "Where are your offices located?" }
+          { label: "Our Locations", query: "Where are your offices located?" },
+          { label: "Service Pricing", query: "What is your pricing?" }
         ]
       };
     }
 
-    // 7. EldoHub & Location
-    if (q.includes("eldohub") || q.includes("eldoret") || q.includes("nairobi") || q.includes("location") || q.includes("where") || q.includes("office")) {
+    // 10. Location & EldoHub Affiliation
+    if (q.includes("location") || q.includes("where") || q.includes("office") || q.includes("eldoret") || q.includes("nairobi") || q.includes("eldohub")) {
       return {
-        text: "SasaKazi is powered by EldoHub with primary headquarters at the EldoHub Innovation Campus in Eldoret and an operational node in Nairobi. We serve businesses across Kenya.",
+        text: "SasaKazi is powered by EldoHub with dual operations:\n• Eldoret Headquarters: EldoHub Innovation Campus, Eldoret, Kenya\n• Nairobi Node: Commercial Operations Hub, Nairobi, Kenya\nWe serve businesses across all 47 Kenyan counties with both remote and hybrid delivery.",
         action: {
           label: "Learn About SasaKazi & EldoHub →",
           href: "/about"
         },
         chips: [
-          { label: "View Services", query: "What services do you offer?" },
-          { label: "Enrol as Talent", query: "How do I enrol as a tech talent?" }
+          { label: "Book Consultation", query: "I want to book a call" },
+          { label: "Enrol as Talent", query: "How do I enrol as tech talent?" }
         ]
       };
     }
 
     // Default Fallback
     return {
-      text: "Thanks for asking! SasaKazi delivers practical digital BPO solutions for Kenyan businesses through vetted local talent, and offers a governed pathway for tech talent to work on real client projects.",
+      text: "Thank you for reaching out. SasaKazi delivers practical digital BPO solutions for Kenyan businesses through vetted local talent, and offers a governed commercial pathway for skilled youth.\n\nWhich area would you like to explore?",
       action: {
-        label: "Book a Needs Call →",
+        label: "Book an Operational Discovery Call →",
         href: "/contact"
       },
       chips: [
-        { label: "📦 Stock & Inventory", query: "Tell me about Stock & Inventory pilot" },
-        { label: "💳 Payments Reconciliation", query: "Tell me about Payments Reconciliation" },
-        { label: "📞 Customer Follow-up", query: "Tell me about Customer Follow-up" },
-        { label: "🚀 Enrol as Tech Talent", query: "How do I enrol as a tech talent?" }
+        { label: "Stock & Inventory Visibility", query: "Tell me about Stock & Inventory Visibility" },
+        { label: "Payments Reconciliation", query: "Tell me about Payments Reconciliation" },
+        { label: "Customer Follow-up", query: "Tell me about Customer Follow-up" },
+        { label: "Enrol as Tech Talent", query: "How do I enrol as tech talent?" }
       ]
     };
   };
@@ -194,10 +254,10 @@ export default function Chatbot() {
             aria-label="Open SasaKazi Concierge Chatbot"
           >
             <div className="trigger-pulse"></div>
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
             </svg>
-            <span className="trigger-label">Chat with Us</span>
+            <span className="trigger-label">Concierge</span>
           </button>
         )}
       </div>
@@ -209,26 +269,39 @@ export default function Chatbot() {
           <div className="chat-header">
             <div className="chat-header-info">
               <div className="bot-avatar">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5eead4" strokeWidth="2.2">
-                  <path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" />
-                  <rect width="18" height="12" x="3" y="8" rx="3" />
-                  <circle cx="8" cy="14" r="1.5" fill="#5eead4" />
-                  <circle cx="16" cy="14" r="1.5" fill="#5eead4" />
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5eead4" strokeWidth="2">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                 </svg>
                 <span className="status-dot"></span>
               </div>
-              <div>
+              <div className="header-titles">
                 <h4>SasaKazi Concierge</h4>
                 <p>Online • Powered by EldoHub</p>
               </div>
             </div>
-            <button 
-              onClick={() => setIsOpen(false)} 
-              className="chat-close-btn"
-              aria-label="Close Chat"
-            >
-              ✕
-            </button>
+            <div className="chat-header-controls">
+              <button 
+                onClick={handleResetChat} 
+                className="chat-control-btn"
+                title="Reset conversation"
+                aria-label="Reset conversation"
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" />
+                </svg>
+              </button>
+              <button 
+                onClick={() => setIsOpen(false)} 
+                className="chat-control-btn chat-close-btn"
+                title="Close chat"
+                aria-label="Close chat"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
+            </div>
           </div>
 
           {/* Messages Feed */}
@@ -237,7 +310,7 @@ export default function Chatbot() {
               <div key={m.id} className={`chat-message-row ${m.sender === "user" ? "user-row" : "bot-row"}`}>
                 {m.sender === "bot" && (
                   <div className="bot-msg-icon">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                       <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                     </svg>
                   </div>
@@ -279,7 +352,13 @@ export default function Chatbot() {
 
             {isTyping && (
               <div className="chat-message-row bot-row">
-                <div className="bot-msg-icon">🤖</div>
+                <div className="bot-msg-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
+                  </svg>
+                </div>
                 <div className="chat-bubble bot-bubble typing-bubble">
                   <span></span>
                   <span></span>
@@ -299,8 +378,9 @@ export default function Chatbot() {
             className="chat-footer"
           >
             <input 
+              ref={inputRef}
               type="text" 
-              placeholder="Ask about pilots or talent..."
+              placeholder="Ask about pilots, pricing, or talent..."
               value={input}
               onChange={(e) => setInput(e.target.value)}
               className="chat-input"
@@ -311,7 +391,7 @@ export default function Chatbot() {
               disabled={!input.trim()}
               aria-label="Send message"
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="22" y1="2" x2="11" y2="13" />
                 <polygon points="22 2 15 22 11 13 2 9 22 2" />
               </svg>
@@ -342,7 +422,7 @@ export default function Chatbot() {
           cursor: pointer;
           font-family: inherit;
           font-weight: 700;
-          font-size: 0.95rem;
+          font-size: 0.92rem;
           box-shadow: 0 10px 25px rgba(13, 148, 136, 0.4);
           transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -386,7 +466,7 @@ export default function Chatbot() {
           right: 24px;
           width: 390px;
           max-width: calc(100vw - 32px);
-          height: 540px;
+          height: 560px;
           max-height: calc(100vh - 48px);
           background: #ffffff;
           border-radius: 20px;
@@ -414,7 +494,7 @@ export default function Chatbot() {
         .chat-header {
           background: linear-gradient(135deg, var(--color-navy, #1F4E79) 0%, #0f2f4d 100%);
           color: #ffffff;
-          padding: 16px 20px;
+          padding: 14px 18px;
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -435,6 +515,7 @@ export default function Chatbot() {
           display: flex;
           align-items: center;
           justify-content: center;
+          color: #5eead4;
         }
 
         .status-dot {
@@ -448,52 +529,63 @@ export default function Chatbot() {
           border: 2px solid var(--color-navy, #1F4E79);
         }
 
-        .chat-header h4 {
-          font-size: 1rem;
+        .header-titles h4 {
+          margin: 0;
+          font-size: 0.98rem;
           font-weight: 700;
           color: #ffffff;
-          margin: 0;
         }
 
-        .chat-header p {
-          font-size: 0.78rem;
+        .header-titles p {
+          margin: 2px 0 0 0;
+          font-size: 0.75rem;
           color: rgba(255, 255, 255, 0.75);
-          margin: 0;
         }
 
-        .chat-close-btn {
-          background: rgba(255, 255, 255, 0.15);
+        .chat-header-controls {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+
+        .chat-control-btn {
+          background: rgba(255, 255, 255, 0.1);
           border: none;
-          color: #ffffff;
-          width: 32px;
-          height: 32px;
-          border-radius: 50%;
+          color: rgba(255, 255, 255, 0.85);
+          width: 30px;
+          height: 30px;
+          border-radius: 8px;
           display: flex;
           align-items: center;
           justify-content: center;
           cursor: pointer;
-          font-size: 0.9rem;
-          transition: background 0.2s ease;
+          transition: all 0.2s ease;
+        }
+
+        .chat-control-btn:hover {
+          background: rgba(255, 255, 255, 0.22);
+          color: #ffffff;
         }
 
         .chat-close-btn:hover {
-          background: rgba(255, 255, 255, 0.3);
+          background: rgba(239, 68, 68, 0.8);
+          color: #ffffff;
         }
 
-        /* Body */
+        /* Chat Body */
         .chat-body {
           flex: 1;
-          padding: 18px;
           overflow-y: auto;
-          background: #f8fafc;
+          padding: 16px;
           display: flex;
           flex-direction: column;
           gap: 14px;
+          background-color: #f8fafc;
         }
 
         .chat-message-row {
           display: flex;
-          gap: 8px;
+          gap: 10px;
           align-items: flex-end;
         }
 
@@ -508,71 +600,84 @@ export default function Chatbot() {
         .bot-msg-icon {
           width: 26px;
           height: 26px;
-          border-radius: 50%;
-          background: var(--color-teal, #0D9488);
+          border-radius: 8px;
+          background: var(--color-navy, #1F4E79);
           color: #ffffff;
           display: flex;
           align-items: center;
           justify-content: center;
           flex-shrink: 0;
-          margin-bottom: 4px;
+          margin-bottom: 2px;
         }
 
         .chat-bubble {
           max-width: 82%;
-          padding: 12px 16px;
-          font-size: 0.92rem;
+          padding: 12px 15px;
+          border-radius: 16px;
+          font-size: 0.9rem;
           line-height: 1.5;
         }
 
         .bot-bubble {
           background: #ffffff;
           color: #1e293b;
-          border-radius: 16px 16px 16px 4px;
           border: 1px solid #e2e8f0;
+          border-bottom-left-radius: 4px;
           box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
         }
 
         .user-bubble {
           background: var(--color-teal, #0D9488);
           color: #ffffff;
-          border-radius: 16px 16px 4px 16px;
-          box-shadow: 0 2px 6px rgba(13, 148, 136, 0.2);
+          border-bottom-right-radius: 4px;
+          box-shadow: 0 4px 12px rgba(13, 148, 136, 0.25);
         }
 
+        .chat-bubble p {
+          margin: 0;
+        }
+
+        /* Action Link */
         .bubble-action {
           margin-top: 10px;
+          padding-top: 8px;
+          border-top: 1px dashed #e2e8f0;
         }
 
         .btn-bubble-action {
-          display: inline-block;
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
           background: var(--color-navy, #1F4E79);
           color: #ffffff !important;
-          padding: 6px 14px;
-          border-radius: 8px;
-          font-size: 0.85rem;
           font-weight: 700;
+          font-size: 0.82rem;
+          padding: 7px 13px;
+          border-radius: 8px;
           text-decoration: none;
           transition: background 0.2s ease;
         }
 
         .btn-bubble-action:hover {
-          background: #0f2f4d;
+          background: var(--color-teal, #0D9488);
         }
 
+        /* Chips */
         .chips-container {
           display: flex;
           flex-wrap: wrap;
           gap: 6px;
           margin-top: 10px;
+          padding-top: 8px;
+          border-top: 1px solid #f1f5f9;
         }
 
         .chip-btn {
           background: #f1f5f9;
-          border: 1px solid #cbd5e1;
           color: var(--color-navy, #1F4E79);
+          border: 1px solid #cbd5e1;
           border-radius: 12px;
-          padding: 5px 11px;
+          padding: 5px 10px;
           font-size: 0.78rem;
           font-weight: 600;
           cursor: pointer;
@@ -584,14 +689,15 @@ export default function Chatbot() {
           background: var(--color-teal, #0D9488);
           color: #ffffff;
           border-color: var(--color-teal, #0D9488);
+          transform: translateY(-1px);
         }
 
-        /* Typing indicator */
+        /* Typing Dots */
         .typing-bubble {
           display: flex;
           align-items: center;
           gap: 4px;
-          padding: 10px 14px;
+          padding: 12px 16px;
         }
 
         .typing-bubble span {
@@ -617,47 +723,49 @@ export default function Chatbot() {
           }
           40% {
             opacity: 1;
-            transform: scale(1.1);
+            transform: scale(1.2);
           }
         }
 
         /* Footer Input */
         .chat-footer {
+          padding: 12px 14px;
+          background: #ffffff;
+          border-top: 1px solid #e2e8f0;
           display: flex;
           align-items: center;
           gap: 8px;
-          padding: 12px 16px;
-          background: #ffffff;
-          border-top: 1px solid #e2e8f0;
         }
 
         .chat-input {
           flex: 1;
-          border: 1px solid #e2e8f0;
+          border: 1px solid #cbd5e1;
           border-radius: 20px;
-          padding: 10px 16px;
-          font-size: 0.9rem;
-          font-family: inherit;
+          padding: 9px 14px;
+          font-size: 0.88rem;
           outline: none;
-          transition: border-color 0.2s ease;
+          color: #0f172a;
+          background: #f8fafc;
+          transition: border-color 0.2s ease, background 0.2s ease;
         }
 
         .chat-input:focus {
           border-color: var(--color-teal, #0D9488);
+          background: #ffffff;
         }
 
         .chat-send-btn {
           width: 38px;
           height: 38px;
           border-radius: 50%;
+          border: none;
           background: var(--color-teal, #0D9488);
           color: #ffffff;
-          border: none;
           display: flex;
           align-items: center;
           justify-content: center;
           cursor: pointer;
-          transition: background 0.2s ease, transform 0.15s ease;
+          transition: all 0.2s ease;
           flex-shrink: 0;
         }
 
@@ -669,6 +777,7 @@ export default function Chatbot() {
         .chat-send-btn:disabled {
           background: #cbd5e1;
           cursor: not-allowed;
+          opacity: 0.7;
         }
 
         @media (max-width: 480px) {
@@ -676,10 +785,12 @@ export default function Chatbot() {
             bottom: 12px;
             right: 12px;
             width: calc(100vw - 24px);
-            height: calc(100vh - 100px);
+            height: calc(100dvh - 24px);
+            max-height: calc(100dvh - 24px);
+            border-radius: 16px;
           }
           .sasakazi-chatbot-launcher {
-            bottom: 74px; /* Above the sticky mobile bar */
+            bottom: 16px;
             right: 16px;
           }
         }
