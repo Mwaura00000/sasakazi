@@ -374,146 +374,8 @@ function ContactFormContent() {
           </div>
         </div>
       </div>
-    </div>
-  );
-}
-
-export default function ContactPage() {
-  return (
-    <div className="contact-page">
-      {/* Hero Header */}
-      <section className="contact-hero">
-        <div className="container text-center">
-          <span className="badge-sub">15-Minute Operational Discovery</span>
-          <h1 className="contact-title">Let’s solve one practical problem together</h1>
-          <p className="contact-subtitle">
-            No aggressive sales pitch or complicated setup—just a focused review of your stock, reconciliation, or customer follow-up bottlenecks.
-          </p>
-          <div className="contact-trust-badges">
-            <span className="contact-trust-pill">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-              24-Hour Response Guarantee
-            </span>
-            <span className="contact-trust-pill">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              </svg>
-              Confidential &amp; NDA Protected
-            </span>
-            <span className="contact-trust-pill">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <circle cx="12" cy="12" r="10" />
-                <polyline points="12 6 12 12 16 14" />
-              </svg>
-              Clear 30–45 Day Milestones
-            </span>
-          </div>
-        </div>
-      </section>
-
-      {/* Main Grid: Form (Suspense Wrapped) + Direct Channels */}
-      <section className="contact-content-section">
-        <div className="container">
-          <Suspense fallback={<div style={{ textAlign: "center", padding: "3rem" }}>Loading inquiry form...</div>}>
-            <ContactFormContent />
-          </Suspense>
-        </div>
-      </section>
-
-      {/* FAQ Strip */}
-      <section className="contact-faq-section">
-        <div className="container">
-          <div className="faq-box text-center">
-            <h3>What happens after you reach out?</h3>
-            <div className="faq-steps-row">
-              <div className="faq-mini-step">
-                <span className="step-num">1</span>
-                <strong>Diagnostic Call</strong>
-                <p>15 minutes to understand your inventory, payments, or customer follow-up bottleneck.</p>
-              </div>
-              <div className="faq-mini-step">
-                <span className="step-num">2</span>
-                <strong>Fixed Scope &amp; Pilot Plan</strong>
-                <p>We present a clear 30-45 day scope with fixed milestone pricing and acceptance criteria.</p>
-              </div>
-              <div className="faq-mini-step">
-                <span className="step-num">3</span>
-                <strong>Deployment &amp; Results</strong>
-                <p>Vetted local talent pod begins work under senior EldoHub mentorship within 3-5 days.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <style jsx>{`
-        .contact-page {
-          background-color: var(--color-bg-light);
-          min-height: 85vh;
-        }
-
-        .contact-hero {
-          background: linear-gradient(180deg, #ffffff 0%, var(--color-bg-light) 100%);
-          padding: 3.5rem 0 2.5rem 0;
-          border-bottom: 1px solid var(--color-border);
-        }
-
-        .contact-title {
-          font-size: 2.4rem;
-          color: var(--color-navy);
-          font-weight: 800;
-          margin: 0.75rem 0;
-          letter-spacing: -0.02em;
-        }
-
-        .contact-subtitle {
-          font-size: 1.1rem;
-          color: var(--color-text-muted);
-          max-width: 680px;
-          margin: 0 auto 1.5rem auto;
-          line-height: 1.6;
-        }
-
-        .badge-sub {
-          display: inline-block;
-          background: rgba(13, 148, 136, 0.1);
-          color: var(--color-teal);
-          font-size: 0.82rem;
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 0.8px;
-          padding: 6px 16px;
-          border-radius: var(--radius-full);
-          margin-bottom: 0.75rem;
-        }
-
-        .contact-trust-badges {
-          display: flex;
-          justify-content: center;
-          flex-wrap: wrap;
-          gap: 12px;
-          margin-top: 1rem;
-        }
-
-        .contact-trust-pill {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          background: rgba(13, 148, 136, 0.08);
-          color: var(--color-teal);
-          border: 1px solid rgba(13, 148, 136, 0.2);
-          padding: 6px 14px;
-          border-radius: var(--radius-full);
-          font-size: 0.85rem;
-          font-weight: 600;
-        }
-
-        .contact-content-section {
-          padding: 3rem 0 4rem 0;
-        }
-
         .contact-grid {
           display: grid;
           grid-template-columns: 1.25fr 0.95fr;
@@ -558,17 +420,21 @@ export default function ContactPage() {
           display: flex;
           flex-direction: column;
           gap: 0.4rem;
+          width: 100%;
         }
 
         .form-group label {
           font-size: 0.88rem;
           font-weight: 600;
           color: var(--color-text-main);
+          display: block;
         }
 
         .form-group input,
         .form-group select,
         .form-group textarea {
+          width: 100%;
+          box-sizing: border-box;
           padding: 0.75rem 1rem;
           border: 1px solid var(--color-border);
           border-radius: var(--radius-md);
@@ -577,6 +443,7 @@ export default function ContactPage() {
           color: var(--color-text-main);
           background: #ffffff;
           transition: border-color 0.2s ease, box-shadow 0.2s ease;
+          display: block;
         }
 
         .form-group input:focus,
@@ -605,6 +472,9 @@ export default function ContactPage() {
           padding: 0.9rem;
           font-size: 1rem;
           font-weight: 700;
+          display: flex;
+          align-items: center;
+          gap: 8px;
         }
 
         .form-note {
@@ -791,6 +661,152 @@ export default function ContactPage() {
           color: var(--color-navy);
         }
 
+        @media (max-width: 992px) {
+          .contact-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+export default function ContactPage() {
+  return (
+    <div className="contact-page">
+      {/* Hero Header */}
+      <section className="contact-hero">
+        <div className="container text-center">
+          <span className="badge-sub">15-Minute Operational Discovery</span>
+          <h1 className="contact-title">Let’s solve one practical problem together</h1>
+          <p className="contact-subtitle">
+            No aggressive sales pitch or complicated setup—just a focused review of your stock, reconciliation, or customer follow-up bottlenecks.
+          </p>
+          <div className="contact-trust-badges">
+            <span className="contact-trust-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              24-Hour Response Guarantee
+            </span>
+            <span className="contact-trust-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+              Confidential &amp; NDA Protected
+            </span>
+            <span className="contact-trust-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              Clear 30–45 Day Milestones
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Grid: Form (Suspense Wrapped) + Direct Channels */}
+      <section className="contact-content-section">
+        <div className="container">
+          <Suspense fallback={<div style={{ textAlign: "center", padding: "3rem" }}>Loading inquiry form...</div>}>
+            <ContactFormContent />
+          </Suspense>
+        </div>
+      </section>
+
+      {/* FAQ Strip */}
+      <section className="contact-faq-section">
+        <div className="container">
+          <div className="faq-box text-center">
+            <h3>What happens after you reach out?</h3>
+            <div className="faq-steps-row">
+              <div className="faq-mini-step">
+                <span className="step-num">1</span>
+                <strong>Diagnostic Call</strong>
+                <p>15 minutes to understand your inventory, payments, or customer follow-up bottleneck.</p>
+              </div>
+              <div className="faq-mini-step">
+                <span className="step-num">2</span>
+                <strong>Fixed Scope &amp; Pilot Plan</strong>
+                <p>We present a clear 30-45 day scope with fixed milestone pricing and acceptance criteria.</p>
+              </div>
+              <div className="faq-mini-step">
+                <span className="step-num">3</span>
+                <strong>Deployment &amp; Results</strong>
+                <p>Vetted local talent pod begins work under senior EldoHub mentorship within 3-5 days.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <style jsx>{`
+        .contact-page {
+          background-color: var(--color-bg-light);
+          min-height: 85vh;
+        }
+
+        .contact-hero {
+          background: linear-gradient(180deg, #ffffff 0%, var(--color-bg-light) 100%);
+          padding: 3.5rem 0 2.5rem 0;
+          border-bottom: 1px solid var(--color-border);
+        }
+
+        .contact-title {
+          font-size: 2.4rem;
+          color: var(--color-navy);
+          font-weight: 800;
+          margin: 0.75rem 0;
+          letter-spacing: -0.02em;
+        }
+
+        .contact-subtitle {
+          font-size: 1.1rem;
+          color: var(--color-text-muted);
+          max-width: 680px;
+          margin: 0 auto 1.5rem auto;
+          line-height: 1.6;
+        }
+
+        .badge-sub {
+          display: inline-block;
+          background: rgba(13, 148, 136, 0.1);
+          color: var(--color-teal);
+          font-size: 0.82rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.8px;
+          padding: 6px 16px;
+          border-radius: var(--radius-full);
+          margin-bottom: 0.75rem;
+        }
+
+        .contact-trust-badges {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 12px;
+          margin-top: 1rem;
+        }
+
+        .contact-trust-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background: rgba(13, 148, 136, 0.08);
+          color: var(--color-teal);
+          border: 1px solid rgba(13, 148, 136, 0.2);
+          padding: 6px 14px;
+          border-radius: var(--radius-full);
+          font-size: 0.85rem;
+          font-weight: 600;
+        }
+
+        .contact-content-section {
+          padding: 3rem 0 4rem 0;
+        }
+
         /* FAQ Mini Strip */
         .contact-faq-section {
           padding: 0 0 4rem 0;
@@ -848,9 +864,6 @@ export default function ContactPage() {
         }
 
         @media (max-width: 992px) {
-          .contact-grid {
-            grid-template-columns: 1fr;
-          }
           .faq-steps-row {
             grid-template-columns: 1fr;
             gap: 1.5rem;
