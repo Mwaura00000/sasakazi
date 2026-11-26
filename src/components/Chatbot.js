@@ -49,6 +49,17 @@ export default function Chatbot() {
     return () => window.removeEventListener("open-sasakazi-chat", handleOpenChat);
   }, []);
 
+  // Prevent background body scroll on mobile devices when chat is open
+  useEffect(() => {
+    if (isOpen && typeof window !== "undefined" && window.innerWidth <= 640) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [isOpen]);
+
   const handleResetChat = () => {
     setMessages(initialMessages);
     setInput("");
@@ -780,18 +791,95 @@ export default function Chatbot() {
           opacity: 0.7;
         }
 
-        @media (max-width: 480px) {
-          .sasakazi-chat-window {
-            bottom: 12px;
-            right: 12px;
-            width: calc(100vw - 24px);
-            height: calc(100dvh - 24px);
-            max-height: calc(100dvh - 24px);
-            border-radius: 16px;
-          }
+        @media (max-width: 640px) {
           .sasakazi-chatbot-launcher {
-            bottom: 16px;
+            bottom: max(16px, env(safe-area-inset-bottom, 16px));
             right: 16px;
+          }
+
+          .chat-trigger-btn {
+            padding: 10px 16px;
+            font-size: 0.86rem;
+            gap: 8px;
+          }
+
+          .sasakazi-chat-window {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100vw;
+            height: 100%;
+            height: 100dvh;
+            max-width: 100vw;
+            max-height: 100dvh;
+            border-radius: 0;
+            border: none;
+            box-shadow: none;
+            z-index: 10001;
+          }
+
+          .chat-header {
+            padding: max(14px, env(safe-area-inset-top, 14px)) 16px 12px 16px;
+            border-radius: 0;
+          }
+
+          .chat-header-info {
+            gap: 10px;
+          }
+
+          .bot-avatar {
+            width: 36px;
+            height: 36px;
+          }
+
+          .header-titles h4 {
+            font-size: 0.95rem;
+          }
+
+          .header-titles p {
+            font-size: 0.72rem;
+          }
+
+          .chat-control-btn {
+            width: 36px;
+            height: 36px;
+          }
+
+          .chat-body {
+            padding: 14px 12px;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior: contain;
+          }
+
+          .chat-bubble {
+            max-width: 88%;
+            font-size: 0.88rem;
+            padding: 10px 13px;
+          }
+
+          .chat-footer {
+            padding: 10px 12px max(12px, env(safe-area-inset-bottom, 12px)) 12px;
+            background: #ffffff;
+          }
+
+          .chat-input {
+            font-size: 16px; /* Prevents unwanted iOS Safari viewport auto-zoom */
+            padding: 10px 14px;
+          }
+
+          .chat-send-btn {
+            width: 40px;
+            height: 40px;
+          }
+
+          .chips-container {
+            gap: 6px;
+          }
+
+          .chip-btn {
+            font-size: 0.76rem;
+            padding: 6px 10px;
           }
         }
       `}</style>

@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="footer-col brand-col">
           <Link href="/" className="footer-logo-link">
             <Image 
-              src="/logo-white.svg" 
+              src="/logo.svg" 
               alt="SasaKazi Logo" 
               width={160} 
               height={48} 
