@@ -14,7 +14,7 @@ export default function Chatbot() {
     {
       id: 1,
       sender: "bot",
-      text: "Hello, welcome to SasaKazi Concierge. We deliver governed practical digital BPO solutions for Kenyan businesses in 30–45 days, and connect vetted digital talent with supervised commercial projects.\n\nHow can I assist you today?",
+      text: "Hello, welcome to SasaBot. We deliver governed practical digital BPO solutions for Kenyan businesses in 30–45 days, and connect vetted digital talent with supervised commercial projects.\n\nHow can I assist you today?",
       chips: [
         { label: "Stock & Inventory", query: "Tell me about Stock & Inventory Visibility" },
         { label: "Payments Reconciliation", query: "Tell me about Payments Reconciliation" },
@@ -262,13 +262,13 @@ export default function Chatbot() {
           <button 
             onClick={() => setIsOpen(true)}
             className="chat-trigger-btn"
-            aria-label="Open SasaKazi Concierge Chatbot"
+            aria-label="Open SasaBot Chat"
           >
             <div className="trigger-pulse"></div>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
             </svg>
-            <span className="trigger-label">Concierge</span>
+            <span className="trigger-label">SasaBot</span>
           </button>
         )}
       </div>
@@ -286,7 +286,7 @@ export default function Chatbot() {
                 <span className="status-dot"></span>
               </div>
               <div className="header-titles">
-                <h4>SasaKazi Concierge</h4>
+                <h4>SasaBot</h4>
                 <p>Online • Powered by EldoHub</p>
               </div>
             </div>

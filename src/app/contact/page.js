@@ -131,7 +131,7 @@ function ContactFormContent() {
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                 </svg>
-                Chat with SasaKazi Concierge
+                Chat with SasaBot
               </button>
             </div>
             <button 
@@ -157,7 +157,7 @@ function ContactFormContent() {
           <form onSubmit={handleSubmit} className="bpo-inquiry-form" noValidate>
             <div className="form-header">
               <h3>Request a Pilot Consultation</h3>
-              <p>Fill in this form to speak directly with our solutions team, or use our digital concierge below.</p>
+              <p>Fill in this form to speak directly with our solutions team, or use SasaBot below.</p>
             </div>
 
             <div className="form-group">
@@ -282,16 +282,16 @@ function ContactFormContent() {
 
       {/* Direct Channels & Office Info Column */}
       <div className="contact-info-col">
-        {/* Concierge Fast Track Card */}
+        {/* SasaBot Card */}
         <div className="fast-track-card">
           <div className="fast-track-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
             </svg>
           </div>
-          <h3>SasaKazi Concierge</h3>
+          <h3>SasaBot Assistant</h3>
           <p>
-            Have immediate questions regarding pilot deliverables, pricing, or talent matching? Chat directly with our concierge widget.
+            Have immediate questions regarding pilot deliverables, pricing, or talent matching? Chat directly with SasaBot.
           </p>
           <button 
             type="button"
@@ -306,7 +306,7 @@ function ContactFormContent() {
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
             </svg>
-            Open Concierge Chat
+            Open SasaBot Chat
           </button>
         </div>
 
